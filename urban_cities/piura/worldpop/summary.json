@@ -1,0 +1,37 @@
+{
+  "city": "Piura",
+  "id": "piura",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32717,
+  "grid_m": 92.2,
+  "urban_extent_km2": 443.6,
+  "total_population": 637484,
+  "core_70pct": {
+    "area_km2": 67.5,
+    "population": 558797,
+    "density_km2": 8281.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 77.1,
+    "population": 592946,
+    "density_km2": 7688.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 86.8,
+    "population": 619892,
+    "density_km2": 7145.0,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 91.6,
+    "population": 629585,
+    "density_km2": 6874.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

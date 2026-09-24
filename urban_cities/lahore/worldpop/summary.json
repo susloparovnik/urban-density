@@ -1,0 +1,37 @@
+{
+  "city": "Lahore",
+  "id": "lahore",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 85.3,
+  "urban_extent_km2": 973.6,
+  "total_population": 9045506,
+  "core_70pct": {
+    "area_km2": 386.8,
+    "population": 6855513,
+    "density_km2": 17724.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 442.0,
+    "population": 7681902,
+    "density_km2": 17378.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 497.3,
+    "population": 8454176,
+    "density_km2": 17000.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 524.9,
+    "population": 8784583,
+    "density_km2": 16735.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

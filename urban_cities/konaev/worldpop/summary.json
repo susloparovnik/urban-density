@@ -1,0 +1,37 @@
+{
+  "city": "Konaev",
+  "id": "konaev",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 77.3,
+  "urban_extent_km2": 582.4,
+  "total_population": 579552,
+  "core_70pct": {
+    "area_km2": 178.7,
+    "population": 483789,
+    "density_km2": 2706.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 204.3,
+    "population": 520557,
+    "density_km2": 2548.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 229.8,
+    "population": 554054,
+    "density_km2": 2411.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 242.6,
+    "population": 569220,
+    "density_km2": 2346.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

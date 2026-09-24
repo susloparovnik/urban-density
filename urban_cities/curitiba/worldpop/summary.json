@@ -1,0 +1,37 @@
+{
+  "city": "Curitiba",
+  "id": "curitiba",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32722,
+  "grid_m": 87.9,
+  "urban_extent_km2": 642.3,
+  "total_population": 1882472,
+  "core_70pct": {
+    "area_km2": 282.4,
+    "population": 1777058,
+    "density_km2": 6292.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 322.7,
+    "population": 1838897,
+    "density_km2": 5697.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 363.1,
+    "population": 1872734,
+    "density_km2": 5157.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 383.3,
+    "population": 1879798,
+    "density_km2": 4904.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

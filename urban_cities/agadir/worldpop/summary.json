@@ -1,0 +1,37 @@
+{
+  "city": "Agadir",
+  "id": "agadir",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32629,
+  "grid_m": 85.7,
+  "urban_extent_km2": 491.0,
+  "total_population": 1330617,
+  "core_70pct": {
+    "area_km2": 119.9,
+    "population": 1231099,
+    "density_km2": 10265.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 137.1,
+    "population": 1281653,
+    "density_km2": 9351.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 154.2,
+    "population": 1313084,
+    "density_km2": 8516.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 162.8,
+    "population": 1324236,
+    "density_km2": 8136.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

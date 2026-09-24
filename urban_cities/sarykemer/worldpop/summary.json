@@ -1,0 +1,37 @@
+{
+  "city": "Sarykemer",
+  "id": "sarykemer",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32642,
+  "grid_m": 77.5,
+  "urban_extent_km2": 402.8,
+  "total_population": 350833,
+  "core_70pct": {
+    "area_km2": 74.5,
+    "population": 326761,
+    "density_km2": 4388.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 85.1,
+    "population": 336593,
+    "density_km2": 3955.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 95.7,
+    "population": 345057,
+    "density_km2": 3604.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 101.1,
+    "population": 348719,
+    "density_km2": 3450.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

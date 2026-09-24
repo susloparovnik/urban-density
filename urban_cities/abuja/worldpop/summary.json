@@ -1,0 +1,37 @@
+{
+  "city": "Abuja",
+  "id": "abuja",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32632,
+  "grid_m": 91.9,
+  "urban_extent_km2": 478.3,
+  "total_population": 1408187,
+  "core_70pct": {
+    "area_km2": 201.9,
+    "population": 1281851,
+    "density_km2": 6350.4,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 230.7,
+    "population": 1344882,
+    "density_km2": 5829.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 259.5,
+    "population": 1387041,
+    "density_km2": 5344.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 273.9,
+    "population": 1400059,
+    "density_km2": 5110.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

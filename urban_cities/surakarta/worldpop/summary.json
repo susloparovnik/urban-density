@@ -1,0 +1,37 @@
+{
+  "city": "Surakarta",
+  "id": "surakarta",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32749,
+  "grid_m": 92.0,
+  "urban_extent_km2": 836.3,
+  "total_population": 1272095,
+  "core_70pct": {
+    "area_km2": 257.3,
+    "population": 999432,
+    "density_km2": 3883.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 294.1,
+    "population": 1099072,
+    "density_km2": 3737.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 330.9,
+    "population": 1191297,
+    "density_km2": 3600.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 349.2,
+    "population": 1234000,
+    "density_km2": 3533.4,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "El Jadida",
+  "id": "el_jadida",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32629,
+  "grid_m": 80.1,
+  "urban_extent_km2": 377.1,
+  "total_population": 3969941,
+  "core_70pct": {
+    "area_km2": 181.5,
+    "population": 3619823,
+    "density_km2": 19942.4,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 207.4,
+    "population": 3777844,
+    "density_km2": 18211.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 233.4,
+    "population": 3899430,
+    "density_km2": 16708.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 246.3,
+    "population": 3944110,
+    "density_km2": 16011.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

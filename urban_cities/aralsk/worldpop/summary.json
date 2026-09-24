@@ -1,0 +1,37 @@
+{
+  "city": "Aralsk",
+  "id": "aralsk",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32641,
+  "grid_m": 78.6,
+  "urban_extent_km2": 53.6,
+  "total_population": 46552,
+  "core_70pct": {
+    "area_km2": 9.4,
+    "population": 34519,
+    "density_km2": 3672.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 10.7,
+    "population": 39020,
+    "density_km2": 3633.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 12.1,
+    "population": 43407,
+    "density_km2": 3593.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 12.8,
+    "population": 45524,
+    "density_km2": 3569.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

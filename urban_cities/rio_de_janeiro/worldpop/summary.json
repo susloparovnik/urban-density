@@ -1,0 +1,37 @@
+{
+  "city": "Rio de Janeiro",
+  "id": "rio_de_janeiro",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32723,
+  "grid_m": 87.6,
+  "urban_extent_km2": 659.8,
+  "total_population": 6193674,
+  "core_70pct": {
+    "area_km2": 354.8,
+    "population": 5957831,
+    "density_km2": 16793.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 405.4,
+    "population": 6107122,
+    "density_km2": 15062.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 456.1,
+    "population": 6177333,
+    "density_km2": 13543.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 481.5,
+    "population": 6191267,
+    "density_km2": 12859.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Beirut",
+  "id": "beirut",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32636,
+  "grid_m": 86.3,
+  "urban_extent_km2": 801.6,
+  "total_population": 3360353,
+  "core_70pct": {
+    "area_km2": 240.5,
+    "population": 3242147,
+    "density_km2": 13481.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 274.8,
+    "population": 3303465,
+    "density_km2": 12019.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 309.2,
+    "population": 3343689,
+    "density_km2": 10814.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 326.4,
+    "population": 3355158,
+    "density_km2": 10280.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

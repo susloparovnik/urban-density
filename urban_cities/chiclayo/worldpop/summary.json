@@ -1,0 +1,37 @@
+{
+  "city": "Chiclayo",
+  "id": "chiclayo",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32717,
+  "grid_m": 92.1,
+  "urban_extent_km2": 393.4,
+  "total_population": 864265,
+  "core_70pct": {
+    "area_km2": 78.3,
+    "population": 771628,
+    "density_km2": 9848.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 89.5,
+    "population": 811245,
+    "density_km2": 9060.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 100.7,
+    "population": 841967,
+    "density_km2": 8358.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 106.3,
+    "population": 854262,
+    "density_km2": 8034.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

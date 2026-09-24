@@ -1,0 +1,37 @@
+{
+  "city": "Malang",
+  "id": "malang",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32749,
+  "grid_m": 92.0,
+  "urban_extent_km2": 326.4,
+  "total_population": 1243856,
+  "core_70pct": {
+    "area_km2": 120.8,
+    "population": 1040297,
+    "density_km2": 8609.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 138.1,
+    "population": 1113518,
+    "density_km2": 8063.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 155.4,
+    "population": 1182257,
+    "density_km2": 7609.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 164.0,
+    "population": 1214497,
+    "density_km2": 7405.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

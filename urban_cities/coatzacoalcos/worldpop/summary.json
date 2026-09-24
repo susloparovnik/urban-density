@@ -1,0 +1,37 @@
+{
+  "city": "Coatzacoalcos",
+  "id": "coatzacoalcos",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32615,
+  "grid_m": 89.6,
+  "urban_extent_km2": 235.9,
+  "total_population": 418955,
+  "core_70pct": {
+    "area_km2": 60.1,
+    "population": 328514,
+    "density_km2": 5468.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 68.7,
+    "population": 362843,
+    "density_km2": 5285.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 77.2,
+    "population": 392757,
+    "density_km2": 5085.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 81.5,
+    "population": 406375,
+    "density_km2": 4984.6,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

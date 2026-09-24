@@ -1,0 +1,37 @@
+{
+  "city": "Guasave",
+  "id": "guasave",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32612,
+  "grid_m": 87.6,
+  "urban_extent_km2": 184.2,
+  "total_population": 265308,
+  "core_70pct": {
+    "area_km2": 37.9,
+    "population": 220613,
+    "density_km2": 5819.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 43.3,
+    "population": 238518,
+    "density_km2": 5505.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 48.7,
+    "population": 253904,
+    "density_km2": 5209.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 51.4,
+    "population": 260215,
+    "density_km2": 5058.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

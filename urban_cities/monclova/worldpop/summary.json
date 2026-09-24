@@ -1,0 +1,37 @@
+{
+  "city": "Monclova",
+  "id": "monclova",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32614,
+  "grid_m": 87.7,
+  "urban_extent_km2": 166.6,
+  "total_population": 336953,
+  "core_70pct": {
+    "area_km2": 64.1,
+    "population": 268715,
+    "density_km2": 4194.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 73.2,
+    "population": 299539,
+    "density_km2": 4090.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 82.4,
+    "population": 323238,
+    "density_km2": 3924.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 86.9,
+    "population": 331596,
+    "density_km2": 3813.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

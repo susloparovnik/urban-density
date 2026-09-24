@@ -1,0 +1,37 @@
+{
+  "city": "Karachi",
+  "id": "karachi",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32642,
+  "grid_m": 88.0,
+  "urban_extent_km2": 676.4,
+  "total_population": 11209125,
+  "core_70pct": {
+    "area_km2": 307.1,
+    "population": 10415848,
+    "density_km2": 33915.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 351.0,
+    "population": 10781969,
+    "density_km2": 30718.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 394.9,
+    "population": 11030522,
+    "density_km2": 27934.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 416.8,
+    "population": 11129122,
+    "density_km2": 26701.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

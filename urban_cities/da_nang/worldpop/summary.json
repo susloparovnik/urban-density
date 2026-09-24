@@ -1,0 +1,37 @@
+{
+  "city": "Da Nang",
+  "id": "da_nang",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32649,
+  "grid_m": 91.2,
+  "urban_extent_km2": 199.9,
+  "total_population": 719288,
+  "core_70pct": {
+    "area_km2": 68.8,
+    "population": 657665,
+    "density_km2": 9563.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 78.6,
+    "population": 681183,
+    "density_km2": 8667.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 88.4,
+    "population": 702034,
+    "density_km2": 7940.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 93.3,
+    "population": 711267,
+    "density_km2": 7621.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

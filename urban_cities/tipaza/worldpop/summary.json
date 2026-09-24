@@ -1,0 +1,37 @@
+{
+  "city": "Tipaza",
+  "id": "tipaza",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32631,
+  "grid_m": 81.1,
+  "urban_extent_km2": 450.3,
+  "total_population": 2375608,
+  "core_70pct": {
+    "area_km2": 182.0,
+    "population": 2052717,
+    "density_km2": 11279.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 208.0,
+    "population": 2186005,
+    "density_km2": 10510.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 234.0,
+    "population": 2296149,
+    "density_km2": 9813.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 247.0,
+    "population": 2341743,
+    "density_km2": 9481.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

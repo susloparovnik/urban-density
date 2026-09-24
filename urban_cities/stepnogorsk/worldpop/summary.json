@@ -1,0 +1,37 @@
+{
+  "city": "Stepnogorsk",
+  "id": "stepnogorsk",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32642,
+  "grid_m": 64.4,
+  "urban_extent_km2": 83.9,
+  "total_population": 15185,
+  "core_70pct": {
+    "area_km2": 19.6,
+    "population": 11938,
+    "density_km2": 610.4,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 22.3,
+    "population": 13154,
+    "density_km2": 588.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 25.1,
+    "population": 14271,
+    "density_km2": 567.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 26.5,
+    "population": 14786,
+    "density_km2": 557.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

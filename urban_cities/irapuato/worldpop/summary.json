@@ -1,0 +1,37 @@
+{
+  "city": "Irapuato",
+  "id": "irapuato",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32614,
+  "grid_m": 89.5,
+  "urban_extent_km2": 83.0,
+  "total_population": 218995,
+  "core_70pct": {
+    "area_km2": 26.4,
+    "population": 176584,
+    "density_km2": 6680.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 30.2,
+    "population": 193281,
+    "density_km2": 6398.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 34.0,
+    "population": 207433,
+    "density_km2": 6103.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 35.9,
+    "population": 213704,
+    "density_km2": 5956.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

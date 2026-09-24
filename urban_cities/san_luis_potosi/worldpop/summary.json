@@ -1,0 +1,37 @@
+{
+  "city": "San Luis Potosi",
+  "id": "san_luis_potosi",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32614,
+  "grid_m": 88.9,
+  "urban_extent_km2": 108.5,
+  "total_population": 327221,
+  "core_70pct": {
+    "area_km2": 39.3,
+    "population": 252732,
+    "density_km2": 6423.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 45.0,
+    "population": 283562,
+    "density_km2": 6306.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 50.6,
+    "population": 308433,
+    "density_km2": 6097.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 53.4,
+    "population": 318855,
+    "density_km2": 5971.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

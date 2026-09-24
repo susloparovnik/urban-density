@@ -1,0 +1,37 @@
+{
+  "city": "Pasto",
+  "id": "pasto",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32618,
+  "grid_m": 92.4,
+  "urban_extent_km2": 44.4,
+  "total_population": 331967,
+  "core_70pct": {
+    "area_km2": 14.2,
+    "population": 273503,
+    "density_km2": 19316.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 16.2,
+    "population": 299197,
+    "density_km2": 18497.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 18.2,
+    "population": 321788,
+    "density_km2": 17680.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 19.2,
+    "population": 329209,
+    "density_km2": 17138.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

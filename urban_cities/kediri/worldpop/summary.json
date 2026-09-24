@@ -1,0 +1,37 @@
+{
+  "city": "Kediri",
+  "id": "kediri",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32749,
+  "grid_m": 92.0,
+  "urban_extent_km2": 281.6,
+  "total_population": 476991,
+  "core_70pct": {
+    "area_km2": 87.0,
+    "population": 385651,
+    "density_km2": 4434.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 99.4,
+    "population": 419162,
+    "density_km2": 4216.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 111.8,
+    "population": 449690,
+    "density_km2": 4021.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 118.0,
+    "population": 463900,
+    "density_km2": 3930.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,17 @@
+#!/bin/bash
+# Launcher for the "Urban Density" macOS app bundle.
+# Starts the dashboard's local HTTP server and shows it in a native WKWebView
+# window. Closing the window (or Cmd+Q) stops the server.
+#
+# The app locates the project relative to itself, so keep it inside the
+# project folder (or symlink it into /Applications — the symlink resolves back).
+# Needs pywebview (pip install pywebview); without it the system browser opens.
+SELF="$(cd "$(dirname "$0")" && pwd -P)"
+PROJECT_DIR="$(cd "$SELF/../../.." && pwd -P)"
+
+cd "$PROJECT_DIR" || {
+  osascript -e 'display alert "Urban Density" message "Project folder not found:\n'"$PROJECT_DIR"'" as critical'
+  exit 1
+}
+if [ -x ".venv/bin/python" ]; then PY=".venv/bin/python"; else PY="python3"; fi
+exec "$PY" app_window.py >"${TMPDIR:-/tmp}/urban_density_app.log" 2>&1

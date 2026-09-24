@@ -1,0 +1,37 @@
+{
+  "city": "Faisalabad",
+  "id": "faisalabad",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 85.0,
+  "urban_extent_km2": 551.2,
+  "total_population": 4338217,
+  "core_70pct": {
+    "area_km2": 147.7,
+    "population": 3719029,
+    "density_km2": 25171.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 168.9,
+    "population": 3946685,
+    "density_km2": 23372.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 190.0,
+    "population": 4155468,
+    "density_km2": 21875.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 200.5,
+    "population": 4251930,
+    "density_km2": 21205.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

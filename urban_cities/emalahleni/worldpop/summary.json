@@ -1,0 +1,37 @@
+{
+  "city": "Emalahleni",
+  "id": "emalahleni",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32735,
+  "grid_m": 86.2,
+  "urban_extent_km2": 273.4,
+  "total_population": 585786,
+  "core_70pct": {
+    "area_km2": 84.9,
+    "population": 572485,
+    "density_km2": 6741.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 97.1,
+    "population": 581831,
+    "density_km2": 5995.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 109.2,
+    "population": 585219,
+    "density_km2": 5359.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 115.3,
+    "population": 585688,
+    "density_km2": 5081.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

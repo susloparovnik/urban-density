@@ -1,0 +1,37 @@
+{
+  "city": "Metro Manila",
+  "id": "metro_manila",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32651,
+  "grid_m": 91.1,
+  "urban_extent_km2": 1257.6,
+  "total_population": 18525012,
+  "core_70pct": {
+    "area_km2": 655.5,
+    "population": 17415708,
+    "density_km2": 26570.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 749.1,
+    "population": 17987586,
+    "density_km2": 24012.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 842.7,
+    "population": 18355065,
+    "density_km2": 21780.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 889.5,
+    "population": 18468569,
+    "density_km2": 20762.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Birigui",
+  "id": "birigui",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32722,
+  "grid_m": 89.3,
+  "urban_extent_km2": 90.0,
+  "total_population": 147645,
+  "core_70pct": {
+    "area_km2": 27.5,
+    "population": 141011,
+    "density_km2": 5122.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 31.5,
+    "population": 145295,
+    "density_km2": 4618.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 35.4,
+    "population": 147045,
+    "density_km2": 4155.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 37.4,
+    "population": 147459,
+    "density_km2": 3947.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

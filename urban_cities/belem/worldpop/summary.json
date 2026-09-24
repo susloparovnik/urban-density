@@ -1,0 +1,37 @@
+{
+  "city": "Belém",
+  "id": "belem",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32722,
+  "grid_m": 92.6,
+  "urban_extent_km2": 221.8,
+  "total_population": 1492848,
+  "core_70pct": {
+    "area_km2": 114.9,
+    "population": 1404104,
+    "density_km2": 12224.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 131.3,
+    "population": 1454547,
+    "density_km2": 11080.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 147.7,
+    "population": 1483034,
+    "density_km2": 10042.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 155.9,
+    "population": 1489968,
+    "density_km2": 9558.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

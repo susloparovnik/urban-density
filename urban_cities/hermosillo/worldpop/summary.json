@@ -1,0 +1,37 @@
+{
+  "city": "Hermosillo",
+  "id": "hermosillo",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32612,
+  "grid_m": 85.4,
+  "urban_extent_km2": 153.2,
+  "total_population": 287128,
+  "core_70pct": {
+    "area_km2": 38.2,
+    "population": 237620,
+    "density_km2": 6213.4,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 43.7,
+    "population": 262622,
+    "density_km2": 6008.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 49.2,
+    "population": 277182,
+    "density_km2": 5637.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 51.9,
+    "population": 282696,
+    "density_km2": 5447.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Mexico city",
+  "id": "mexico_city",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32614,
+  "grid_m": 89.7,
+  "urban_extent_km2": 809.5,
+  "total_population": 7101889,
+  "core_70pct": {
+    "area_km2": 424.1,
+    "population": 5630538,
+    "density_km2": 13277.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 484.6,
+    "population": 6204240,
+    "density_km2": 12802.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 545.2,
+    "population": 6714960,
+    "density_km2": 12316.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 575.5,
+    "population": 6933137,
+    "density_km2": 12047.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

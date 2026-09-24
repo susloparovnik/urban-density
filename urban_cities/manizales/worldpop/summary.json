@@ -1,0 +1,37 @@
+{
+  "city": "Manizales",
+  "id": "manizales",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32618,
+  "grid_m": 92.2,
+  "urban_extent_km2": 172.2,
+  "total_population": 930255,
+  "core_70pct": {
+    "area_km2": 45.8,
+    "population": 769752,
+    "density_km2": 16801.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 52.4,
+    "population": 834124,
+    "density_km2": 15931.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 58.9,
+    "population": 887582,
+    "density_km2": 15068.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 62.2,
+    "population": 910973,
+    "density_km2": 14651.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

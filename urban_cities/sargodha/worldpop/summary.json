@@ -1,0 +1,37 @@
+{
+  "city": "Sargodha",
+  "id": "sargodha",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 84.8,
+  "urban_extent_km2": 409.2,
+  "total_population": 1194519,
+  "core_70pct": {
+    "area_km2": 61.9,
+    "population": 955020,
+    "density_km2": 15436.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 70.7,
+    "population": 1043481,
+    "density_km2": 14758.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 79.5,
+    "population": 1125063,
+    "density_km2": 14144.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 84.0,
+    "population": 1162373,
+    "density_km2": 13843.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

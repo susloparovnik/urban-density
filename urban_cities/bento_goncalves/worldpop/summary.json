@@ -1,0 +1,37 @@
+{
+  "city": "Bento Gonçalves",
+  "id": "bento_goncalves",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32722,
+  "grid_m": 87.4,
+  "urban_extent_km2": 76.9,
+  "total_population": 90300,
+  "core_70pct": {
+    "area_km2": 21.5,
+    "population": 85996,
+    "density_km2": 4008.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 24.5,
+    "population": 88268,
+    "density_km2": 3599.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 27.6,
+    "population": 89711,
+    "density_km2": 3251.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 29.1,
+    "population": 90127,
+    "density_km2": 3095.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

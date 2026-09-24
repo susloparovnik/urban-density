@@ -1,0 +1,37 @@
+{
+  "city": "Moquegua",
+  "id": "moquegua",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32719,
+  "grid_m": 90.6,
+  "urban_extent_km2": 51.9,
+  "total_population": 38039,
+  "core_70pct": {
+    "area_km2": 12.8,
+    "population": 30957,
+    "density_km2": 2420.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 14.6,
+    "population": 34002,
+    "density_km2": 2325.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 16.4,
+    "population": 36476,
+    "density_km2": 2217.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 17.4,
+    "population": 37369,
+    "density_km2": 2152.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Jeddah",
+  "id": "jeddah",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32637,
+  "grid_m": 89.7,
+  "urban_extent_km2": 509.5,
+  "total_population": 1794311,
+  "core_70pct": {
+    "area_km2": 199.8,
+    "population": 1424009,
+    "density_km2": 7126.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 228.4,
+    "population": 1584166,
+    "density_km2": 6936.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 256.9,
+    "population": 1706979,
+    "density_km2": 6643.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 271.2,
+    "population": 1756918,
+    "density_km2": 6478.4,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

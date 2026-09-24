@@ -1,0 +1,37 @@
+{
+  "city": "North Coast",
+  "id": "north_coast",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32635,
+  "grid_m": 80.5,
+  "urban_extent_km2": 223.7,
+  "total_population": 54921,
+  "core_70pct": {
+    "area_km2": 42.5,
+    "population": 54886,
+    "density_km2": 1292.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 48.5,
+    "population": 54904,
+    "density_km2": 1131.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 54.6,
+    "population": 54915,
+    "density_km2": 1006.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 57.6,
+    "population": 54918,
+    "density_km2": 953.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

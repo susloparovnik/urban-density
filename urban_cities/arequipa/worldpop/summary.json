@@ -1,0 +1,37 @@
+{
+  "city": "Arequipa",
+  "id": "arequipa",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32719,
+  "grid_m": 90.6,
+  "urban_extent_km2": 434.1,
+  "total_population": 906544,
+  "core_70pct": {
+    "area_km2": 89.7,
+    "population": 763174,
+    "density_km2": 8509.4,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 102.5,
+    "population": 828358,
+    "density_km2": 8081.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 115.3,
+    "population": 879620,
+    "density_km2": 7628.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 121.7,
+    "population": 896748,
+    "density_km2": 7367.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

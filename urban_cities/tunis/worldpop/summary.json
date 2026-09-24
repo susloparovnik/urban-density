@@ -1,0 +1,37 @@
+{
+  "city": "Tunis",
+  "id": "tunis",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32632,
+  "grid_m": 82.1,
+  "urban_extent_km2": 584.9,
+  "total_population": 2416813,
+  "core_70pct": {
+    "area_km2": 238.2,
+    "population": 2046730,
+    "density_km2": 8593.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 272.2,
+    "population": 2201154,
+    "density_km2": 8086.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 306.2,
+    "population": 2330053,
+    "density_km2": 7608.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 323.2,
+    "population": 2378872,
+    "density_km2": 7359.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Abbottabad",
+  "id": "abbottabad",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 83.7,
+  "urban_extent_km2": 92.5,
+  "total_population": 430566,
+  "core_70pct": {
+    "area_km2": 18.5,
+    "population": 367899,
+    "density_km2": 19850.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 21.2,
+    "population": 393013,
+    "density_km2": 18553.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 23.8,
+    "population": 413074,
+    "density_km2": 17333.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 25.2,
+    "population": 422055,
+    "density_km2": 16778.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

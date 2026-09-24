@@ -1,0 +1,37 @@
+{
+  "city": "Osorno",
+  "id": "osorno",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32718,
+  "grid_m": 85.9,
+  "urban_extent_km2": 70.7,
+  "total_population": 163510,
+  "core_70pct": {
+    "area_km2": 25.5,
+    "population": 129845,
+    "density_km2": 5091.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 29.1,
+    "population": 143401,
+    "density_km2": 4920.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 32.8,
+    "population": 154982,
+    "density_km2": 4727.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 34.6,
+    "population": 159818,
+    "density_km2": 4618.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

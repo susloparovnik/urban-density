@@ -1,0 +1,37 @@
+{
+  "city": "Parnaíba",
+  "id": "parnaiba",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32724,
+  "grid_m": 92.6,
+  "urban_extent_km2": 55.9,
+  "total_population": 141933,
+  "core_70pct": {
+    "area_km2": 18.2,
+    "population": 129968,
+    "density_km2": 7154.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 20.8,
+    "population": 135746,
+    "density_km2": 6537.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 23.4,
+    "population": 139729,
+    "density_km2": 5983.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 24.6,
+    "population": 141077,
+    "density_km2": 5723.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Kyzylorda",
+  "id": "kyzylorda",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32641,
+  "grid_m": 77.7,
+  "urban_extent_km2": 176.2,
+  "total_population": 127183,
+  "core_70pct": {
+    "area_km2": 28.5,
+    "population": 100955,
+    "density_km2": 3547.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 32.5,
+    "population": 111822,
+    "density_km2": 3438.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 36.6,
+    "population": 122025,
+    "density_km2": 3335.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 38.6,
+    "population": 125361,
+    "density_km2": 3246.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Akkol",
+  "id": "akkol",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32642,
+  "grid_m": 69.1,
+  "urban_extent_km2": 69.2,
+  "total_population": 6974,
+  "core_70pct": {
+    "area_km2": 10.2,
+    "population": 6077,
+    "density_km2": 595.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 11.7,
+    "population": 6573,
+    "density_km2": 563.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 13.1,
+    "population": 6844,
+    "density_km2": 521.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 13.8,
+    "population": 6919,
+    "density_km2": 499.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

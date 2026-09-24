@@ -1,0 +1,37 @@
+{
+  "city": "Recife",
+  "id": "recife",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32725,
+  "grid_m": 92.1,
+  "urban_extent_km2": 499.3,
+  "total_population": 3007311,
+  "core_70pct": {
+    "area_km2": 197.8,
+    "population": 2813134,
+    "density_km2": 14221.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 226.1,
+    "population": 2928934,
+    "density_km2": 12956.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 254.3,
+    "population": 2991772,
+    "density_km2": 11763.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 268.4,
+    "population": 3004433,
+    "density_km2": 11191.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

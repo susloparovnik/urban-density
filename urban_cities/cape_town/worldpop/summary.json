@@ -1,0 +1,37 @@
+{
+  "city": "Cape Town",
+  "id": "cape_town",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32734,
+  "grid_m": 86.7,
+  "urban_extent_km2": 634.6,
+  "total_population": 2465354,
+  "core_70pct": {
+    "area_km2": 288.9,
+    "population": 2360781,
+    "density_km2": 8172.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 330.1,
+    "population": 2423062,
+    "density_km2": 7339.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 371.4,
+    "population": 2457015,
+    "density_km2": 6615.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 392.0,
+    "population": 2464082,
+    "density_km2": 6285.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

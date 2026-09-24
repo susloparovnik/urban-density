@@ -1,0 +1,37 @@
+{
+  "city": "Pokhara",
+  "id": "pokhara",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32644,
+  "grid_m": 86.6,
+  "urban_extent_km2": 558.6,
+  "total_population": 311894,
+  "core_70pct": {
+    "area_km2": 31.3,
+    "population": 280063,
+    "density_km2": 8953.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 35.7,
+    "population": 293060,
+    "density_km2": 8198.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 40.2,
+    "population": 304273,
+    "density_km2": 7566.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 42.4,
+    "population": 309055,
+    "density_km2": 7280.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

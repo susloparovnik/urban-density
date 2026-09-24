@@ -1,0 +1,37 @@
+{
+  "city": "Rabat",
+  "id": "rabat",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32629,
+  "grid_m": 84.0,
+  "urban_extent_km2": 339.0,
+  "total_population": 2245999,
+  "core_70pct": {
+    "area_km2": 125.9,
+    "population": 2088956,
+    "density_km2": 16594.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 143.9,
+    "population": 2176193,
+    "density_km2": 15126.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 161.8,
+    "population": 2226262,
+    "density_km2": 13755.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 170.8,
+    "population": 2237929,
+    "density_km2": 13099.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

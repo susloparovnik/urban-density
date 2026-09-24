@@ -1,0 +1,37 @@
+{
+  "city": "Vitoria",
+  "id": "vitoria",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32724,
+  "grid_m": 89.9,
+  "urban_extent_km2": 227.9,
+  "total_population": 724599,
+  "core_70pct": {
+    "area_km2": 101.1,
+    "population": 722271,
+    "density_km2": 7142.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 115.6,
+    "population": 724212,
+    "density_km2": 6266.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 130.0,
+    "population": 724540,
+    "density_km2": 5572.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 137.2,
+    "population": 724587,
+    "density_km2": 5279.6,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

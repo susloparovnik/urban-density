@@ -1,0 +1,37 @@
+{
+  "city": "Safi",
+  "id": "safi",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32629,
+  "grid_m": 86.9,
+  "urban_extent_km2": 300.0,
+  "total_population": 334607,
+  "core_70pct": {
+    "area_km2": 25.4,
+    "population": 297486,
+    "density_km2": 11691.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 29.1,
+    "population": 315953,
+    "density_km2": 10865.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 32.7,
+    "population": 327434,
+    "density_km2": 10009.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 34.5,
+    "population": 331658,
+    "density_km2": 9604.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

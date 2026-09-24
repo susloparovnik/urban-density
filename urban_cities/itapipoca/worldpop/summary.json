@@ -1,0 +1,37 @@
+{
+  "city": "Itapipoca",
+  "id": "itapipoca",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32724,
+  "grid_m": 92.3,
+  "urban_extent_km2": 37.7,
+  "total_population": 122480,
+  "core_70pct": {
+    "area_km2": 9.7,
+    "population": 111189,
+    "density_km2": 11462.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 11.1,
+    "population": 116253,
+    "density_km2": 10484.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 12.5,
+    "population": 120263,
+    "density_km2": 9639.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 13.2,
+    "population": 121761,
+    "density_km2": 9248.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

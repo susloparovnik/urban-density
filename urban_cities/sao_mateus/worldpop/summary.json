@@ -1,0 +1,37 @@
+{
+  "city": "São Mateus",
+  "id": "sao_mateus",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32724,
+  "grid_m": 90.9,
+  "urban_extent_km2": 103.3,
+  "total_population": 96301,
+  "core_70pct": {
+    "area_km2": 14.7,
+    "population": 89283,
+    "density_km2": 6077.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 16.8,
+    "population": 92757,
+    "density_km2": 5524.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 18.9,
+    "population": 95135,
+    "density_km2": 5035.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 19.9,
+    "population": 95885,
+    "density_km2": 4807.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

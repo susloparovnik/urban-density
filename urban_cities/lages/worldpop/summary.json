@@ -1,0 +1,37 @@
+{
+  "city": "Lages",
+  "id": "lages",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32722,
+  "grid_m": 86.3,
+  "urban_extent_km2": 78.2,
+  "total_population": 147758,
+  "core_70pct": {
+    "area_km2": 27.5,
+    "population": 134300,
+    "density_km2": 4880.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 31.5,
+    "population": 142067,
+    "density_km2": 4516.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 35.4,
+    "population": 146341,
+    "density_km2": 4135.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 37.4,
+    "population": 147450,
+    "density_km2": 3947.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

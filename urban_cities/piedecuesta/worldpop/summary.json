@@ -1,0 +1,37 @@
+{
+  "city": "Piedecuesta",
+  "id": "piedecuesta",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32618,
+  "grid_m": 92.1,
+  "urban_extent_km2": 122.7,
+  "total_population": 859554,
+  "core_70pct": {
+    "area_km2": 41.1,
+    "population": 713730,
+    "density_km2": 17351.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 47.0,
+    "population": 772877,
+    "density_km2": 16441.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 52.9,
+    "population": 824958,
+    "density_km2": 15599.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 55.8,
+    "population": 846010,
+    "density_km2": 15155.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Ludhiana",
+  "id": "ludhiana",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 85.3,
+  "urban_extent_km2": 542.1,
+  "total_population": 667888,
+  "core_70pct": {
+    "area_km2": 331.2,
+    "population": 608578,
+    "density_km2": 1837.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 378.6,
+    "population": 632300,
+    "density_km2": 1670.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 425.9,
+    "population": 652524,
+    "density_km2": 1532.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 449.5,
+    "population": 661030,
+    "density_km2": 1470.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Caxias do Sul",
+  "id": "caxias_do_sul",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32722,
+  "grid_m": 86.4,
+  "urban_extent_km2": 131.3,
+  "total_population": 280554,
+  "core_70pct": {
+    "area_km2": 51.0,
+    "population": 261514,
+    "density_km2": 5125.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 58.3,
+    "population": 271311,
+    "density_km2": 4652.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 65.6,
+    "population": 277706,
+    "density_km2": 4233.0,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 69.2,
+    "population": 279644,
+    "density_km2": 4038.4,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

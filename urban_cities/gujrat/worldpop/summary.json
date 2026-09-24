@@ -1,0 +1,37 @@
+{
+  "city": "Gujrat",
+  "id": "gujrat",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 84.3,
+  "urban_extent_km2": 450.2,
+  "total_population": 1570231,
+  "core_70pct": {
+    "area_km2": 111.4,
+    "population": 1252312,
+    "density_km2": 11238.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 127.4,
+    "population": 1368065,
+    "density_km2": 10742.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 143.3,
+    "population": 1474504,
+    "density_km2": 10291.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 151.2,
+    "population": 1524182,
+    "density_km2": 10078.4,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

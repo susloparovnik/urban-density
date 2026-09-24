@@ -1,0 +1,37 @@
+{
+  "city": "Foz do Iguaçu",
+  "id": "foz_do_iguacu",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32721,
+  "grid_m": 88.1,
+  "urban_extent_km2": 341.2,
+  "total_population": 87166,
+  "core_70pct": {
+    "area_km2": 18.1,
+    "population": 80215,
+    "density_km2": 4429.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 20.7,
+    "population": 83769,
+    "density_km2": 4047.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 23.3,
+    "population": 86055,
+    "density_km2": 3696.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 24.6,
+    "population": 86755,
+    "density_km2": 3529.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

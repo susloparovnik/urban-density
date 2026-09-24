@@ -1,0 +1,37 @@
+{
+  "city": "Luxor",
+  "id": "luxor",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32636,
+  "grid_m": 88.3,
+  "urban_extent_km2": 170.4,
+  "total_population": 2766748,
+  "core_70pct": {
+    "area_km2": 43.0,
+    "population": 2639560,
+    "density_km2": 61346.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 49.2,
+    "population": 2713777,
+    "density_km2": 55183.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 55.3,
+    "population": 2747502,
+    "density_km2": 49665.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 58.4,
+    "population": 2758195,
+    "density_km2": 47236.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

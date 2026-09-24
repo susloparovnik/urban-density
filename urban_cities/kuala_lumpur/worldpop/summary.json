@@ -1,0 +1,37 @@
+{
+  "city": "Kuala Lumpur",
+  "id": "kuala_lumpur",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32647,
+  "grid_m": 92.5,
+  "urban_extent_km2": 1514.9,
+  "total_population": 6779125,
+  "core_70pct": {
+    "area_km2": 843.8,
+    "population": 5998823,
+    "density_km2": 7108.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 964.4,
+    "population": 6357360,
+    "density_km2": 6592.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 1084.9,
+    "population": 6615676,
+    "density_km2": 6097.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 1145.2,
+    "population": 6711494,
+    "density_km2": 5860.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

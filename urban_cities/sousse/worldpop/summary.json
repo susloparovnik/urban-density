@@ -1,0 +1,37 @@
+{
+  "city": "Sousse",
+  "id": "sousse",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32632,
+  "grid_m": 82.0,
+  "urban_extent_km2": 390.0,
+  "total_population": 1062829,
+  "core_70pct": {
+    "area_km2": 149.4,
+    "population": 868420,
+    "density_km2": 5812.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 170.8,
+    "population": 946576,
+    "density_km2": 5543.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 192.1,
+    "population": 1014672,
+    "density_km2": 5281.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 202.8,
+    "population": 1042802,
+    "density_km2": 5142.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

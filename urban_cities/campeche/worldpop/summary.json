@@ -1,0 +1,37 @@
+{
+  "city": "Campeche",
+  "id": "campeche",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32615,
+  "grid_m": 89.5,
+  "urban_extent_km2": 89.9,
+  "total_population": 238696,
+  "core_70pct": {
+    "area_km2": 31.6,
+    "population": 179376,
+    "density_km2": 5685.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 36.1,
+    "population": 201463,
+    "density_km2": 5588.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 40.6,
+    "population": 222080,
+    "density_km2": 5475.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 42.8,
+    "population": 231110,
+    "density_km2": 5398.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

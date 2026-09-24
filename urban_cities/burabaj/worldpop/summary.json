@@ -1,0 +1,37 @@
+{
+  "city": "Burabay",
+  "id": "burabaj",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32642,
+  "grid_m": 67.2,
+  "urban_extent_km2": 70.3,
+  "total_population": 26791,
+  "core_70pct": {
+    "area_km2": 10.8,
+    "population": 20951,
+    "density_km2": 1942.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 12.3,
+    "population": 23266,
+    "density_km2": 1887.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 13.9,
+    "population": 25435,
+    "density_km2": 1834.0,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 14.6,
+    "population": 26336,
+    "density_km2": 1799.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

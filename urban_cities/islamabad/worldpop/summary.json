@@ -1,0 +1,37 @@
+{
+  "city": "Islamabad / Rawalpindi",
+  "id": "islamabad",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 83.3,
+  "urban_extent_km2": 829.4,
+  "total_population": 4045134,
+  "core_70pct": {
+    "area_km2": 314.4,
+    "population": 3391150,
+    "density_km2": 10785.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 359.3,
+    "population": 3625155,
+    "density_km2": 10088.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 404.2,
+    "population": 3844714,
+    "density_km2": 9510.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 426.7,
+    "population": 3948750,
+    "density_km2": 9254.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

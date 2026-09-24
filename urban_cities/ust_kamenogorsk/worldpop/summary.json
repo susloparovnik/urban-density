@@ -1,0 +1,37 @@
+{
+  "city": "Ust-Kamenogorsk",
+  "id": "ust_kamenogorsk",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32644,
+  "grid_m": 70.3,
+  "urban_extent_km2": 351.5,
+  "total_population": 286742,
+  "core_70pct": {
+    "area_km2": 64.3,
+    "population": 257018,
+    "density_km2": 3995.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 73.5,
+    "population": 269811,
+    "density_km2": 3669.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 82.7,
+    "population": 280238,
+    "density_km2": 3388.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 87.3,
+    "population": 284427,
+    "density_km2": 3257.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Johannesburg",
+  "id": "johannesburg",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32735,
+  "grid_m": 87.4,
+  "urban_extent_km2": 991.3,
+  "total_population": 2411424,
+  "core_70pct": {
+    "area_km2": 437.2,
+    "population": 2348673,
+    "density_km2": 5371.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 499.7,
+    "population": 2389820,
+    "density_km2": 4782.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 562.2,
+    "population": 2407203,
+    "density_km2": 4282.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 593.4,
+    "population": 2410474,
+    "density_km2": 4062.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

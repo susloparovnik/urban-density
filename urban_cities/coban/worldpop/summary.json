@@ -1,0 +1,37 @@
+{
+  "city": "Cobán",
+  "id": "coban",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32615,
+  "grid_m": 91.0,
+  "urban_extent_km2": 185.2,
+  "total_population": 226815,
+  "core_70pct": {
+    "area_km2": 13.8,
+    "population": 206311,
+    "density_km2": 14922.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 15.8,
+    "population": 216836,
+    "density_km2": 13721.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 17.8,
+    "population": 222305,
+    "density_km2": 12502.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 18.8,
+    "population": 224688,
+    "density_km2": 11973.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

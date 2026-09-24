@@ -1,0 +1,37 @@
+{
+  "city": "Mumbai",
+  "id": "mumbai",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32644,
+  "grid_m": 89.4,
+  "urban_extent_km2": 182.9,
+  "total_population": 39537,
+  "core_70pct": {
+    "area_km2": 92.2,
+    "population": 34323,
+    "density_km2": 372.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 105.4,
+    "population": 36290,
+    "density_km2": 344.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 118.6,
+    "population": 38029,
+    "density_km2": 320.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 125.2,
+    "population": 38822,
+    "density_km2": 310.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

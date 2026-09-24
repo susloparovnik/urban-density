@@ -1,0 +1,37 @@
+{
+  "city": "Tarija",
+  "id": "tarija",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32720,
+  "grid_m": 89.1,
+  "urban_extent_km2": 119.2,
+  "total_population": 222913,
+  "core_70pct": {
+    "area_km2": 27.1,
+    "population": 173602,
+    "density_km2": 6408.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 31.0,
+    "population": 191630,
+    "density_km2": 6190.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 34.8,
+    "population": 208323,
+    "density_km2": 5981.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 36.8,
+    "population": 215995,
+    "density_km2": 5876.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

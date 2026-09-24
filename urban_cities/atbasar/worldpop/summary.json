@@ -1,0 +1,37 @@
+{
+  "city": "Atbasar",
+  "id": "atbasar",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32642,
+  "grid_m": 72.0,
+  "urban_extent_km2": 93.3,
+  "total_population": 37460,
+  "core_70pct": {
+    "area_km2": 15.4,
+    "population": 31929,
+    "density_km2": 2071.4,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 17.6,
+    "population": 34663,
+    "density_km2": 1967.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 19.8,
+    "population": 36726,
+    "density_km2": 1853.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 20.9,
+    "population": 37127,
+    "density_km2": 1774.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

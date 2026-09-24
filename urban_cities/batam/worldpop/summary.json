@@ -1,0 +1,37 @@
+{
+  "city": "Batam",
+  "id": "batam",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32648,
+  "grid_m": 92.5,
+  "urban_extent_km2": 591.5,
+  "total_population": 1574944,
+  "core_70pct": {
+    "area_km2": 111.5,
+    "population": 1257904,
+    "density_km2": 11278.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 127.5,
+    "population": 1400401,
+    "density_km2": 10986.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 143.4,
+    "population": 1532960,
+    "density_km2": 10690.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 151.4,
+    "population": 1560527,
+    "density_km2": 10309.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

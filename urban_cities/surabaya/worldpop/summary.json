@@ -1,0 +1,37 @@
+{
+  "city": "Surabaya",
+  "id": "surabaya",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32749,
+  "grid_m": 92.1,
+  "urban_extent_km2": 670.4,
+  "total_population": 2514671,
+  "core_70pct": {
+    "area_km2": 312.3,
+    "population": 2052103,
+    "density_km2": 6571.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 356.9,
+    "population": 2233948,
+    "density_km2": 6259.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 401.5,
+    "population": 2391817,
+    "density_km2": 5957.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 423.8,
+    "population": 2458899,
+    "density_km2": 5802.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

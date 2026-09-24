@@ -1,0 +1,37 @@
+{
+  "city": "Tétouan",
+  "id": "tetouan",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32629,
+  "grid_m": 87.7,
+  "urban_extent_km2": 153.0,
+  "total_population": 139416,
+  "core_70pct": {
+    "area_km2": 29.1,
+    "population": 121678,
+    "density_km2": 4181.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 33.3,
+    "population": 128815,
+    "density_km2": 3872.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 37.4,
+    "population": 134769,
+    "density_km2": 3601.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 39.5,
+    "population": 137266,
+    "density_km2": 3475.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

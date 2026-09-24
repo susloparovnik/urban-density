@@ -1,0 +1,37 @@
+{
+  "city": "Valparaíso - Viña del Mar",
+  "id": "valparaiso_vina_del_mar",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32719,
+  "grid_m": 86.5,
+  "urban_extent_km2": 368.5,
+  "total_population": 942084,
+  "core_70pct": {
+    "area_km2": 101.5,
+    "population": 771902,
+    "density_km2": 7605.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 116.0,
+    "population": 848993,
+    "density_km2": 7319.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 130.5,
+    "population": 908305,
+    "density_km2": 6960.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 137.7,
+    "population": 929413,
+    "density_km2": 6747.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

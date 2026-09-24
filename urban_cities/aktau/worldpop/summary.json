@@ -1,0 +1,37 @@
+{
+  "city": "Aktau",
+  "id": "aktau",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32639,
+  "grid_m": 76.7,
+  "urban_extent_km2": 201.8,
+  "total_population": 380081,
+  "core_70pct": {
+    "area_km2": 71.1,
+    "population": 300670,
+    "density_km2": 4230.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 81.2,
+    "population": 334191,
+    "density_km2": 4114.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 91.4,
+    "population": 364947,
+    "density_km2": 3993.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 96.5,
+    "population": 374375,
+    "density_km2": 3881.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

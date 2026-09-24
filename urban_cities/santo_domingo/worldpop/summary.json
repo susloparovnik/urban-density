@@ -1,0 +1,37 @@
+{
+  "city": "Santo Domingo",
+  "id": "santo_domingo",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32619,
+  "grid_m": 89.5,
+  "urban_extent_km2": 541.7,
+  "total_population": 4073569,
+  "core_70pct": {
+    "area_km2": 233.5,
+    "population": 3371265,
+    "density_km2": 14437.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 266.9,
+    "population": 3672499,
+    "density_km2": 13761.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 300.2,
+    "population": 3911224,
+    "density_km2": 13027.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 316.9,
+    "population": 4005426,
+    "density_km2": 12639.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Sharm el-Sheikh",
+  "id": "sharm_el_sheikh",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32636,
+  "grid_m": 88.4,
+  "urban_extent_km2": 151.2,
+  "total_population": 60642,
+  "core_70pct": {
+    "area_km2": 34.1,
+    "population": 50701,
+    "density_km2": 1489.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 38.9,
+    "population": 54560,
+    "density_km2": 1402.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 43.8,
+    "population": 57898,
+    "density_km2": 1322.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 46.2,
+    "population": 59373,
+    "density_km2": 1284.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

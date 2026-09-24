@@ -1,0 +1,37 @@
+{
+  "city": "Valdivia",
+  "id": "valdivia",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32718,
+  "grid_m": 77.2,
+  "urban_extent_km2": 91.0,
+  "total_population": 198746,
+  "core_70pct": {
+    "area_km2": 20.0,
+    "population": 156710,
+    "density_km2": 7842.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 22.8,
+    "population": 174503,
+    "density_km2": 7640.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 25.7,
+    "population": 189635,
+    "density_km2": 7381.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 27.1,
+    "population": 194822,
+    "density_km2": 7184.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

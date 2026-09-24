@@ -1,0 +1,37 @@
+{
+  "city": "Kumasi",
+  "id": "kumasi",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32630,
+  "grid_m": 92.1,
+  "urban_extent_km2": 1446.1,
+  "total_population": 4237613,
+  "core_70pct": {
+    "area_km2": 565.7,
+    "population": 4057595,
+    "density_km2": 7172.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 646.5,
+    "population": 4139892,
+    "density_km2": 6403.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 727.3,
+    "population": 4202952,
+    "density_km2": 5778.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 767.7,
+    "population": 4222587,
+    "density_km2": 5500.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

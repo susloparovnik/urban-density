@@ -1,0 +1,37 @@
+{
+  "city": "Beyneu",
+  "id": "bejneu",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32640,
+  "grid_m": 66.9,
+  "urban_extent_km2": 47.3,
+  "total_population": 57456,
+  "core_70pct": {
+    "area_km2": 6.3,
+    "population": 42126,
+    "density_km2": 6682.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 7.2,
+    "population": 47520,
+    "density_km2": 6597.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 8.1,
+    "population": 52725,
+    "density_km2": 6508.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 8.6,
+    "population": 55143,
+    "density_km2": 6447.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

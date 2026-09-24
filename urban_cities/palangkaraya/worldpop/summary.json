@@ -1,0 +1,37 @@
+{
+  "city": "Palangkaraya",
+  "id": "palangkaraya",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32749,
+  "grid_m": 92.4,
+  "urban_extent_km2": 35.2,
+  "total_population": 39991,
+  "core_70pct": {
+    "area_km2": 14.9,
+    "population": 31161,
+    "density_km2": 2089.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 17.0,
+    "population": 34285,
+    "density_km2": 2011.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 19.2,
+    "population": 37247,
+    "density_km2": 1943.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 20.2,
+    "population": 38666,
+    "density_km2": 1910.6,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Florianópolis",
+  "id": "florianopolis",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32722,
+  "grid_m": 87.7,
+  "urban_extent_km2": 188.3,
+  "total_population": 586451,
+  "core_70pct": {
+    "area_km2": 84.4,
+    "population": 559440,
+    "density_km2": 6628.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 96.5,
+    "population": 574256,
+    "density_km2": 5953.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 108.5,
+    "population": 583157,
+    "density_km2": 5373.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 114.6,
+    "population": 585549,
+    "density_km2": 5111.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

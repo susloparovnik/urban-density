@@ -1,0 +1,37 @@
+{
+  "city": "Rondonópolis",
+  "id": "rondonopolis",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32721,
+  "grid_m": 90.7,
+  "urban_extent_km2": 96.4,
+  "total_population": 233690,
+  "core_70pct": {
+    "area_km2": 39.2,
+    "population": 223216,
+    "density_km2": 5701.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 44.7,
+    "population": 230769,
+    "density_km2": 5157.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 50.3,
+    "population": 233476,
+    "density_km2": 4637.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 53.1,
+    "population": 233663,
+    "density_km2": 4397.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

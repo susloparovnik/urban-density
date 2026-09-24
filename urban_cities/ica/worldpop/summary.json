@@ -1,0 +1,37 @@
+{
+  "city": "Ica",
+  "id": "ica",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32718,
+  "grid_m": 91.1,
+  "urban_extent_km2": 226.4,
+  "total_population": 341435,
+  "core_70pct": {
+    "area_km2": 37.6,
+    "population": 305857,
+    "density_km2": 8128.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 43.0,
+    "population": 322460,
+    "density_km2": 7499.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 48.4,
+    "population": 334385,
+    "density_km2": 6912.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 51.1,
+    "population": 338490,
+    "density_km2": 6629.4,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

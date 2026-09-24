@@ -1,0 +1,37 @@
+{
+  "city": "Gujranwala",
+  "id": "gujranwala",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 84.6,
+  "urban_extent_km2": 407.3,
+  "total_population": 3111396,
+  "core_70pct": {
+    "area_km2": 164.0,
+    "population": 2363166,
+    "density_km2": 14411.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 187.4,
+    "population": 2645290,
+    "density_km2": 14115.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 210.8,
+    "population": 2899938,
+    "density_km2": 13755.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 222.5,
+    "population": 3012954,
+    "density_km2": 13539.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

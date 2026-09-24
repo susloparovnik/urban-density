@@ -1,0 +1,37 @@
+{
+  "city": "Santa Ana",
+  "id": "santa_ana",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32616,
+  "grid_m": 91.1,
+  "urban_extent_km2": 324.2,
+  "total_population": 1014999,
+  "core_70pct": {
+    "area_km2": 96.3,
+    "population": 845998,
+    "density_km2": 8788.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 110.0,
+    "population": 911142,
+    "density_km2": 8281.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 123.8,
+    "population": 970642,
+    "density_km2": 7842.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 130.6,
+    "population": 995178,
+    "density_km2": 7617.4,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

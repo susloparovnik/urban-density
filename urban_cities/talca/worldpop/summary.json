@@ -1,0 +1,37 @@
+{
+  "city": "Talca",
+  "id": "talca",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32719,
+  "grid_m": 82.7,
+  "urban_extent_km2": 241.7,
+  "total_population": 379317,
+  "core_70pct": {
+    "area_km2": 75.1,
+    "population": 354031,
+    "density_km2": 4715.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 85.8,
+    "population": 365644,
+    "density_km2": 4261.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 96.5,
+    "population": 373992,
+    "density_km2": 3874.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 101.9,
+    "population": 377036,
+    "density_km2": 3700.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

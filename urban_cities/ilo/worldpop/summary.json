@@ -1,0 +1,37 @@
+{
+  "city": "Ilo",
+  "id": "ilo",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32719,
+  "grid_m": 91.6,
+  "urban_extent_km2": 29.6,
+  "total_population": 72177,
+  "core_70pct": {
+    "area_km2": 9.5,
+    "population": 62893,
+    "density_km2": 6585.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 10.9,
+    "population": 67377,
+    "density_km2": 6176.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 12.3,
+    "population": 70963,
+    "density_km2": 5781.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 13.0,
+    "population": 71845,
+    "density_km2": 5546.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

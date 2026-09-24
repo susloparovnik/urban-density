@@ -1,0 +1,37 @@
+{
+  "city": "Villavicencio",
+  "id": "villavicencio",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32618,
+  "grid_m": 92.3,
+  "urban_extent_km2": 108.8,
+  "total_population": 436294,
+  "core_70pct": {
+    "area_km2": 38.5,
+    "population": 378980,
+    "density_km2": 9837.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 44.0,
+    "population": 403634,
+    "density_km2": 9168.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 49.5,
+    "population": 423582,
+    "density_km2": 8552.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 52.3,
+    "population": 431228,
+    "density_km2": 8248.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Mahikeng",
+  "id": "mahikeng",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32735,
+  "grid_m": 87.4,
+  "urban_extent_km2": 544.4,
+  "total_population": 332263,
+  "core_70pct": {
+    "area_km2": 186.7,
+    "population": 318659,
+    "density_km2": 1706.4,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 213.4,
+    "population": 326781,
+    "density_km2": 1531.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 240.1,
+    "population": 331123,
+    "density_km2": 1379.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 253.4,
+    "population": 331991,
+    "density_km2": 1309.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

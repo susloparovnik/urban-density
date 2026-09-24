@@ -1,0 +1,37 @@
+{
+  "city": "Tlemcen",
+  "id": "tlemcen",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32630,
+  "grid_m": 82.5,
+  "urban_extent_km2": 154.3,
+  "total_population": 450745,
+  "core_70pct": {
+    "area_km2": 49.6,
+    "population": 382125,
+    "density_km2": 7704.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 56.7,
+    "population": 412931,
+    "density_km2": 7285.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 63.8,
+    "population": 437091,
+    "density_km2": 6854.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 67.3,
+    "population": 445339,
+    "density_km2": 6616.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

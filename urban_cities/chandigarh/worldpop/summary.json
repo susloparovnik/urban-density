@@ -1,0 +1,37 @@
+{
+  "city": "Chandigarh",
+  "id": "chandigarh",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 85.6,
+  "urban_extent_km2": 502.9,
+  "total_population": 1770055,
+  "core_70pct": {
+    "area_km2": 269.8,
+    "population": 1707868,
+    "density_km2": 6330.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 308.3,
+    "population": 1735729,
+    "density_km2": 5629.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 346.9,
+    "population": 1755594,
+    "density_km2": 5061.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 366.1,
+    "population": 1763708,
+    "density_km2": 4817.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

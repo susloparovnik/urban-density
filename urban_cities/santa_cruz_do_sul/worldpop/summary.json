@@ -1,0 +1,37 @@
+{
+  "city": "Santa Cruz do Sul",
+  "id": "santa_cruz_do_sul",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32722,
+  "grid_m": 84.8,
+  "urban_extent_km2": 84.2,
+  "total_population": 87154,
+  "core_70pct": {
+    "area_km2": 22.1,
+    "population": 81974,
+    "density_km2": 3715.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 25.2,
+    "population": 85405,
+    "density_km2": 3386.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 28.4,
+    "population": 86935,
+    "density_km2": 3064.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 29.9,
+    "population": 87099,
+    "density_km2": 2908.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

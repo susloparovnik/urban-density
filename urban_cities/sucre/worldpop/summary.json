@@ -1,0 +1,37 @@
+{
+  "city": "Sucre",
+  "id": "sucre",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32720,
+  "grid_m": 89.9,
+  "urban_extent_km2": 123.0,
+  "total_population": 199612,
+  "core_70pct": {
+    "area_km2": 20.7,
+    "population": 154500,
+    "density_km2": 7466.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 23.7,
+    "population": 171635,
+    "density_km2": 7257.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 26.6,
+    "population": 186760,
+    "density_km2": 7020.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 28.1,
+    "population": 193567,
+    "density_km2": 6893.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

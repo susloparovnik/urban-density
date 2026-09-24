@@ -1,0 +1,37 @@
+{
+  "city": "La Paz y el Alto",
+  "id": "la_paz_y_el_alto",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32719,
+  "grid_m": 90.4,
+  "urban_extent_km2": 243.8,
+  "total_population": 701918,
+  "core_70pct": {
+    "area_km2": 62.9,
+    "population": 616257,
+    "density_km2": 9790.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 71.9,
+    "population": 663608,
+    "density_km2": 9225.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 80.9,
+    "population": 690154,
+    "density_km2": 8528.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 85.4,
+    "population": 696980,
+    "density_km2": 8159.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

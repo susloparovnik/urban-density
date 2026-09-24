@@ -1,0 +1,37 @@
+{
+  "city": "Fortaleza",
+  "id": "fortaleza",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32724,
+  "grid_m": 92.3,
+  "urban_extent_km2": 487.9,
+  "total_population": 2981637,
+  "core_70pct": {
+    "area_km2": 226.1,
+    "population": 2845234,
+    "density_km2": 12583.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 258.4,
+    "population": 2925023,
+    "density_km2": 11319.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 290.7,
+    "population": 2968436,
+    "density_km2": 10210.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 306.9,
+    "population": 2979444,
+    "density_km2": 9709.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

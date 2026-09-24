@@ -1,0 +1,37 @@
+{
+  "city": "Santa Cruz do Capibaribe",
+  "id": "santa_cruz_do_capibaribe",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32724,
+  "grid_m": 92.1,
+  "urban_extent_km2": 40.6,
+  "total_population": 172627,
+  "core_70pct": {
+    "area_km2": 11.2,
+    "population": 160420,
+    "density_km2": 14333.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 12.8,
+    "population": 166945,
+    "density_km2": 13048.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 14.4,
+    "population": 170608,
+    "density_km2": 11857.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 15.2,
+    "population": 171803,
+    "density_km2": 11313.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

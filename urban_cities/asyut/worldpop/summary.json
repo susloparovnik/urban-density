@@ -1,0 +1,37 @@
+{
+  "city": "Asyut",
+  "id": "asyut",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32636,
+  "grid_m": 87.2,
+  "urban_extent_km2": 195.1,
+  "total_population": 873534,
+  "core_70pct": {
+    "area_km2": 35.2,
+    "population": 755998,
+    "density_km2": 21449.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 40.3,
+    "population": 806430,
+    "density_km2": 20023.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 45.3,
+    "population": 848329,
+    "density_km2": 18721.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 47.8,
+    "population": 865533,
+    "density_km2": 18095.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

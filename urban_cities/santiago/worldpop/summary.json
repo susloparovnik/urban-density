@@ -1,0 +1,37 @@
+{
+  "city": "Santiago",
+  "id": "santiago",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32719,
+  "grid_m": 83.8,
+  "urban_extent_km2": 588.0,
+  "total_population": 2139570,
+  "core_70pct": {
+    "area_km2": 159.9,
+    "population": 1987992,
+    "density_km2": 12429.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 182.8,
+    "population": 2053856,
+    "density_km2": 11236.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 205.6,
+    "population": 2105425,
+    "density_km2": 10238.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 217.1,
+    "population": 2125294,
+    "density_km2": 9790.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

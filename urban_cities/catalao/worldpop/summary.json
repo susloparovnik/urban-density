@@ -1,0 +1,37 @@
+{
+  "city": "Catalão",
+  "id": "catalao",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32723,
+  "grid_m": 89.7,
+  "urban_extent_km2": 65.8,
+  "total_population": 110611,
+  "core_70pct": {
+    "area_km2": 20.5,
+    "population": 108861,
+    "density_km2": 5316.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 23.4,
+    "population": 110279,
+    "density_km2": 4712.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 26.3,
+    "population": 110550,
+    "density_km2": 4198.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 27.8,
+    "population": 110588,
+    "density_km2": 3979.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

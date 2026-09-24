@@ -1,0 +1,37 @@
+{
+  "city": "Tuxtla Gutiérrez",
+  "id": "tuxtla_gutierrez",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32615,
+  "grid_m": 90.6,
+  "urban_extent_km2": 200.7,
+  "total_population": 330834,
+  "core_70pct": {
+    "area_km2": 37.1,
+    "population": 253356,
+    "density_km2": 6824.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 42.4,
+    "population": 282342,
+    "density_km2": 6653.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 47.7,
+    "population": 308880,
+    "density_km2": 6470.0,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 50.4,
+    "population": 320609,
+    "density_km2": 6362.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

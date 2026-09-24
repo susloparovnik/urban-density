@@ -1,0 +1,37 @@
+{
+  "city": "Trujillo",
+  "id": "trujillo",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32717,
+  "grid_m": 92.0,
+  "urban_extent_km2": 319.2,
+  "total_population": 1012251,
+  "core_70pct": {
+    "area_km2": 79.2,
+    "population": 898169,
+    "density_km2": 11344.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 90.5,
+    "population": 950984,
+    "density_km2": 10509.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 101.8,
+    "population": 987581,
+    "density_km2": 9701.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 107.5,
+    "population": 1001688,
+    "density_km2": 9322.4,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

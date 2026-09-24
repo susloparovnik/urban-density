@@ -1,0 +1,37 @@
+{
+  "city": "Brasília",
+  "id": "brasilia",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32723,
+  "grid_m": 90.8,
+  "urban_extent_km2": 702.0,
+  "total_population": 2279695,
+  "core_70pct": {
+    "area_km2": 266.6,
+    "population": 2240570,
+    "density_km2": 8404.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 304.7,
+    "population": 2266112,
+    "density_km2": 7437.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 342.8,
+    "population": 2277016,
+    "density_km2": 6643.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 361.8,
+    "population": 2279257,
+    "density_km2": 6299.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Ambato",
+  "id": "ambato",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32717,
+  "grid_m": 92.5,
+  "urban_extent_km2": 110.8,
+  "total_population": 390807,
+  "core_70pct": {
+    "area_km2": 38.3,
+    "population": 356444,
+    "density_km2": 9304.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 43.8,
+    "population": 371078,
+    "density_km2": 8475.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 49.3,
+    "population": 383392,
+    "density_km2": 7783.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 52.0,
+    "population": 387950,
+    "density_km2": 7461.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

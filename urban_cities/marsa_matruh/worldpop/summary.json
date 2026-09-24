@@ -1,0 +1,37 @@
+{
+  "city": "Marsa Matruh",
+  "id": "marsa_matruh",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32635,
+  "grid_m": 81.2,
+  "urban_extent_km2": 97.0,
+  "total_population": 210955,
+  "core_70pct": {
+    "area_km2": 27.0,
+    "population": 176068,
+    "density_km2": 6530.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 30.8,
+    "population": 190286,
+    "density_km2": 6175.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 34.7,
+    "population": 202624,
+    "density_km2": 5845.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 36.6,
+    "population": 207507,
+    "density_km2": 5671.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

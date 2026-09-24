@@ -1,0 +1,37 @@
+{
+  "city": "Coyhaique",
+  "id": "coyhaique",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32718,
+  "grid_m": 88.3,
+  "urban_extent_km2": 40.6,
+  "total_population": 46203,
+  "core_70pct": {
+    "area_km2": 5.9,
+    "population": 37087,
+    "density_km2": 6249.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 6.8,
+    "population": 40961,
+    "density_km2": 6044.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 7.6,
+    "population": 44032,
+    "density_km2": 5773.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 8.0,
+    "population": 45243,
+    "density_km2": 5621.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

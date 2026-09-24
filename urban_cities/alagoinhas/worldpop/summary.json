@@ -1,0 +1,37 @@
+{
+  "city": "Alagoinhas",
+  "id": "alagoinhas",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32724,
+  "grid_m": 91.3,
+  "urban_extent_km2": 53.6,
+  "total_population": 137990,
+  "core_70pct": {
+    "area_km2": 17.4,
+    "population": 126558,
+    "density_km2": 7257.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 19.9,
+    "population": 132958,
+    "density_km2": 6671.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 22.4,
+    "population": 136634,
+    "density_km2": 6094.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 23.7,
+    "population": 137605,
+    "density_km2": 5815.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

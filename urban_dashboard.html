@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Density</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  :root {
+    --bg:#0f1117; --bg2:#131926; --bg3:#1a2233;
+    --border:#1e2d45; --text:#e2e8f0; --muted:#64748b;
+    --blue:#60a5fa; --green:#4ade80; --amber:#f59e0b;
+    --cyan:#22d3ee; --red:#f87171; --orange:#fb923c;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+
+  .topbar{display:flex;background:var(--bg2);border-bottom:2px solid var(--border);padding:0 16px;flex-shrink:0;align-items:center;height:44px;gap:14px;}
+  .app-title{font-size:15px;font-weight:700;color:var(--blue);letter-spacing:.01em;}
+  .app-sub{color:var(--muted);font-size:12px;}
+  .topbar .spacer{flex:1;}
+  .topbar .lbl{color:var(--muted);font-size:13px;font-weight:600;letter-spacing:.03em;}
+
+  .main-split{display:flex;flex:1;overflow:hidden;}
+  .table-pane{width:46%;min-width:400px;display:flex;flex-direction:column;border-right:2px solid var(--border);overflow:hidden;flex-shrink:0;}
+  .table-toolbar{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--bg2);border-bottom:1px solid var(--border);flex-shrink:0;flex-wrap:wrap;}
+  .table-toolbar .lbl{color:var(--muted);font-size:13px;font-weight:600;letter-spacing:.03em;}
+  .table-toolbar input,.table-toolbar select{background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:6px 12px;border-radius:7px;font-size:13px;outline:none;}
+  .table-toolbar input:focus,.table-toolbar select:focus{border-color:var(--blue);}
+  .table-toolbar select{cursor:pointer;}
+  .toolbar-sep{width:1px;height:24px;background:var(--border);flex-shrink:0;margin:0 2px;}
+  .table-wrap{overflow:auto;flex:1;}
+  #main-table{table-layout:fixed;width:100%;}
+
+  .seg-ctrl{display:flex;gap:2px;background:var(--bg3);padding:3px;border-radius:9px;border:1px solid var(--border);}
+  .seg-btn{padding:6px 14px;border:none;background:transparent;color:var(--muted);cursor:pointer;border-radius:7px;font-size:13px;font-weight:500;transition:all .15s;white-space:nowrap;}
+  .seg-btn:hover{color:var(--text);}
+  .seg-btn.active{background:var(--bg2);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,.4);}
+  .seg-btn[data-core="70"].active{color:#facc15;}
+  .seg-btn[data-core="80"].active{color:#f97316;}
+  .seg-btn[data-core="90"].active{color:#ef4444;}
+  .seg-btn[data-core="95"].active{color:#dc2626;}
+  .seg-btn[data-source].active{color:var(--cyan);}
+  .seg-btn .cnt{color:var(--muted);font-size:11px;margin-left:5px;}
+  .seg-btn:disabled{opacity:.35;cursor:default;}
+
+  table{border-collapse:collapse;width:100%;font-size:12px;}
+  thead th{background:var(--bg3);color:var(--muted);padding:6px 10px;text-align:right;position:sticky;top:0;z-index:10;white-space:nowrap;border-bottom:1px solid var(--border);cursor:pointer;user-select:none;}
+  thead th:hover{color:var(--text);}
+  thead th.asc::after{content:' ▲';font-size:9px;color:var(--blue);}
+  thead th.dsc::after{content:' ▼';font-size:9px;color:var(--blue);}
+  .th-group{background:var(--bg2)!important;color:var(--text)!important;font-size:11px;font-weight:700;border-bottom:1px solid var(--border);text-align:center!important;}
+  tbody tr:nth-child(even){background:var(--bg2);}
+  tbody tr:nth-child(odd){background:var(--bg);}
+  tbody tr:hover{background:var(--bg3);}
+  tbody tr.sel td{background:#172a45;}
+  td{padding:5px 10px;text-align:right;white-space:nowrap;border-right:1px solid rgba(30,45,69,.25);overflow:hidden;text-overflow:ellipsis;}
+  td.city-col{text-align:left;font-weight:500;padding-left:14px;padding-right:8px;cursor:pointer;}
+  td.city-col:hover{color:var(--blue);text-decoration:underline;}
+  .src-badges{display:inline-flex;gap:3px;margin-left:6px;vertical-align:middle;}
+  .badge{font-size:9px;font-weight:700;padding:1px 4px;border-radius:4px;background:var(--bg3);color:var(--muted);border:1px solid var(--border);letter-spacing:.02em;}
+  .badge.on{color:var(--cyan);border-color:#164e63;}
+  .neg{color:#f87171;} .pos{color:#fb923c;} .ok{color:#4ade80;}
+  .best-val{font-weight:700;}
+
+  .map-pane{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+  .map-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 16px;background:var(--bg2);border-bottom:1px solid var(--border);flex-shrink:0;}
+  .map-toolbar .lbl{color:var(--muted);font-size:13px;font-weight:600;letter-spacing:.03em;white-space:nowrap;}
+  .bm-switcher{display:flex;gap:2px;background:var(--bg3);padding:3px;border-radius:9px;border:1px solid var(--border);}
+  .bm-btn{padding:6px 16px;border:none;background:transparent;color:var(--muted);cursor:pointer;border-radius:7px;font-size:13px;font-weight:500;transition:all .15s;white-space:nowrap;}
+  .bm-btn:hover{color:var(--text);}
+  .bm-btn.active{background:var(--bg2);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,.4);}
+  .bm-btn[data-key="dark"].active{color:#60a5fa;}
+  .bm-btn[data-key="osm"].active{color:#4ade80;}
+  .bm-btn[data-key="satellite"].active{color:#a78bfa;}
+  .bm-btn[data-key="google"].active{color:#fb923c;}
+  .tog-inline{display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px;color:var(--muted);white-space:nowrap;padding:5px 9px;border-radius:6px;border:1px solid transparent;transition:all .12s;}
+  .tog-inline:hover{color:var(--text);}
+  .tog-inline:has(input:checked){color:var(--text);border-color:var(--border);background:var(--bg3);}
+  .tog-inline input[type=checkbox]{accent-color:var(--blue);width:13px;height:13px;cursor:pointer;flex-shrink:0;}
+  .tog-swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+
+  .map-inner{display:flex;flex:1;overflow:hidden;}
+  #map-wrap{flex:1;position:relative;}
+  #map{width:100%;height:100%;background:#0b0e14;}
+
+  .fp{position:absolute;z-index:1000;background:rgba(13,16,22,.95);border:1px solid var(--border);border-radius:10px;}
+  #info-box{top:12px;right:12px;min-width:300px;max-width:360px;padding:16px 20px;}
+  #info-box h4{color:var(--blue);font-size:18px;font-weight:700;margin-bottom:8px;line-height:1.2;}
+  .ir{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;font-size:14px;gap:12px;}
+  .ir .lbl{color:var(--muted);} .ir .val{font-weight:600;text-align:right;}
+  .pct-section{margin-top:10px;}
+  .prow{margin-bottom:7px;}
+  .plbl{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;margin-bottom:3px;}
+  .plbl .pk{font-weight:700;} .plbl .pv{color:var(--text);}
+  .pbar-bg{background:var(--bg3);border-radius:4px;height:7px;}
+  .pbar{height:100%;border-radius:4px;transition:width .35s;}
+  .hint{color:var(--muted);font-size:12px;line-height:1.5;margin-top:8px;}
+  .hint code{background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:2px 6px;color:var(--cyan);font-size:11px;display:inline-block;margin-top:4px;}
+
+  #legend-box{bottom:14px;left:8px;padding:10px 13px;font-size:11px;}
+  #legend-box .lt{color:var(--muted);margin-bottom:5px;font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;}
+  .leaflet-tooltip{background:rgba(13,16,22,.92)!important;border:1px solid var(--border)!important;color:var(--text)!important;font-size:12px!important;padding:5px 9px!important;border-radius:6px!important;box-shadow:none!important;}
+
+  #overlay-msg{position:fixed;inset:0;z-index:99999;background:rgba(15,17,23,.94);display:none;align-items:center;justify-content:center;font-family:'Segoe UI',system-ui,sans-serif;}
+  #overlay-msg .card{max-width:560px;background:#131926;border:1px solid #1e2d45;border-radius:12px;padding:32px;color:#e2e8f0;line-height:1.55;}
+  #overlay-msg pre{background:#0f1117;border:1px solid #1e2d45;border-radius:8px;padding:14px;color:#22d3ee;font-size:13px;overflow:auto;margin:12px 0 8px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="app-title">Urban Density</span>
+  <span class="app-sub">OSM landuse mask × population raster → density-percentile cores</span>
+  <span class="spacer"></span>
+  <span class="lbl">Population source:</span>
+  <div class="seg-ctrl" id="source-ctrl"></div>
+</div>
+
+<div class="main-split">
+  <div class="table-pane">
+    <div class="table-toolbar">
+      <span class="lbl">Search:</span>
+      <input id="search" type="text" placeholder="City..." oninput="renderTable()" style="width:130px">
+      <select id="country-filter" onchange="renderTable()" style="width:150px">
+        <option value="">All countries</option>
+      </select>
+      <div class="toolbar-sep"></div>
+      <span class="lbl">Core:</span>
+      <div class="seg-ctrl">
+        <button class="seg-btn" data-core="70" onclick="switchCore(70)">70%</button>
+        <button class="seg-btn" data-core="80" onclick="switchCore(80)">80%</button>
+        <button class="seg-btn active" data-core="90" onclick="switchCore(90)">90%</button>
+        <button class="seg-btn" data-core="95" onclick="switchCore(95)">95%</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table id="main-table">
+        <colgroup>
+          <col style="width:24%"><col style="width:12%"><col style="width:14%">
+          <col style="width:12%"><col style="width:13%"><col style="width:25%">
+        </colgroup>
+        <thead id="main-thead"></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="map-pane">
+    <div class="map-toolbar">
+      <span class="lbl">Basemap:</span>
+      <div class="bm-switcher">
+        <button class="bm-btn active" data-key="dark" onclick="switchBasemap('dark')">Dark</button>
+        <button class="bm-btn" data-key="osm" onclick="switchBasemap('osm')">OSM</button>
+        <button class="bm-btn" data-key="satellite" onclick="switchBasemap('satellite')">Satellite</button>
+        <button class="bm-btn" data-key="google" onclick="switchBasemap('google')">Google</button>
+      </div>
+      <div class="toolbar-sep"></div>
+      <span class="lbl">Layers:</span>
+      <label class="tog-inline"><input type="checkbox" id="tog-heat" checked onchange="toggleLayer('heat')"><span class="tog-swatch" style="background:#475569"></span>Heatmap</label>
+      <label class="tog-inline"><input type="checkbox" id="tog-boundary" onchange="toggleLayer('boundary')"><span class="tog-swatch" id="sw-boundary" style="background:#22d3ee"></span>OSM Mask</label>
+      <label class="tog-inline"><input type="checkbox" id="tog-real" onchange="toggleLayer('real')"><span class="tog-swatch" style="background:#00ff88"></span>Real Boundary</label>
+      <div class="toolbar-sep"></div>
+      <span class="lbl">Cores:</span>
+      <label class="tog-inline"><input type="checkbox" id="tog-core-95" onchange="toggleCore(95)"><span class="tog-swatch" id="sw-core-95" style="background:#dc2626"></span>95%</label>
+      <label class="tog-inline"><input type="checkbox" id="tog-core-90" checked onchange="toggleCore(90)"><span class="tog-swatch" id="sw-core-90" style="background:#ef4444"></span>90%</label>
+      <label class="tog-inline"><input type="checkbox" id="tog-core-80" onchange="toggleCore(80)"><span class="tog-swatch" id="sw-core-80" style="background:#f97316"></span>80%</label>
+      <label class="tog-inline"><input type="checkbox" id="tog-core-70" onchange="toggleCore(70)"><span class="tog-swatch" id="sw-core-70" style="background:#facc15"></span>70%</label>
+    </div>
+    <div class="map-inner">
+      <div id="map-wrap">
+        <div id="map"></div>
+        <div class="fp" id="info-box">
+          <h4 id="ib-title">Select a city</h4>
+          <div id="ib-body"><p class="hint">Click a city in the table to see its cores. Switch the population source in the top bar.</p></div>
+        </div>
+        <div class="fp" id="legend-box">
+          <div class="lt">Density, ppl/km²</div>
+          <div style="height:10px;border-radius:4px;margin:5px 0 3px;background:linear-gradient(to right,#251155,#63197f,#a12f7e,#dd4968,#fb8861,#fec689,#fbfcbf)"></div>
+          <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--muted)"><span>low</span><span>↑ log scale ↑</span><span>high</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="overlay-msg"><div class="card" id="overlay-card"></div></div>
+
+<script>
+// ── Data ─────────────────────────────────────────────────────────────────────
+const CORES = [70, 80, 90, 95];
+const CORE_COLORS = {70:'#facc15', 80:'#f97316', 90:'#ef4444', 95:'#dc2626'};
+const SOURCE_ORDER = ['worldpop', 'ghs', 'hrsl'];
+let REG = {sources:{}, cities:[]};
+let CITIES = [];
+let SOURCE = null;
+let selectedCore = 90;
+let sortKey = 'name', sortDir = 'asc';
+let currentCityId = null;
+
+function srcLabel(s) { return (REG.sources[s] && REG.sources[s].label) || s; }
+function srcTitle(s) { return (REG.sources[s] && REG.sources[s].title) || s; }
+function res(c, s = SOURCE) { return (c.sources && c.sources[s]) || null; }
+function delta(c, p, s = SOURCE) {
+  const r = res(c, s), a = r ? r[`area${p}`] : null;
+  if (!c.real_area || a == null) return null;
+  return (a - c.real_area) / c.real_area * 100;
+}
+function bestCore(c) {
+  const ds = CORES.map(p => ({p, d: delta(c, p)})).filter(x => x.d != null);
+  return ds.length ? ds.reduce((a, b) => Math.abs(a.d) < Math.abs(b.d) ? a : b).p : null;
+}
+function sortValue(c, key) {
+  if (key === 'name' || key === 'country') return c[key] || '';
+  if (key === 'real_area') return c.real_area;
+  const m = key.match(/^(area|pop|d|absD)(\d+)$/);
+  if (!m) return null;
+  const p = +m[2];
+  if (m[1] === 'd') return delta(c, p);
+  if (m[1] === 'absD') { const d = delta(c, p); return d == null ? null : Math.abs(d); }
+  const r = res(c);
+  return r ? r[`${m[1]}${p}`] : null;
+}
+
+// ── Source selector ──────────────────────────────────────────────────────────
+function availableSources() {
+  const counts = {};
+  CITIES.forEach(c => Object.keys(c.sources || {}).forEach(s => { counts[s] = (counts[s] || 0) + 1; }));
+  const known = SOURCE_ORDER.filter(s => counts[s]);
+  Object.keys(counts).forEach(s => { if (!known.includes(s)) known.push(s); });
+  return known.map(s => ({key: s, count: counts[s]}));
+}
+function renderSourceCtrl() {
+  const el = document.getElementById('source-ctrl');
+  const avail = availableSources();
+  el.innerHTML = avail.map(({key, count}) =>
+    `<button class="seg-btn${key === SOURCE ? ' active' : ''}" data-source="${key}" title="${srcTitle(key)}"
+       onclick="switchSource('${key}')">${srcLabel(key)}<span class="cnt">${count}</span></button>`).join('');
+}
+function switchSource(s) {
+  if (s === SOURCE) return;
+  SOURCE = s;
+  updateHash();
+  renderSourceCtrl();
+  renderTableHeader();
+  renderTable();
+  if (currentCityId) loadCity(currentCityId);
+}
+
+// ── Table ────────────────────────────────────────────────────────────────────
+function switchCore(p) {
+  selectedCore = p;
+  updateHash();
+  document.querySelectorAll('.seg-btn[data-core]').forEach(b => b.classList.toggle('active', +b.dataset.core === p));
+  if (!['name', 'country', 'real_area', `area${p}`, `pop${p}`, `d${p}`, `absD${p}`].includes(sortKey)) { sortKey = 'name'; sortDir = 'asc'; }
+  renderTableHeader(); renderTable();
+}
+function setSort(k) {
+  if (sortKey === k) sortDir = sortDir === 'asc' ? 'desc' : 'asc'; else { sortKey = k; sortDir = 'asc'; }
+  renderTableHeader(); renderTable();
+}
+function arrow(k) { return sortKey === k ? (sortDir === 'asc' ? ' ▲' : ' ▼') : ''; }
+function renderTableHeader() {
+  const p = selectedCore;
+  const row1 = [
+    `<th rowspan="2" class="th-group" style="text-align:left!important;padding-left:14px!important" onclick="setSort('name')">City${arrow('name')}</th>`,
+    `<th rowspan="2" class="th-group" style="text-align:left!important" onclick="setSort('country')">Country${arrow('country')}</th>`,
+    `<th rowspan="2" class="th-group" style="color:var(--green)" onclick="setSort('real_area')">Real Area, km²${arrow('real_area')}</th>`,
+    `<th colspan="3" class="th-group" style="color:${CORE_COLORS[p]}">Core ${p}% — ${srcLabel(SOURCE)}</th>`,
+  ].join('');
+  const cls = k => sortKey === k ? (sortDir === 'asc' ? 'asc' : 'dsc') : '';
+  const row2 = [
+    `<th class="${cls(`area${p}`)}" onclick="setSort('area${p}')">Area, km²</th>`,
+    `<th class="${cls(`pop${p}`)}" onclick="setSort('pop${p}')">Population</th>`,
+    `<th class="${cls(`d${p}`)}" onclick="setSort('d${p}')">Δ vs Real</th>`,
+  ].join('');
+  document.getElementById('main-thead').innerHTML = `<tr>${row1}</tr><tr>${row2}</tr>`;
+}
+function fi(v) { return (v == null || isNaN(v)) ? '—' : Math.round(v).toLocaleString('en-US'); }
+function fpop(v) { return v == null ? '—' : Math.round(v / 1000).toLocaleString('en-US') + 'K'; }
+function dc(d) { return d == null ? '' : Math.abs(d) <= 10 ? 'ok' : d < 0 ? 'neg' : 'pos'; }
+function median(arr) { const s = [...arr].sort((a, b) => a - b), m = Math.floor(s.length / 2); return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; }
+
+function renderTable() {
+  const p = selectedCore;
+  const q = document.getElementById('search').value.toLowerCase();
+  const cf = document.getElementById('country-filter').value;
+  let rows = CITIES.filter(c => res(c) &&
+    (c.name.toLowerCase().includes(q) || c.id.includes(q)) && (!cf || c.country === cf));
+  rows.sort((a, b) => {
+    const av = sortValue(a, sortKey), bv = sortValue(b, sortKey);
+    const r = typeof av === 'string' ? av.localeCompare(bv, 'en') : ((av ?? -Infinity) - (bv ?? -Infinity));
+    return sortDir === 'asc' ? r : -r;
+  });
+
+  const cityRows = rows.map(c => {
+    const r = res(c), d = delta(c, p);
+    const absD = d == null ? null : Math.abs(r[`area${p}`] - c.real_area);
+    const sign = d != null ? (d > 0 ? '+' : '−') : '';
+    const badges = SOURCE_ORDER.filter(s => s !== SOURCE && res(c, s))
+      .map(s => `<span class="badge" title="also computed with ${srcLabel(s)}">${srcLabel(s).split(' ')[0]}</span>`).join('');
+    const deltaCell = absD != null
+      ? `<span style="font-size:11px">${sign}${fi(absD)} km² <span style="font-size:10px;color:var(--muted)">(${sign}${Math.abs(Math.round(d))}%)</span></span>` : '—';
+    return `<tr class="${c.id === currentCityId ? 'sel' : ''}">
+      <td class="city-col" onclick="loadCity('${c.id}')">${c.name}${badges ? `<span class="src-badges">${badges}</span>` : ''}</td>
+      <td style="color:var(--muted);font-size:11px;text-align:left;padding-left:10px">${c.country || ''}</td>
+      <td style="color:#4ade80;font-weight:600">${c.real_area != null ? fi(c.real_area) : '—'}</td>
+      <td>${fi(r[`area${p}`])}</td>
+      <td style="color:var(--muted)">${fpop(r[`pop${p}`])}</td>
+      <td class="${bestCore(c) === p ? 'best-val' : ''}">${deltaCell}</td></tr>`;
+  }).join('');
+
+  const ds = rows.map(c => delta(c, p)).filter(x => x != null);
+  const fstyle = 'background:#1a2a1a;border-top:2px solid #2a4a2a;';
+  const stats = [
+    ['Mean Δ', ds.length ? Math.round(ds.reduce((a, b) => a + b, 0) / ds.length) : null, false],
+    ['Median Δ', ds.length ? Math.round(median(ds)) : null, false],
+    ['Mean |Δ|', ds.length ? Math.round(ds.map(Math.abs).reduce((a, b) => a + b, 0) / ds.length) : null, true],
+  ];
+  const footer = stats.map(([label, v, isAbs]) => `<tr style="${fstyle}">
+      <td style="text-align:left;padding-left:14px;color:var(--muted);font-weight:700">${label} <span style="font-weight:400;font-size:10px">(${ds.length} cities)</span></td>
+      <td></td><td></td><td></td><td></td>
+      <td class="${isAbs ? '' : dc(v)}" style="font-weight:700;${isAbs ? 'color:var(--amber)' : ''}">${v != null ? ((!isAbs && v > 0) ? '+' : '') + v + '%' : '—'}</td></tr>`).join('');
+  document.getElementById('tbody').innerHTML = cityRows + footer;
+}
+
+// ── Map ──────────────────────────────────────────────────────────────────────
+const BASEMAPS = {
+  // CARTO basemaps need an API key since 2026 — Esri's dark canvas is free with attribution (native tiles to z16).
+  dark: {url:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', attr:'Tiles &copy; Esri, HERE, Garmin, OSM contributors', maxZoom:19, maxNativeZoom:16, heatOpacity:0.92,
+         coreColors:{70:'#facc15',80:'#f97316',90:'#ef4444',95:'#dc2626'}, coreWeight:2, coreDash:'4,3', boundaryColor:'#22d3ee', boundaryFillOpacity:0.06, boundaryDash:'5,4'},
+  osm: {url:'https://tile.openstreetmap.org/{z}/{x}/{y}.png', attr:'&copy; OpenStreetMap contributors', maxZoom:19, heatOpacity:0.80,
+        coreColors:{70:'#b45309',80:'#c2410c',90:'#b91c1c',95:'#6b21a8'}, coreWeight:2.5, coreDash:null, boundaryColor:'#1d4ed8', boundaryFillOpacity:0.07, boundaryDash:'5,4'},
+  satellite: {url:'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', attr:'&copy; Google', maxZoom:20, heatOpacity:0.88,
+        coreColors:{70:'#a3e635',80:'#22d3ee',90:'#f472b6',95:'#ffffff'}, coreWeight:2.5, coreDash:null, boundaryColor:'#fbbf24', boundaryFillOpacity:0.0, boundaryDash:'5,4'},
+  google: {url:'https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', attr:'&copy; Google', maxZoom:20, heatOpacity:0.78,
+        coreColors:{70:'#ca8a04',80:'#c2410c',90:'#dc2626',95:'#831843'}, coreWeight:2, coreDash:'4,3', boundaryColor:'#2563eb', boundaryFillOpacity:0.06, boundaryDash:'5,4'},
+};
+let map, tileLayer = null, heatLayer = null, boundaryLayer = null, realBoundaryLayer = null;
+let coreLayers = {70:null, 80:null, 90:null, 95:null};
+let currentBasemap = 'dark';
+const vis = {heat:true, boundary:false, real:false};
+const visCore = {70:false, 80:false, 90:true, 95:false};
+
+function initMap() {
+  map = L.map('map').setView([15, 30], 3);
+  const bm = BASEMAPS[currentBasemap];
+  tileLayer = L.tileLayer(bm.url, {attribution: bm.attr, maxZoom: bm.maxZoom, maxNativeZoom: bm.maxNativeZoom || bm.maxZoom}).addTo(map);
+}
+function switchBasemap(key) {
+  if (key === currentBasemap) return;
+  currentBasemap = key;
+  const bm = BASEMAPS[key];
+  document.querySelectorAll('.bm-btn').forEach(b => b.classList.toggle('active', b.dataset.key === key));
+  if (tileLayer) map.removeLayer(tileLayer);
+  tileLayer = L.tileLayer(bm.url, {attribution: bm.attr, maxZoom: bm.maxZoom, maxNativeZoom: bm.maxNativeZoom || bm.maxZoom}).addTo(map);
+  tileLayer.bringToBack();
+  if (heatLayer) heatLayer.setOpacity(bm.heatOpacity);
+  if (boundaryLayer) boundaryLayer.setStyle({color: bm.boundaryColor, fillColor: bm.boundaryColor, fillOpacity: bm.boundaryFillOpacity, dashArray: bm.boundaryDash});
+  CORES.forEach(p => { if (coreLayers[p]) coreLayers[p].setStyle({color: bm.coreColors[p], weight: bm.coreWeight, dashArray: bm.coreDash}); });
+  document.getElementById('sw-boundary').style.background = bm.boundaryColor;
+  CORES.forEach(p => document.getElementById(`sw-core-${p}`).style.background = bm.coreColors[p]);
+}
+function buildCoreLayer(feature) {
+  const p = feature.properties.threshold, bm = BASEMAPS[currentBasemap];
+  return L.geoJSON(feature, {style: {color: bm.coreColors[p], weight: bm.coreWeight, fill: false, dashArray: bm.coreDash}})
+    .bindTooltip(() => {
+      const c = CITIES.find(x => x.id === currentCityId), r = c && res(c);
+      if (!r) return '';
+      const d = delta(c, p);
+      return `Core ${p}% — ${fi(r[`area${p}`])} km²${d != null ? `<br>Δ ${d > 0 ? '+' : ''}${Math.round(d)}% vs real` : ''}`;
+    }, {className: 'leaflet-tooltip', sticky: true});
+}
+async function fetchJson(url) { const r = await fetch(url); if (!r.ok) throw new Error(r.status); return r.json(); }
+
+async function loadCity(id) {
+  const city = CITIES.find(c => c.id === id);
+  if (!city) return;
+  currentCityId = id;
+  document.querySelectorAll('#tbody tr').forEach(tr => tr.classList.toggle('sel', tr.querySelector('td.city-col') && tr.querySelector('td.city-col').getAttribute('onclick') === `loadCity('${id}')`));
+
+  [heatLayer, boundaryLayer, realBoundaryLayer, ...Object.values(coreLayers)].forEach(l => { if (l && map.hasLayer(l)) map.removeLayer(l); });
+  heatLayer = boundaryLayer = realBoundaryLayer = null;
+  coreLayers = {70:null, 80:null, 90:null, 95:null};
+  const bm = BASEMAPS[currentBasemap];
+  const r = res(city);
+  const dir = `urban_cities/${id}`;
+  let mapBounds = (r && r.bounds) || city.bounds;
+  mapBounds = mapBounds ? [[mapBounds[0], mapBounds[1]], [mapBounds[2], mapBounds[3]]] : null;
+
+  if (r) {
+    try {
+      const meta = await fetchJson(`${dir}/${SOURCE}/density_meta.json`);
+      const [S, W, N, E] = meta.bounds;
+      mapBounds = [[S, W], [N, E]];
+      heatLayer = L.imageOverlay(`${dir}/${SOURCE}/density_overlay.png`, mapBounds, {opacity: bm.heatOpacity});
+      if (vis.heat) heatLayer.addTo(map);
+    } catch (e) { console.warn('No heatmap for', id, SOURCE); }
+  }
+  if (mapBounds) map.fitBounds(mapBounds, {padding: [30, 30]});
+
+  try {
+    const bnd = await fetchJson(`${dir}/boundary_processed.geojson`);
+    boundaryLayer = L.geoJSON(bnd, {style: {color: bm.boundaryColor, weight: 1.5, fill: true, fillColor: bm.boundaryColor, fillOpacity: bm.boundaryFillOpacity, dashArray: bm.boundaryDash}})
+      .bindTooltip(`OSM landuse mask${r && r.urb_area != null ? '<br>' + fi(r.urb_area) + ' km²' : ''}`, {className: 'leaflet-tooltip', sticky: true});
+    if (vis.boundary) boundaryLayer.addTo(map);
+  } catch (e) { console.warn('No boundary for', id); }
+
+  if (r) {
+    try {
+      const gj = await fetchJson(`${dir}/${SOURCE}/cores.geojson`);
+      for (const f of gj.features) { const p = f.properties.threshold; coreLayers[p] = buildCoreLayer(f); if (visCore[p]) coreLayers[p].addTo(map); }
+    } catch (e) { console.warn('No cores for', id, SOURCE); }
+  }
+  if (city.has_real_polygon) {
+    try {
+      const gj = await fetchJson(`${dir}/real_boundary.geojson`);
+      realBoundaryLayer = L.geoJSON(gj, {style: {color: '#00ff88', weight: 2.5, fill: false, opacity: 0.9}})
+        .bindTooltip(`Real boundary${city.real_area != null ? '<br>' + fi(city.real_area) + ' km²' : ''}`, {className: 'leaflet-tooltip', sticky: true});
+      if (vis.real) realBoundaryLayer.addTo(map);
+    } catch (e) { console.warn('No real boundary for', id); }
+  }
+  renderInfo(city);
+  updateHash();
+}
+
+function renderInfo(city) {
+  const r = res(city);
+  document.getElementById('ib-title').textContent = city.name;
+  const head = `
+    <div class="ir" style="margin-bottom:2px"><span class="lbl" style="font-size:11px">${city.country || ''}${city.iso3 ? ' · ' + city.iso3 : ''}</span>
+      <span class="lbl" style="font-size:11px">${city.lat != null ? city.lat.toFixed(3) + ', ' + city.lon.toFixed(3) : ''}</span></div>
+    <div class="ir"><span class="lbl">Real area</span><span class="val" style="color:#4ade80">${city.real_area != null ? fi(city.real_area) + ' km²' : '—'}</span></div>`;
+  if (!r) {
+    const others = SOURCE_ORDER.filter(s => res(city, s)).map(srcLabel).join(', ');
+    document.getElementById('ib-body').innerHTML = head + `
+      <p class="hint">No <b>${srcLabel(SOURCE)}</b> run for this city${others ? ` (available: ${others})` : ''}. Compute it with:<br>
+      <code>python add_city.py --id ${city.id} --source ${SOURCE}</code></p>`;
+    return;
+  }
+  const areas = CORES.map(p => r[`area${p}`] || 0), maxArea = Math.max(...areas);
+  const bars = [95, 90, 80, 70].map(p => {
+    const d = delta(city, p), a = r[`area${p}`], pop = r[`pop${p}`];
+    const col = d == null ? 'var(--muted)' : Math.abs(d) <= 10 ? '#4ade80' : d < 0 ? '#f87171' : '#fb923c';
+    return `<div class="prow"><div class="plbl">
+        <span class="pk" style="color:${CORE_COLORS[p]}">Core ${p}%</span>
+        <span class="pv">${a != null ? fi(a) + ' km²' : '—'}${pop != null ? ` <span style="color:var(--muted);font-size:10px">/ ${fpop(pop)}</span>` : ''}${d != null ? ` <span style="color:${col}">(${d > 0 ? '+' : ''}${Math.round(d)}%)</span>` : ''}</span></div>
+      <div class="pbar-bg"><div class="pbar" style="width:${maxArea && a != null ? Math.round(a / maxArea * 100) : 0}%;background:${CORE_COLORS[p]}"></div></div></div>`;
+  }).join('');
+  document.getElementById('ib-body').innerHTML = head + `
+    <div class="ir"><span class="lbl">Source</span><span class="val" style="color:var(--cyan)" title="${srcTitle(SOURCE)}">${srcLabel(SOURCE)}</span></div>
+    <div class="ir"><span class="lbl">Urban extent (mask${r.mask ? ': ' + r.mask : ''})</span><span class="val" style="color:#22d3ee">${r.urb_area != null ? fi(r.urb_area) + ' km²' : '—'}</span></div>
+    <div class="ir"><span class="lbl">Population in extent</span><span class="val">${r.total_pop != null ? fi(r.total_pop) : '—'}</span></div>
+    <div class="pct-section">${bars}</div>
+    ${r.computed_at ? `<div class="hint" style="margin-top:6px">computed ${r.computed_at}${r.grid_m ? ` · ${r.grid_m} m grid` : ''}${r.radius_m ? ` · ${Math.round(r.radius_m / 1000)} km` : ''}</div>` : ''}`;
+}
+function toggleLayer(name) {
+  vis[name] = document.getElementById(`tog-${name}`).checked;
+  const layer = name === 'heat' ? heatLayer : name === 'real' ? realBoundaryLayer : boundaryLayer;
+  if (!layer) return;
+  if (vis[name]) layer.addTo(map); else map.removeLayer(layer);
+}
+function toggleCore(p) {
+  visCore[p] = document.getElementById(`tog-core-${p}`).checked;
+  const layer = coreLayers[p];
+  if (!layer) return;
+  if (visCore[p]) layer.addTo(map); else map.removeLayer(layer);
+}
+
+// ── Init ─────────────────────────────────────────────────────────────────────
+function showOverlay(html) { document.getElementById('overlay-card').innerHTML = html; document.getElementById('overlay-msg').style.display = 'flex'; }
+async function init() {
+  initMap();
+  if (location.protocol === 'file:') {
+    showOverlay(`<div style="font-size:18px;font-weight:600;color:#f59e0b;margin-bottom:14px">⚠ Opened as a file — data won't load</div>
+      <p style="color:#94a3b8">The dashboard loads its city list and map layers via <code>fetch()</code>, which browsers block for local <code>file://</code> pages. Serve it over HTTP instead:</p>
+      <pre>cd urban-density\npython3 launch.py</pre>
+      <p style="color:#64748b;font-size:12px">…or double-click <b>Open Dashboard.command</b> / <b>Urban Density.app</b> in the project folder.</p>`);
+    return;
+  }
+  try {
+    REG = await fetchJson('cities_all.json');
+  } catch (e) {
+    showOverlay(`<div style="font-size:18px;font-weight:600;color:#f87171;margin-bottom:14px">cities_all.json could not be loaded</div>
+      <p style="color:#94a3b8">Make sure you launched the dashboard from the project folder with <code>python3 launch.py</code>.</p>`);
+    return;
+  }
+  CITIES = REG.cities || [];
+  const avail = availableSources();
+  SOURCE = avail.some(s => s.key === 'worldpop') ? 'worldpop' : (avail[0] ? avail[0].key : null);
+  const sel = document.getElementById('country-filter');
+  [...new Set(CITIES.map(c => c.country).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'en')).forEach(c => {
+    const o = document.createElement('option'); o.value = c; o.textContent = c; sel.appendChild(o);
+  });
+  const h = new URLSearchParams(location.hash.slice(1));
+  if (h.get('source') && avail.some(s => s.key === h.get('source'))) SOURCE = h.get('source');
+  if (h.get('core') && CORES.includes(+h.get('core'))) switchCore(+h.get('core'));
+  renderSourceCtrl(); renderTableHeader(); renderTable();
+  if (h.get('city')) loadCity(h.get('city'));
+}
+function updateHash() {
+  const parts = [];
+  if (SOURCE) parts.push(`source=${SOURCE}`);
+  if (currentCityId) parts.push(`city=${currentCityId}`);
+  if (selectedCore !== 90) parts.push(`core=${selectedCore}`);
+  history.replaceState(null, '', '#' + parts.join('&'));
+}
+init();
+</script>
+</body>
+</html>

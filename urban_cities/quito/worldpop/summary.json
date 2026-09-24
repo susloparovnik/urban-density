@@ -1,0 +1,37 @@
+{
+  "city": "Quito",
+  "id": "quito",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32717,
+  "grid_m": 92.5,
+  "urban_extent_km2": 339.4,
+  "total_population": 1713455,
+  "core_70pct": {
+    "area_km2": 163.5,
+    "population": 1594135,
+    "density_km2": 9749.4,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 186.9,
+    "population": 1648454,
+    "density_km2": 8821.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 210.2,
+    "population": 1688456,
+    "density_km2": 8031.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 221.9,
+    "population": 1702907,
+    "density_km2": 7674.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

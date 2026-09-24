@@ -1,0 +1,37 @@
+{
+  "city": "Porto Velho",
+  "id": "porto_velho",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32720,
+  "grid_m": 91.8,
+  "urban_extent_km2": 81.3,
+  "total_population": 100167,
+  "core_70pct": {
+    "area_km2": 17.6,
+    "population": 94227,
+    "density_km2": 5364.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 20.1,
+    "population": 97624,
+    "density_km2": 4862.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 22.6,
+    "population": 99586,
+    "density_km2": 4409.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 23.8,
+    "population": 99945,
+    "density_km2": 4192.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

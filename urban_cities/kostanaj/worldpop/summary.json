@@ -1,0 +1,37 @@
+{
+  "city": "Kostanay",
+  "id": "kostanaj",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32641,
+  "grid_m": 67.8,
+  "urban_extent_km2": 273.0,
+  "total_population": 348894,
+  "core_70pct": {
+    "area_km2": 91.0,
+    "population": 284445,
+    "density_km2": 3127.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 104.0,
+    "population": 310307,
+    "density_km2": 2985.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 116.9,
+    "population": 333199,
+    "density_km2": 2849.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 123.4,
+    "population": 342827,
+    "density_km2": 2777.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

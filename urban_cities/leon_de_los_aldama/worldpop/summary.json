@@ -1,0 +1,37 @@
+{
+  "city": "Leon de los Aldama",
+  "id": "leon_de_los_aldama",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32614,
+  "grid_m": 89.0,
+  "urban_extent_km2": 280.2,
+  "total_population": 917717,
+  "core_70pct": {
+    "area_km2": 83.4,
+    "population": 729561,
+    "density_km2": 8745.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 95.3,
+    "population": 802376,
+    "density_km2": 8415.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 107.3,
+    "population": 866913,
+    "density_km2": 8081.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 113.2,
+    "population": 895113,
+    "density_km2": 7905.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

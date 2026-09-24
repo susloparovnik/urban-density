@@ -1,0 +1,37 @@
+{
+  "city": "Ponta Grossa",
+  "id": "ponta_grossa",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32722,
+  "grid_m": 87.4,
+  "urban_extent_km2": 158.7,
+  "total_population": 244028,
+  "core_70pct": {
+    "area_km2": 50.3,
+    "population": 232433,
+    "density_km2": 4623.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 57.5,
+    "population": 239995,
+    "density_km2": 4177.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 64.6,
+    "population": 243306,
+    "density_km2": 3764.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 68.2,
+    "population": 243832,
+    "density_km2": 3574.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

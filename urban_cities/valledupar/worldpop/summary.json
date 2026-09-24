@@ -1,0 +1,37 @@
+{
+  "city": "Valledupar",
+  "id": "valledupar",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32618,
+  "grid_m": 91.7,
+  "urban_extent_km2": 63.6,
+  "total_population": 387630,
+  "core_70pct": {
+    "area_km2": 22.3,
+    "population": 316576,
+    "density_km2": 14198.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 25.5,
+    "population": 346554,
+    "density_km2": 13599.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 28.7,
+    "population": 372284,
+    "density_km2": 12984.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 30.3,
+    "population": 381671,
+    "density_km2": 12612.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Ipiales",
+  "id": "ipiales",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32618,
+  "grid_m": 92.5,
+  "urban_extent_km2": 49.9,
+  "total_population": 379965,
+  "core_70pct": {
+    "area_km2": 17.5,
+    "population": 316777,
+    "density_km2": 18087.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 20.0,
+    "population": 345004,
+    "density_km2": 17232.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 22.5,
+    "population": 366869,
+    "density_km2": 16291.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 23.8,
+    "population": 375615,
+    "density_km2": 15803.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

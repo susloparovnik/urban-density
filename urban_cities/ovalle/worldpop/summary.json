@@ -1,0 +1,37 @@
+{
+  "city": "Ovalle",
+  "id": "ovalle",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32719,
+  "grid_m": 85.6,
+  "urban_extent_km2": 127.8,
+  "total_population": 116978,
+  "core_70pct": {
+    "area_km2": 20.7,
+    "population": 100693,
+    "density_km2": 4871.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 23.6,
+    "population": 107380,
+    "density_km2": 4545.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 26.6,
+    "population": 112849,
+    "density_km2": 4245.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 28.1,
+    "population": 115103,
+    "density_km2": 4103.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

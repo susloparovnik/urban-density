@@ -1,0 +1,37 @@
+{
+  "city": "Pietermaritzburg",
+  "id": "pietermaritzburg",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32736,
+  "grid_m": 85.4,
+  "urban_extent_km2": 369.6,
+  "total_population": 527244,
+  "core_70pct": {
+    "area_km2": 133.5,
+    "population": 505402,
+    "density_km2": 3786.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 152.6,
+    "population": 517597,
+    "density_km2": 3392.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 171.6,
+    "population": 524848,
+    "density_km2": 3058.0,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 181.2,
+    "population": 526629,
+    "density_km2": 2906.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

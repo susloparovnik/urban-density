@@ -1,0 +1,37 @@
+{
+  "city": "San Miguel",
+  "id": "san_miguel",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32616,
+  "grid_m": 91.2,
+  "urban_extent_km2": 128.5,
+  "total_population": 226632,
+  "core_70pct": {
+    "area_km2": 23.6,
+    "population": 180732,
+    "density_km2": 7655.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 27.0,
+    "population": 200123,
+    "density_km2": 7419.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 30.3,
+    "population": 216723,
+    "density_km2": 7141.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 32.0,
+    "population": 222695,
+    "density_km2": 6951.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

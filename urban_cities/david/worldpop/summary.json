@@ -1,0 +1,37 @@
+{
+  "city": "David",
+  "id": "david",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32617,
+  "grid_m": 91.9,
+  "urban_extent_km2": 250.8,
+  "total_population": 211231,
+  "core_70pct": {
+    "area_km2": 45.2,
+    "population": 184559,
+    "density_km2": 4087.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 51.6,
+    "population": 197016,
+    "density_km2": 3818.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 58.0,
+    "population": 206176,
+    "density_km2": 3551.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 61.3,
+    "population": 209358,
+    "density_km2": 3416.6,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

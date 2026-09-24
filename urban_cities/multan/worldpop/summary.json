@@ -1,0 +1,37 @@
+{
+  "city": "Multan",
+  "id": "multan",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32642,
+  "grid_m": 85.0,
+  "urban_extent_km2": 330.2,
+  "total_population": 2596495,
+  "core_70pct": {
+    "area_km2": 115.2,
+    "population": 2033024,
+    "density_km2": 17647.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 131.7,
+    "population": 2257601,
+    "density_km2": 17146.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 148.1,
+    "population": 2448315,
+    "density_km2": 16528.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 156.4,
+    "population": 2531185,
+    "density_km2": 16188.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

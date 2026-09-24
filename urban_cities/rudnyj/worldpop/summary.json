@@ -1,0 +1,37 @@
+{
+  "city": "Rudny",
+  "id": "rudnyj",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32641,
+  "grid_m": 65.5,
+  "urban_extent_km2": 135.3,
+  "total_population": 108643,
+  "core_70pct": {
+    "area_km2": 29.9,
+    "population": 92324,
+    "density_km2": 3091.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 34.1,
+    "population": 99606,
+    "density_km2": 2918.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 38.4,
+    "population": 105438,
+    "density_km2": 2745.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 40.5,
+    "population": 107487,
+    "density_km2": 2651.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

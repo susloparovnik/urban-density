@@ -1,0 +1,37 @@
+{
+  "city": "Shamalgan",
+  "id": "shamalgan_ushkonyr",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 75.2,
+  "urban_extent_km2": 779.0,
+  "total_population": 1785433,
+  "core_70pct": {
+    "area_km2": 282.6,
+    "population": 1599466,
+    "density_km2": 5660.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 322.9,
+    "population": 1672681,
+    "density_km2": 5179.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 363.3,
+    "population": 1737062,
+    "density_km2": 4781.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 383.5,
+    "population": 1765559,
+    "density_km2": 4604.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

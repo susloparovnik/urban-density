@@ -1,0 +1,37 @@
+{
+  "city": "Santa Cruz de la Sierra",
+  "id": "santa_cruz_de_la_sierra",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32720,
+  "grid_m": 90.4,
+  "urban_extent_km2": 560.6,
+  "total_population": 911032,
+  "core_70pct": {
+    "area_km2": 93.0,
+    "population": 744400,
+    "density_km2": 8004.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 106.3,
+    "population": 817069,
+    "density_km2": 7687.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 119.6,
+    "population": 877599,
+    "density_km2": 7339.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 126.2,
+    "population": 898544,
+    "density_km2": 7119.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

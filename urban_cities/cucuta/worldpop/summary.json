@@ -1,0 +1,37 @@
+{
+  "city": "Cucuta",
+  "id": "cucuta",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32618,
+  "grid_m": 92.1,
+  "urban_extent_km2": 312.8,
+  "total_population": 657798,
+  "core_70pct": {
+    "area_km2": 63.0,
+    "population": 545806,
+    "density_km2": 8664.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 72.0,
+    "population": 591903,
+    "density_km2": 8220.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 81.0,
+    "population": 632219,
+    "density_km2": 7805.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 85.5,
+    "population": 649101,
+    "density_km2": 7592.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

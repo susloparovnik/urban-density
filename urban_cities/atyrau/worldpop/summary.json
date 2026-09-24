@@ -1,0 +1,37 @@
+{
+  "city": "Atyrau",
+  "id": "atyrau",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32639,
+  "grid_m": 75.5,
+  "urban_extent_km2": 284.0,
+  "total_population": 260653,
+  "core_70pct": {
+    "area_km2": 75.9,
+    "population": 244888,
+    "density_km2": 3224.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 86.8,
+    "population": 251093,
+    "density_km2": 2893.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 97.6,
+    "population": 256255,
+    "density_km2": 2624.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 103.1,
+    "population": 258589,
+    "density_km2": 2509.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "San Jose",
+  "id": "san_jose",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32616,
+  "grid_m": 91.8,
+  "urban_extent_km2": 646.9,
+  "total_population": 2193228,
+  "core_70pct": {
+    "area_km2": 300.6,
+    "population": 1920625,
+    "density_km2": 6388.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 343.6,
+    "population": 2041570,
+    "density_km2": 5942.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 386.5,
+    "population": 2137161,
+    "density_km2": 5529.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 408.0,
+    "population": 2172745,
+    "density_km2": 5325.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

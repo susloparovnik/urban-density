@@ -1,0 +1,37 @@
+{
+  "city": "Kaskelen",
+  "id": "kaskelen",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 75.9,
+  "urban_extent_km2": 810.3,
+  "total_population": 1704552,
+  "core_70pct": {
+    "area_km2": 287.6,
+    "population": 1523330,
+    "density_km2": 5297.4,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 328.6,
+    "population": 1594837,
+    "density_km2": 4852.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 369.7,
+    "population": 1658087,
+    "density_km2": 4484.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 390.3,
+    "population": 1686242,
+    "density_km2": 4320.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

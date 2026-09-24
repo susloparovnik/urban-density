@@ -1,0 +1,37 @@
+{
+  "city": "Lima",
+  "id": "lima",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32718,
+  "grid_m": 91.6,
+  "urban_extent_km2": 1174.4,
+  "total_population": 9968653,
+  "core_70pct": {
+    "area_km2": 565.0,
+    "population": 8854281,
+    "density_km2": 15670.4,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 645.7,
+    "population": 9385292,
+    "density_km2": 14534.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 726.5,
+    "population": 9760887,
+    "density_km2": 13436.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 766.8,
+    "population": 9886201,
+    "density_km2": 12892.4,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

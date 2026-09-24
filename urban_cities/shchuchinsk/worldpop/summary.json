@@ -1,0 +1,37 @@
+{
+  "city": "Shchuchinsk",
+  "id": "shchuchinsk",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32642,
+  "grid_m": 67.7,
+  "urban_extent_km2": 116.8,
+  "total_population": 37005,
+  "core_70pct": {
+    "area_km2": 16.9,
+    "population": 29572,
+    "density_km2": 1752.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 19.3,
+    "population": 32767,
+    "density_km2": 1698.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 21.7,
+    "population": 35573,
+    "density_km2": 1639.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 22.9,
+    "population": 36627,
+    "density_km2": 1599.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

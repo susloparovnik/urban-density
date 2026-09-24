@@ -1,0 +1,37 @@
+{
+  "city": "Los Algarrobos",
+  "id": "los_algarrobos",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32617,
+  "grid_m": 91.9,
+  "urban_extent_km2": 259.1,
+  "total_population": 212042,
+  "core_70pct": {
+    "area_km2": 45.8,
+    "population": 185936,
+    "density_km2": 4060.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 52.3,
+    "population": 198304,
+    "density_km2": 3789.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 58.9,
+    "population": 207229,
+    "density_km2": 3519.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 62.1,
+    "population": 210197,
+    "density_km2": 3382.4,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

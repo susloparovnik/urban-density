@@ -1,0 +1,37 @@
+{
+  "city": "Santiago de Queretaro",
+  "id": "santiago_de_queretaro",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32614,
+  "grid_m": 88.8,
+  "urban_extent_km2": 201.7,
+  "total_population": 557803,
+  "core_70pct": {
+    "area_km2": 75.6,
+    "population": 437358,
+    "density_km2": 5782.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 86.4,
+    "population": 485401,
+    "density_km2": 5615.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 97.2,
+    "population": 526879,
+    "density_km2": 5418.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 102.6,
+    "population": 544311,
+    "density_km2": 5302.6,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

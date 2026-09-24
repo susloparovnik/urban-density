@@ -1,0 +1,37 @@
+{
+  "city": "Natal",
+  "id": "natal",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32725,
+  "grid_m": 92.2,
+  "urban_extent_km2": 376.2,
+  "total_population": 1007620,
+  "core_70pct": {
+    "area_km2": 99.1,
+    "population": 948832,
+    "density_km2": 9575.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 113.2,
+    "population": 981523,
+    "density_km2": 8666.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 127.4,
+    "population": 1000424,
+    "density_km2": 7852.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 134.5,
+    "population": 1005606,
+    "density_km2": 7477.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

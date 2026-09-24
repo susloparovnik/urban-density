@@ -1,0 +1,37 @@
+{
+  "city": "Los Mochis",
+  "id": "los_mochis",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32612,
+  "grid_m": 87.4,
+  "urban_extent_km2": 197.8,
+  "total_population": 166130,
+  "core_70pct": {
+    "area_km2": 30.4,
+    "population": 135246,
+    "density_km2": 4454.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 34.7,
+    "population": 147143,
+    "density_km2": 4240.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 39.0,
+    "population": 157594,
+    "density_km2": 4037.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 41.2,
+    "population": 162280,
+    "density_km2": 3938.4,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

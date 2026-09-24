@@ -1,0 +1,37 @@
+{
+  "city": "Gqeberha",
+  "id": "gqeberha",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32735,
+  "grid_m": 81.9,
+  "urban_extent_km2": 293.7,
+  "total_population": 762547,
+  "core_70pct": {
+    "area_km2": 111.2,
+    "population": 737800,
+    "density_km2": 6632.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 127.1,
+    "population": 755615,
+    "density_km2": 5943.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 143.0,
+    "population": 762118,
+    "density_km2": 5328.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 151.0,
+    "population": 762454,
+    "density_km2": 5050.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Coquimbo y LaSerena",
+  "id": "coquimbo_y_laserena",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32719,
+  "grid_m": 88.0,
+  "urban_extent_km2": 238.7,
+  "total_population": 471887,
+  "core_70pct": {
+    "area_km2": 62.1,
+    "population": 404242,
+    "density_km2": 6506.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 71.0,
+    "population": 434774,
+    "density_km2": 6122.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 79.9,
+    "population": 457497,
+    "density_km2": 5726.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 84.3,
+    "population": 466125,
+    "density_km2": 5527.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

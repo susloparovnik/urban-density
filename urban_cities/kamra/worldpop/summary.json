@@ -1,0 +1,37 @@
+{
+  "city": "Kamra",
+  "id": "kamra",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 83.7,
+  "urban_extent_km2": 136.8,
+  "total_population": 349845,
+  "core_70pct": {
+    "area_km2": 29.8,
+    "population": 266945,
+    "density_km2": 8943.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 34.1,
+    "population": 295960,
+    "density_km2": 8676.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 38.4,
+    "population": 323792,
+    "density_km2": 8436.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 40.5,
+    "population": 337186,
+    "density_km2": 8324.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

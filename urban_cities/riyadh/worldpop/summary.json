@@ -1,0 +1,37 @@
+{
+  "city": "Riyadh",
+  "id": "riyadh",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32638,
+  "grid_m": 88.4,
+  "urban_extent_km2": 1812.9,
+  "total_population": 5519735,
+  "core_70pct": {
+    "area_km2": 713.1,
+    "population": 4452265,
+    "density_km2": 6243.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 815.0,
+    "population": 4906126,
+    "density_km2": 6020.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 916.8,
+    "population": 5283452,
+    "density_km2": 5762.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 967.8,
+    "population": 5428735,
+    "density_km2": 5609.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Salvador",
+  "id": "salvador",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32724,
+  "grid_m": 91.0,
+  "urban_extent_km2": 399.7,
+  "total_population": 2970934,
+  "core_70pct": {
+    "area_km2": 162.5,
+    "population": 2899617,
+    "density_km2": 17843.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 185.7,
+    "population": 2947886,
+    "density_km2": 15873.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 208.9,
+    "population": 2967231,
+    "density_km2": 14202.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 220.5,
+    "population": 2970234,
+    "density_km2": 13468.6,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

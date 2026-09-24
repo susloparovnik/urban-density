@@ -1,0 +1,37 @@
+{
+  "city": "Abidjan",
+  "id": "abidjan",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32630,
+  "grid_m": 92.3,
+  "urban_extent_km2": 986.0,
+  "total_population": 5503971,
+  "core_70pct": {
+    "area_km2": 342.3,
+    "population": 5330414,
+    "density_km2": 15571.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 391.2,
+    "population": 5415240,
+    "density_km2": 13842.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 440.1,
+    "population": 5471036,
+    "density_km2": 12430.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 464.6,
+    "population": 5490147,
+    "density_km2": 11817.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

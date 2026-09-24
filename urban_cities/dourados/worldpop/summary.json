@@ -1,0 +1,37 @@
+{
+  "city": "Dourados",
+  "id": "dourados",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32721,
+  "grid_m": 88.8,
+  "urban_extent_km2": 94.8,
+  "total_population": 200622,
+  "core_70pct": {
+    "area_km2": 36.1,
+    "population": 184930,
+    "density_km2": 5116.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 41.3,
+    "population": 194678,
+    "density_km2": 4713.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 46.5,
+    "population": 199426,
+    "density_km2": 4292.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 49.0,
+    "population": 200318,
+    "density_km2": 4084.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

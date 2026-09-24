@@ -1,0 +1,37 @@
+{
+  "city": "Guadalajara",
+  "id": "guadalajara",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32613,
+  "grid_m": 89.5,
+  "urban_extent_km2": 447.5,
+  "total_population": 2081239,
+  "core_70pct": {
+    "area_km2": 161.3,
+    "population": 1689425,
+    "density_km2": 10473.4,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 184.3,
+    "population": 1844113,
+    "density_km2": 10003.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 207.4,
+    "population": 1981891,
+    "density_km2": 9556.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 218.9,
+    "population": 2039163,
+    "density_km2": 9314.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

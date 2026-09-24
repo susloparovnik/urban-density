@@ -1,0 +1,37 @@
+{
+  "city": "Campinas",
+  "id": "campinas",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32723,
+  "grid_m": 88.7,
+  "urban_extent_km2": 833.7,
+  "total_population": 1700809,
+  "core_70pct": {
+    "area_km2": 343.6,
+    "population": 1673851,
+    "density_km2": 4871.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 392.7,
+    "population": 1691223,
+    "density_km2": 4306.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 441.8,
+    "population": 1698801,
+    "density_km2": 3845.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 466.4,
+    "population": 1700347,
+    "density_km2": 3646.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Penang",
+  "id": "penang",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32647,
+  "grid_m": 92.3,
+  "urban_extent_km2": 235.3,
+  "total_population": 395536,
+  "core_70pct": {
+    "area_km2": 98.0,
+    "population": 345588,
+    "density_km2": 3527.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 112.0,
+    "population": 366843,
+    "density_km2": 3276.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 126.0,
+    "population": 383919,
+    "density_km2": 3047.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 133.0,
+    "population": 390624,
+    "density_km2": 2937.6,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

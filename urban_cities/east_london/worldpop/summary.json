@@ -1,0 +1,37 @@
+{
+  "city": "East London",
+  "id": "east_london",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32735,
+  "grid_m": 83.7,
+  "urban_extent_km2": 196.6,
+  "total_population": 291366,
+  "core_70pct": {
+    "area_km2": 65.3,
+    "population": 281354,
+    "density_km2": 4309.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 74.6,
+    "population": 286810,
+    "density_km2": 3844.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 83.9,
+    "population": 289967,
+    "density_km2": 3454.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 88.6,
+    "population": 290884,
+    "density_km2": 3283.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

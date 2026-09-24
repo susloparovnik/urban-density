@@ -1,0 +1,37 @@
+{
+  "city": "Tegucigalpa y Comayagüela",
+  "id": "tegucigalpa_y_comayaguela",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32616,
+  "grid_m": 91.0,
+  "urban_extent_km2": 120.8,
+  "total_population": 663192,
+  "core_70pct": {
+    "area_km2": 47.0,
+    "population": 513033,
+    "density_km2": 10923.4,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 53.7,
+    "population": 569225,
+    "density_km2": 10605.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 60.4,
+    "population": 620773,
+    "density_km2": 10281.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 63.7,
+    "population": 643744,
+    "density_km2": 10100.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

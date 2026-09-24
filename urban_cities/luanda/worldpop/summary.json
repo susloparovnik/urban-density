@@ -1,0 +1,37 @@
+{
+  "city": "Luanda",
+  "id": "luanda",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32733,
+  "grid_m": 91.9,
+  "urban_extent_km2": 593.4,
+  "total_population": 4742342,
+  "core_70pct": {
+    "area_km2": 202.0,
+    "population": 4534407,
+    "density_km2": 22448.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 230.8,
+    "population": 4648284,
+    "density_km2": 20135.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 259.7,
+    "population": 4712934,
+    "density_km2": 18147.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 274.1,
+    "population": 4731344,
+    "density_km2": 17259.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

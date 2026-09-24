@@ -1,0 +1,37 @@
+{
+  "city": "Mojokerto",
+  "id": "mojokerto",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32749,
+  "grid_m": 92.1,
+  "urban_extent_km2": 665.1,
+  "total_population": 2098548,
+  "core_70pct": {
+    "area_km2": 296.7,
+    "population": 1712579,
+    "density_km2": 5771.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 339.1,
+    "population": 1861484,
+    "density_km2": 5489.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 381.5,
+    "population": 1992323,
+    "density_km2": 5222.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 402.7,
+    "population": 2050051,
+    "density_km2": 5090.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

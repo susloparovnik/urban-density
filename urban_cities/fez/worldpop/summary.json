@@ -1,0 +1,37 @@
+{
+  "city": "Fez",
+  "id": "fez",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32629,
+  "grid_m": 84.2,
+  "urban_extent_km2": 51.9,
+  "total_population": 294661,
+  "core_70pct": {
+    "area_km2": 14.4,
+    "population": 288010,
+    "density_km2": 20021.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 16.4,
+    "population": 291093,
+    "density_km2": 17703.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 18.5,
+    "population": 293373,
+    "density_km2": 15863.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 19.5,
+    "population": 294158,
+    "density_km2": 15067.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

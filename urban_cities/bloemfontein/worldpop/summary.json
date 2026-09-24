@@ -1,0 +1,37 @@
+{
+  "city": "Bloemfontein",
+  "id": "bloemfontein",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32735,
+  "grid_m": 88.0,
+  "urban_extent_km2": 55.9,
+  "total_population": 65949,
+  "core_70pct": {
+    "area_km2": 19.9,
+    "population": 64503,
+    "density_km2": 3248.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 22.7,
+    "population": 65451,
+    "density_km2": 2883.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 25.5,
+    "population": 65844,
+    "density_km2": 2578.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 27.0,
+    "population": 65921,
+    "density_km2": 2445.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

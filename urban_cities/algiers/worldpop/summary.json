@@ -1,0 +1,37 @@
+{
+  "city": "Alger",
+  "id": "algiers",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32631,
+  "grid_m": 78.6,
+  "urban_extent_km2": 638.8,
+  "total_population": 4240543,
+  "core_70pct": {
+    "area_km2": 279.6,
+    "population": 3748583,
+    "density_km2": 13407.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 319.5,
+    "population": 3954034,
+    "density_km2": 12374.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 359.5,
+    "population": 4122815,
+    "density_km2": 11469.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 379.4,
+    "population": 4190882,
+    "density_km2": 11045.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

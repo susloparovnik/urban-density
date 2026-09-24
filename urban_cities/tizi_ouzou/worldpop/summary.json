@@ -1,0 +1,37 @@
+{
+  "city": "Tizi Ouzou",
+  "id": "tizi_ouzou",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32631,
+  "grid_m": 82.0,
+  "urban_extent_km2": 139.6,
+  "total_population": 285777,
+  "core_70pct": {
+    "area_km2": 37.1,
+    "population": 237643,
+    "density_km2": 6408.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 42.4,
+    "population": 256820,
+    "density_km2": 6059.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 47.7,
+    "population": 273321,
+    "density_km2": 5732.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 50.3,
+    "population": 280294,
+    "density_km2": 5569.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

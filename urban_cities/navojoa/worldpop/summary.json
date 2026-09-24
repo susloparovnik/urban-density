@@ -1,0 +1,37 @@
+{
+  "city": "Navojoa",
+  "id": "navojoa",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32612,
+  "grid_m": 87.3,
+  "urban_extent_km2": 177.5,
+  "total_population": 126947,
+  "core_70pct": {
+    "area_km2": 24.9,
+    "population": 109880,
+    "density_km2": 4407.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 28.5,
+    "population": 116998,
+    "density_km2": 4106.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 32.1,
+    "population": 122890,
+    "density_km2": 3834.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 33.8,
+    "population": 125043,
+    "density_km2": 3695.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

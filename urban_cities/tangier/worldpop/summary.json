@@ -1,0 +1,37 @@
+{
+  "city": "Tangier",
+  "id": "tangier",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32630,
+  "grid_m": 81.2,
+  "urban_extent_km2": 220.6,
+  "total_population": 1246569,
+  "core_70pct": {
+    "area_km2": 80.4,
+    "population": 1199554,
+    "density_km2": 14926.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 91.8,
+    "population": 1224154,
+    "density_km2": 13328.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 103.3,
+    "population": 1238398,
+    "density_km2": 11985.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 109.1,
+    "population": 1243421,
+    "density_km2": 11400.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

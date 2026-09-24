@@ -1,0 +1,37 @@
+{
+  "city": "Santiago de los Caballeros",
+  "id": "santiago_de_los_caballeros",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32619,
+  "grid_m": 89.6,
+  "urban_extent_km2": 268.2,
+  "total_population": 660271,
+  "core_70pct": {
+    "area_km2": 79.4,
+    "population": 571538,
+    "density_km2": 7194.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 90.8,
+    "population": 613640,
+    "density_km2": 6758.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 102.1,
+    "population": 644785,
+    "density_km2": 6312.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 107.8,
+    "population": 654861,
+    "density_km2": 6074.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

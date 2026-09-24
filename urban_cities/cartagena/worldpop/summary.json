@@ -1,0 +1,37 @@
+{
+  "city": "Cartagena",
+  "id": "cartagena",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32618,
+  "grid_m": 91.8,
+  "urban_extent_km2": 115.2,
+  "total_population": 697001,
+  "core_70pct": {
+    "area_km2": 44.8,
+    "population": 565925,
+    "density_km2": 12644.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 51.2,
+    "population": 617006,
+    "density_km2": 12062.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 57.5,
+    "population": 662126,
+    "density_km2": 11506.0,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 60.7,
+    "population": 681594,
+    "density_km2": 11221.6,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

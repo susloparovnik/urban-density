@@ -1,0 +1,37 @@
+{
+  "city": "Porto Alegre",
+  "id": "porto_alegre",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32722,
+  "grid_m": 85.2,
+  "urban_extent_km2": 470.1,
+  "total_population": 1770526,
+  "core_70pct": {
+    "area_km2": 212.8,
+    "population": 1717453,
+    "density_km2": 8069.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 243.2,
+    "population": 1753747,
+    "density_km2": 7210.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 273.6,
+    "population": 1768158,
+    "density_km2": 6461.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 288.8,
+    "population": 1770176,
+    "density_km2": 6128.6,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

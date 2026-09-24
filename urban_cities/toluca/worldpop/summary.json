@@ -1,0 +1,37 @@
+{
+  "city": "Toluca",
+  "id": "toluca",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32614,
+  "grid_m": 90.0,
+  "urban_extent_km2": 480.9,
+  "total_population": 1582930,
+  "core_70pct": {
+    "area_km2": 172.7,
+    "population": 1204104,
+    "density_km2": 6974.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 197.3,
+    "population": 1342333,
+    "density_km2": 6803.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 222.0,
+    "population": 1473670,
+    "density_km2": 6638.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 234.3,
+    "population": 1534088,
+    "density_km2": 6547.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

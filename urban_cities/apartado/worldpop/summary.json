@@ -1,0 +1,37 @@
+{
+  "city": "Apartadó",
+  "id": "apartado",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32618,
+  "grid_m": 92.0,
+  "urban_extent_km2": 58.4,
+  "total_population": 181780,
+  "core_70pct": {
+    "area_km2": 10.2,
+    "population": 147522,
+    "density_km2": 14394.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 11.7,
+    "population": 159787,
+    "density_km2": 13641.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 13.2,
+    "population": 171171,
+    "density_km2": 12988.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 13.9,
+    "population": 176558,
+    "density_km2": 12695.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

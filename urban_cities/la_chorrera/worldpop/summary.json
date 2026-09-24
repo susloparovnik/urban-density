@@ -1,0 +1,37 @@
+{
+  "city": "La Chorrera",
+  "id": "la_chorrera",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32617,
+  "grid_m": 91.9,
+  "urban_extent_km2": 396.7,
+  "total_population": 1084197,
+  "core_70pct": {
+    "area_km2": 123.7,
+    "population": 989494,
+    "density_km2": 7997.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 141.4,
+    "population": 1038910,
+    "density_km2": 7347.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 159.1,
+    "population": 1069814,
+    "density_km2": 6725.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 167.9,
+    "population": 1078538,
+    "density_km2": 6423.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Bayserke",
+  "id": "bajserke",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 77.2,
+  "urban_extent_km2": 903.0,
+  "total_population": 1864592,
+  "core_70pct": {
+    "area_km2": 336.0,
+    "population": 1663634,
+    "density_km2": 4951.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 384.0,
+    "population": 1741262,
+    "density_km2": 4534.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 432.0,
+    "population": 1810504,
+    "density_km2": 4191.0,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 456.0,
+    "population": 1841295,
+    "density_km2": 4038.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

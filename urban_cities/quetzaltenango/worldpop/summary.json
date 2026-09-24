@@ -1,0 +1,37 @@
+{
+  "city": "Quetzaltenango",
+  "id": "quetzaltenango",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32615,
+  "grid_m": 91.1,
+  "urban_extent_km2": 128.3,
+  "total_population": 237272,
+  "core_70pct": {
+    "area_km2": 45.4,
+    "population": 199469,
+    "density_km2": 4393.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 51.9,
+    "population": 213575,
+    "density_km2": 4116.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 58.4,
+    "population": 226370,
+    "density_km2": 3878.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 61.6,
+    "population": 232175,
+    "density_km2": 3768.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

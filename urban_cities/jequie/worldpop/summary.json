@@ -1,0 +1,37 @@
+{
+  "city": "Jequié",
+  "id": "jequie",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32724,
+  "grid_m": 91.1,
+  "urban_extent_km2": 68.4,
+  "total_population": 147076,
+  "core_70pct": {
+    "area_km2": 19.9,
+    "population": 136383,
+    "density_km2": 6869.4,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 22.7,
+    "population": 141859,
+    "density_km2": 6253.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 25.5,
+    "population": 145368,
+    "density_km2": 5696.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 26.9,
+    "population": 146432,
+    "density_km2": 5435.6,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

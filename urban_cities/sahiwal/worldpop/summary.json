@@ -1,0 +1,37 @@
+{
+  "city": "Sahiwal",
+  "id": "sahiwal",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 85.3,
+  "urban_extent_km2": 334.5,
+  "total_population": 1121676,
+  "core_70pct": {
+    "area_km2": 44.7,
+    "population": 886575,
+    "density_km2": 19835.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 51.1,
+    "population": 984964,
+    "density_km2": 19281.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 57.5,
+    "population": 1062935,
+    "density_km2": 18495.0,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 60.7,
+    "population": 1094679,
+    "density_km2": 18044.6,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

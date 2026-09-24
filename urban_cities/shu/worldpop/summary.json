@@ -1,0 +1,37 @@
+{
+  "city": "Shu",
+  "id": "shu",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32643,
+  "grid_m": 84.0,
+  "urban_extent_km2": 127.5,
+  "total_population": 75672,
+  "core_70pct": {
+    "area_km2": 31.6,
+    "population": 62973,
+    "density_km2": 1994.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 36.1,
+    "population": 69139,
+    "density_km2": 1915.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 40.6,
+    "population": 74178,
+    "density_km2": 1827.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 42.9,
+    "population": 74981,
+    "density_km2": 1749.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

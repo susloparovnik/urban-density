@@ -1,0 +1,37 @@
+{
+  "city": "Medellin",
+  "id": "medellin",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32618,
+  "grid_m": 92.2,
+  "urban_extent_km2": 285.8,
+  "total_population": 3011722,
+  "core_70pct": {
+    "area_km2": 121.4,
+    "population": 2654953,
+    "density_km2": 21863.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 138.8,
+    "population": 2832362,
+    "density_km2": 20409.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 156.1,
+    "population": 2951310,
+    "density_km2": 18903.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 164.8,
+    "population": 2990487,
+    "density_km2": 18146.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Monteria",
+  "id": "monteria",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32618,
+  "grid_m": 91.9,
+  "urban_extent_km2": 51.6,
+  "total_population": 372315,
+  "core_70pct": {
+    "area_km2": 20.0,
+    "population": 289075,
+    "density_km2": 14442.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 22.9,
+    "population": 318510,
+    "density_km2": 13921.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 25.7,
+    "population": 346512,
+    "density_km2": 13464.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 27.2,
+    "population": 359839,
+    "density_km2": 13247.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Aktobe",
+  "id": "aktobe",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32640,
+  "grid_m": 70.2,
+  "urban_extent_km2": 325.5,
+  "total_population": 598063,
+  "core_70pct": {
+    "area_km2": 84.5,
+    "population": 485576,
+    "density_km2": 5748.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 96.5,
+    "population": 531461,
+    "density_km2": 5504.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 108.6,
+    "population": 571726,
+    "density_km2": 5263.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 114.6,
+    "population": 588026,
+    "density_km2": 5129.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

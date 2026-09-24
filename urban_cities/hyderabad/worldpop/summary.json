@@ -1,0 +1,37 @@
+{
+  "city": "Hyderabad",
+  "id": "hyderabad",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32642,
+  "grid_m": 88.0,
+  "urban_extent_km2": 334.3,
+  "total_population": 2484823,
+  "core_70pct": {
+    "area_km2": 89.3,
+    "population": 2246047,
+    "density_km2": 25149.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 102.1,
+    "population": 2336715,
+    "density_km2": 22895.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 114.8,
+    "population": 2417557,
+    "density_km2": 21054.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 121.2,
+    "population": 2453969,
+    "density_km2": 20246.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Rio Verde",
+  "id": "rio_verde",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32722,
+  "grid_m": 89.2,
+  "urban_extent_km2": 71.1,
+  "total_population": 243374,
+  "core_70pct": {
+    "area_km2": 26.0,
+    "population": 231019,
+    "density_km2": 8884.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 29.7,
+    "population": 239593,
+    "density_km2": 8063.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 33.4,
+    "population": 242411,
+    "density_km2": 7251.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 35.3,
+    "population": 243118,
+    "density_km2": 6890.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

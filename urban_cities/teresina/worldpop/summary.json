@@ -1,0 +1,37 @@
+{
+  "city": "Teresina",
+  "id": "teresina",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32723,
+  "grid_m": 92.3,
+  "urban_extent_km2": 244.4,
+  "total_population": 827187,
+  "core_70pct": {
+    "area_km2": 87.9,
+    "population": 762970,
+    "density_km2": 8676.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 100.5,
+    "population": 797731,
+    "density_km2": 7937.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 113.1,
+    "population": 818512,
+    "density_km2": 7239.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 119.3,
+    "population": 824243,
+    "density_km2": 6906.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "San José del Cabo",
+  "id": "san_jose_del_cabo",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32612,
+  "grid_m": 88.1,
+  "urban_extent_km2": 112.4,
+  "total_population": 243704,
+  "core_70pct": {
+    "area_km2": 27.8,
+    "population": 196236,
+    "density_km2": 7059.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 31.8,
+    "population": 216872,
+    "density_km2": 6826.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 35.7,
+    "population": 232491,
+    "density_km2": 6504.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 37.7,
+    "population": 238686,
+    "density_km2": 6326.4,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

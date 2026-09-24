@@ -1,0 +1,37 @@
+{
+  "city": "Villahermosa",
+  "id": "villahermosa",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32615,
+  "grid_m": 90.4,
+  "urban_extent_km2": 138.9,
+  "total_population": 451006,
+  "core_70pct": {
+    "area_km2": 47.5,
+    "population": 352609,
+    "density_km2": 7424.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 54.3,
+    "population": 394592,
+    "density_km2": 7270.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 61.1,
+    "population": 427424,
+    "density_km2": 6999.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 64.5,
+    "population": 440102,
+    "density_km2": 6828.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

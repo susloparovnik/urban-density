@@ -1,0 +1,37 @@
+{
+  "city": "Tulum",
+  "id": "tulum",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32616,
+  "grid_m": 89.3,
+  "urban_extent_km2": 54.2,
+  "total_population": 38752,
+  "core_70pct": {
+    "area_km2": 3.4,
+    "population": 29118,
+    "density_km2": 8540.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 3.9,
+    "population": 32638,
+    "density_km2": 8379.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 4.4,
+    "population": 35888,
+    "density_km2": 8191.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 4.6,
+    "population": 37333,
+    "density_km2": 8080.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Tehuacan",
+  "id": "tehuacan",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32614,
+  "grid_m": 89.9,
+  "urban_extent_km2": 79.8,
+  "total_population": 253755,
+  "core_70pct": {
+    "area_km2": 29.2,
+    "population": 203553,
+    "density_km2": 6974.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 33.4,
+    "population": 224492,
+    "density_km2": 6729.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 37.5,
+    "population": 241366,
+    "density_km2": 6432.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 39.6,
+    "population": 248353,
+    "density_km2": 6269.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

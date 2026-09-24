@@ -1,0 +1,37 @@
+{
+  "city": "Phuket",
+  "id": "phuket",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32647,
+  "grid_m": 92.0,
+  "urban_extent_km2": 207.5,
+  "total_population": 775679,
+  "core_70pct": {
+    "area_km2": 79.6,
+    "population": 620312,
+    "density_km2": 7796.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 90.9,
+    "population": 677493,
+    "density_km2": 7450.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 102.3,
+    "population": 729881,
+    "density_km2": 7134.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 108.0,
+    "population": 754296,
+    "density_km2": 6985.4,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

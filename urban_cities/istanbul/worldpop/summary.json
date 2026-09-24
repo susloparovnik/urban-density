@@ -1,0 +1,37 @@
+{
+  "city": "Istanbul",
+  "id": "istanbul",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32635,
+  "grid_m": 78.2,
+  "urban_extent_km2": 858.0,
+  "total_population": 13696929,
+  "core_70pct": {
+    "area_km2": 451.2,
+    "population": 12384994,
+    "density_km2": 27446.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 515.7,
+    "population": 13019568,
+    "density_km2": 25246.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 580.2,
+    "population": 13463317,
+    "density_km2": 23205.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 612.4,
+    "population": 13607317,
+    "density_km2": 22219.6,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

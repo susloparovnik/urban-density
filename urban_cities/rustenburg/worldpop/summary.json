@@ -1,0 +1,37 @@
+{
+  "city": "Rustenburg",
+  "id": "rustenburg",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32735,
+  "grid_m": 87.5,
+  "urban_extent_km2": 314.1,
+  "total_population": 427278,
+  "core_70pct": {
+    "area_km2": 90.4,
+    "population": 415871,
+    "density_km2": 4598.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 103.3,
+    "population": 423548,
+    "density_km2": 4098.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 116.3,
+    "population": 426632,
+    "density_km2": 3669.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 122.7,
+    "population": 427136,
+    "density_km2": 3480.6,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

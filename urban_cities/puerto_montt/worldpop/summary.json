@@ -1,0 +1,37 @@
+{
+  "city": "Puerto Montt",
+  "id": "puerto_montt",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32718,
+  "grid_m": 79.3,
+  "urban_extent_km2": 207.5,
+  "total_population": 353977,
+  "core_70pct": {
+    "area_km2": 56.5,
+    "population": 293805,
+    "density_km2": 5196.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 64.6,
+    "population": 318278,
+    "density_km2": 4926.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 72.7,
+    "population": 338644,
+    "density_km2": 4659.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 76.7,
+    "population": 347150,
+    "density_km2": 4524.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

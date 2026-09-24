@@ -1,0 +1,37 @@
+{
+  "city": "Merida",
+  "id": "merida",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32616,
+  "grid_m": 89.2,
+  "urban_extent_km2": 406.3,
+  "total_population": 469389,
+  "core_70pct": {
+    "area_km2": 89.2,
+    "population": 373652,
+    "density_km2": 4188.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 102.0,
+    "population": 414247,
+    "density_km2": 4063.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 114.7,
+    "population": 447312,
+    "density_km2": 3900.0,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 121.1,
+    "population": 460207,
+    "density_km2": 3801.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

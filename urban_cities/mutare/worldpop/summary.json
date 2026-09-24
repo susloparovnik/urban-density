@@ -1,0 +1,37 @@
+{
+  "city": "Mutare",
+  "id": "mutare",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32736,
+  "grid_m": 89.9,
+  "urban_extent_km2": 109.3,
+  "total_population": 205055,
+  "core_70pct": {
+    "area_km2": 38.8,
+    "population": 183729,
+    "density_km2": 4736.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 44.3,
+    "population": 194567,
+    "density_km2": 4388.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 49.9,
+    "population": 201614,
+    "density_km2": 4042.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 52.6,
+    "population": 203849,
+    "density_km2": 3871.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

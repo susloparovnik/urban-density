@@ -1,0 +1,37 @@
+{
+  "city": "Punta Arenas",
+  "id": "punta_arenas",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32719,
+  "grid_m": 86.0,
+  "urban_extent_km2": 59.0,
+  "total_population": 73514,
+  "core_70pct": {
+    "area_km2": 20.6,
+    "population": 59810,
+    "density_km2": 2904.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 23.5,
+    "population": 65583,
+    "density_km2": 2786.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 26.5,
+    "population": 70191,
+    "density_km2": 2650.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 28.0,
+    "population": 72121,
+    "density_km2": 2579.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

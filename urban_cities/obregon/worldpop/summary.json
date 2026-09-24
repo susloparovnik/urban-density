@@ -1,0 +1,37 @@
+{
+  "city": "Obregón",
+  "id": "obregon",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32612,
+  "grid_m": 86.5,
+  "urban_extent_km2": 114.4,
+  "total_population": 103555,
+  "core_70pct": {
+    "area_km2": 19.8,
+    "population": 86436,
+    "density_km2": 4361.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 22.7,
+    "population": 93022,
+    "density_km2": 4106.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 25.5,
+    "population": 98640,
+    "density_km2": 3871.0,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 26.9,
+    "population": 101209,
+    "density_km2": 3762.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

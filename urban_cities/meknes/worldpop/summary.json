@@ -1,0 +1,37 @@
+{
+  "city": "Meknès",
+  "id": "meknes",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32630,
+  "grid_m": 83.9,
+  "urban_extent_km2": 196.8,
+  "total_population": 864196,
+  "core_70pct": {
+    "area_km2": 56.6,
+    "population": 833846,
+    "density_km2": 14736.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 64.7,
+    "population": 851442,
+    "density_km2": 13167.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 72.7,
+    "population": 860161,
+    "density_km2": 11824.0,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 76.8,
+    "population": 862649,
+    "density_km2": 11233.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

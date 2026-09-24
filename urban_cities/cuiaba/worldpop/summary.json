@@ -1,0 +1,37 @@
+{
+  "city": "Cuiabá",
+  "id": "cuiaba",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32721,
+  "grid_m": 91.1,
+  "urban_extent_km2": 716.2,
+  "total_population": 887107,
+  "core_70pct": {
+    "area_km2": 146.3,
+    "population": 838857,
+    "density_km2": 5734.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 167.2,
+    "population": 867753,
+    "density_km2": 5191.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 188.1,
+    "population": 883529,
+    "density_km2": 4698.0,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 198.5,
+    "population": 886586,
+    "density_km2": 4466.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

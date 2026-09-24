@@ -1,0 +1,37 @@
+{
+  "city": "Pematangsiantar",
+  "id": "pematangsiantar",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32647,
+  "grid_m": 92.3,
+  "urban_extent_km2": 93.4,
+  "total_population": 295382,
+  "core_70pct": {
+    "area_km2": 39.2,
+    "population": 257384,
+    "density_km2": 6572.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 44.8,
+    "population": 271752,
+    "density_km2": 6071.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 50.4,
+    "population": 284564,
+    "density_km2": 5650.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 53.1,
+    "population": 290251,
+    "density_km2": 5461.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

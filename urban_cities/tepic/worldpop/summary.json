@@ -1,0 +1,37 @@
+{
+  "city": "Tepic",
+  "id": "tepic",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32613,
+  "grid_m": 89.3,
+  "urban_extent_km2": 134.4,
+  "total_population": 433604,
+  "core_70pct": {
+    "area_km2": 42.1,
+    "population": 323647,
+    "density_km2": 7682.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 48.2,
+    "population": 364521,
+    "density_km2": 7570.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 54.2,
+    "population": 402768,
+    "density_km2": 7435.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 57.2,
+    "population": 420126,
+    "density_km2": 7347.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

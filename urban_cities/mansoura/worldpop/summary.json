@@ -1,0 +1,37 @@
+{
+  "city": "Mansoura",
+  "id": "mansoura",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32636,
+  "grid_m": 86.4,
+  "urban_extent_km2": 407.8,
+  "total_population": 2126129,
+  "core_70pct": {
+    "area_km2": 112.3,
+    "population": 1878634,
+    "density_km2": 16724.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 128.4,
+    "population": 1990168,
+    "density_km2": 15503.8,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 144.4,
+    "population": 2077763,
+    "density_km2": 14387.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 152.4,
+    "population": 2111119,
+    "density_km2": 13848.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

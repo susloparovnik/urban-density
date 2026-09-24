@@ -1,0 +1,37 @@
+{
+  "city": "Guarapuava",
+  "id": "guarapuava",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32722,
+  "grid_m": 87.6,
+  "urban_extent_km2": 66.9,
+  "total_population": 149798,
+  "core_70pct": {
+    "area_km2": 26.8,
+    "population": 133239,
+    "density_km2": 4963.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 30.7,
+    "population": 142288,
+    "density_km2": 4638.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 34.5,
+    "population": 147817,
+    "density_km2": 4283.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 36.4,
+    "population": 149173,
+    "density_km2": 4094.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

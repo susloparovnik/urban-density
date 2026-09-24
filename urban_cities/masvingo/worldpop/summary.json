@@ -1,0 +1,37 @@
+{
+  "city": "Masvingo",
+  "id": "masvingo",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32736,
+  "grid_m": 89.7,
+  "urban_extent_km2": 58.5,
+  "total_population": 99289,
+  "core_70pct": {
+    "area_km2": 19.9,
+    "population": 92407,
+    "density_km2": 4637.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 22.8,
+    "population": 95883,
+    "density_km2": 4210.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 25.6,
+    "population": 98147,
+    "density_km2": 3831.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 27.0,
+    "population": 98831,
+    "density_km2": 3654.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

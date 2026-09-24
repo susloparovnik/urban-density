@@ -1,0 +1,37 @@
+{
+  "city": "Purwakarta",
+  "id": "purwakarta",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32748,
+  "grid_m": 92.2,
+  "urban_extent_km2": 390.9,
+  "total_population": 1208108,
+  "core_70pct": {
+    "area_km2": 175.1,
+    "population": 957744,
+    "density_km2": 5469.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 200.1,
+    "population": 1051393,
+    "density_km2": 5253.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 225.1,
+    "population": 1135744,
+    "density_km2": 5044.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 237.6,
+    "population": 1174435,
+    "density_km2": 4942.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

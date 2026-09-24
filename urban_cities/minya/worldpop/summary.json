@@ -1,0 +1,37 @@
+{
+  "city": "Minya",
+  "id": "minya",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32636,
+  "grid_m": 88.8,
+  "urban_extent_km2": 134.1,
+  "total_population": 838140,
+  "core_70pct": {
+    "area_km2": 35.1,
+    "population": 699849,
+    "density_km2": 19926.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 40.1,
+    "population": 761152,
+    "density_km2": 18964.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 45.2,
+    "population": 812796,
+    "density_km2": 18002.0,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 47.7,
+    "population": 829329,
+    "density_km2": 17402.0,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

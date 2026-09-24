@@ -1,0 +1,37 @@
+{
+  "city": "Satpaev",
+  "id": "satpaev",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32642,
+  "grid_m": 73.8,
+  "urban_extent_km2": 98.3,
+  "total_population": 105135,
+  "core_70pct": {
+    "area_km2": 23.9,
+    "population": 82514,
+    "density_km2": 3448.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 27.3,
+    "population": 91462,
+    "density_km2": 3344.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 30.8,
+    "population": 99707,
+    "density_km2": 3241.0,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 32.5,
+    "population": 103215,
+    "density_km2": 3178.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

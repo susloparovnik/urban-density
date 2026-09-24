@@ -1,0 +1,37 @@
+{
+  "city": "Bharatpur",
+  "id": "bharatpur",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32645,
+  "grid_m": 86.9,
+  "urban_extent_km2": 1178.2,
+  "total_population": 277315,
+  "core_70pct": {
+    "area_km2": 26.9,
+    "population": 265377,
+    "density_km2": 9851.5,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 30.8,
+    "population": 270411,
+    "density_km2": 8783.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 34.6,
+    "population": 274676,
+    "density_km2": 7930.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 36.6,
+    "population": 276376,
+    "density_km2": 7559.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

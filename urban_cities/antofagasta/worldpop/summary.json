@@ -1,0 +1,37 @@
+{
+  "city": "Antofagasta",
+  "id": "antofagasta",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32719,
+  "grid_m": 88.7,
+  "urban_extent_km2": 136.6,
+  "total_population": 342175,
+  "core_70pct": {
+    "area_km2": 29.7,
+    "population": 288004,
+    "density_km2": 9712.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 33.9,
+    "population": 311200,
+    "density_km2": 9184.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 38.1,
+    "population": 329696,
+    "density_km2": 8648.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 40.2,
+    "population": 336821,
+    "density_km2": 8370.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

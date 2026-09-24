@@ -1,0 +1,37 @@
+{
+  "city": "Gaborone",
+  "id": "gaborone",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32735,
+  "grid_m": 88.4,
+  "urban_extent_km2": 383.6,
+  "total_population": 385227,
+  "core_70pct": {
+    "area_km2": 163.4,
+    "population": 338115,
+    "density_km2": 2069.1,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 186.8,
+    "population": 360843,
+    "density_km2": 1932.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 210.1,
+    "population": 376878,
+    "density_km2": 1793.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 221.8,
+    "population": 381984,
+    "density_km2": 1722.4,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

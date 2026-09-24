@@ -1,0 +1,37 @@
+{
+  "city": "Culiacan",
+  "id": "culiacan",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32613,
+  "grid_m": 87.7,
+  "urban_extent_km2": 246.7,
+  "total_population": 757840,
+  "core_70pct": {
+    "area_km2": 81.9,
+    "population": 619513,
+    "density_km2": 7565.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 93.6,
+    "population": 688785,
+    "density_km2": 7359.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 105.3,
+    "population": 733697,
+    "density_km2": 6968.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 111.1,
+    "population": 747490,
+    "density_km2": 6725.6,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

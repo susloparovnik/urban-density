@@ -1,0 +1,37 @@
+{
+  "city": "Sukabumi",
+  "id": "sukabumi",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32748,
+  "grid_m": 92.1,
+  "urban_extent_km2": 140.3,
+  "total_population": 506982,
+  "core_70pct": {
+    "area_km2": 41.8,
+    "population": 395454,
+    "density_km2": 9465.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 47.7,
+    "population": 436228,
+    "density_km2": 9136.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 53.7,
+    "population": 474182,
+    "density_km2": 8827.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 56.7,
+    "population": 491719,
+    "density_km2": 8672.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

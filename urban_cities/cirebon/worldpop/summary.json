@@ -1,0 +1,37 @@
+{
+  "city": "Cirebon",
+  "id": "cirebon",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32749,
+  "grid_m": 92.2,
+  "urban_extent_km2": 272.8,
+  "total_population": 1279969,
+  "core_70pct": {
+    "area_km2": 98.0,
+    "population": 1033454,
+    "density_km2": 10544.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 112.0,
+    "population": 1125588,
+    "density_km2": 10048.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 126.0,
+    "population": 1209302,
+    "density_km2": 9596.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 133.0,
+    "population": 1247119,
+    "density_km2": 9375.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

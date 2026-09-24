@@ -1,0 +1,37 @@
+{
+  "city": "Ciudad Juarez",
+  "id": "ciudad_juarez",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32613,
+  "grid_m": 84.9,
+  "urban_extent_km2": 576.3,
+  "total_population": 900087,
+  "core_70pct": {
+    "area_km2": 126.3,
+    "population": 690185,
+    "density_km2": 5466.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 144.3,
+    "population": 773230,
+    "density_km2": 5359.1,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 162.3,
+    "population": 848418,
+    "density_km2": 5226.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 171.3,
+    "population": 878297,
+    "density_km2": 5126.1,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

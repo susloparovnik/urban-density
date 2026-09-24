@@ -1,0 +1,37 @@
+{
+  "city": "Johor Bahru",
+  "id": "johor_bahru",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32648,
+  "grid_m": 92.5,
+  "urban_extent_km2": 235.4,
+  "total_population": 269576,
+  "core_70pct": {
+    "area_km2": 87.6,
+    "population": 227198,
+    "density_km2": 2592.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 100.2,
+    "population": 243945,
+    "density_km2": 2435.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 112.7,
+    "population": 258258,
+    "density_km2": 2291.9,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 118.9,
+    "population": 264548,
+    "density_km2": 2224.2,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

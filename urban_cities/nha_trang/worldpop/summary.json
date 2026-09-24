@@ -1,0 +1,37 @@
+{
+  "city": "Nha Trang",
+  "id": "nha_trang",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32649,
+  "grid_m": 91.7,
+  "urban_extent_km2": 152.1,
+  "total_population": 343277,
+  "core_70pct": {
+    "area_km2": 40.9,
+    "population": 304121,
+    "density_km2": 7435.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 46.7,
+    "population": 318891,
+    "density_km2": 6821.9,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 52.6,
+    "population": 332053,
+    "density_km2": 6314.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 55.5,
+    "population": 338001,
+    "density_km2": 6088.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

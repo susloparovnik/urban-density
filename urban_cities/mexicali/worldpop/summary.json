@@ -1,0 +1,37 @@
+{
+  "city": "Mexicali",
+  "id": "mexicali",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32611,
+  "grid_m": 82.5,
+  "urban_extent_km2": 420.6,
+  "total_population": 870825,
+  "core_70pct": {
+    "area_km2": 119.5,
+    "population": 667277,
+    "density_km2": 5584.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 136.5,
+    "population": 752587,
+    "density_km2": 5511.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 153.6,
+    "population": 826443,
+    "density_km2": 5380.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 162.1,
+    "population": 852962,
+    "density_km2": 5260.5,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

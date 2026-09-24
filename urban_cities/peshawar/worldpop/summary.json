@@ -1,0 +1,37 @@
+{
+  "city": "Peshawar",
+  "id": "peshawar",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32642,
+  "grid_m": 83.4,
+  "urban_extent_km2": 780.8,
+  "total_population": 3707581,
+  "core_70pct": {
+    "area_km2": 296.6,
+    "population": 2810633,
+    "density_km2": 9476.0,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 339.0,
+    "population": 3152054,
+    "density_km2": 9298.7,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 381.4,
+    "population": 3465439,
+    "density_km2": 9087.3,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 402.5,
+    "population": 3599371,
+    "density_km2": 8941.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

@@ -1,0 +1,37 @@
+{
+  "city": "Barrancabermeja",
+  "id": "barrancabermeja",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32618,
+  "grid_m": 92.1,
+  "urban_extent_km2": 54.5,
+  "total_population": 269691,
+  "core_70pct": {
+    "area_km2": 22.9,
+    "population": 237763,
+    "density_km2": 10386.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 26.2,
+    "population": 249337,
+    "density_km2": 9530.4,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 29.4,
+    "population": 260010,
+    "density_km2": 8833.8,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 31.1,
+    "population": 265065,
+    "density_km2": 8531.4,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

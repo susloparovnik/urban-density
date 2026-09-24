@@ -1,0 +1,37 @@
+{
+  "city": "Port Said",
+  "id": "port_said",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32636,
+  "grid_m": 83.9,
+  "urban_extent_km2": 81.6,
+  "total_population": 800971,
+  "core_70pct": {
+    "area_km2": 31.4,
+    "population": 796229,
+    "density_km2": 25366.4,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 35.9,
+    "population": 799786,
+    "density_km2": 22296.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 40.4,
+    "population": 800594,
+    "density_km2": 19839.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 42.6,
+    "population": 800837,
+    "density_km2": 18799.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

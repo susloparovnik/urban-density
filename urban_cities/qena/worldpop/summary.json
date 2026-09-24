@@ -1,0 +1,37 @@
+{
+  "city": "Qena",
+  "id": "qena",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32636,
+  "grid_m": 88.3,
+  "urban_extent_km2": 123.7,
+  "total_population": 628221,
+  "core_70pct": {
+    "area_km2": 25.6,
+    "population": 583286,
+    "density_km2": 22758.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 29.3,
+    "population": 602733,
+    "density_km2": 20578.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 32.9,
+    "population": 617381,
+    "density_km2": 18737.1,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 34.8,
+    "population": 623308,
+    "density_km2": 17919.6,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

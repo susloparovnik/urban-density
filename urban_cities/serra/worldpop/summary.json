@@ -1,0 +1,37 @@
+{
+  "city": "Serra",
+  "id": "serra",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32724,
+  "grid_m": 90.3,
+  "urban_extent_km2": 223.6,
+  "total_population": 705207,
+  "core_70pct": {
+    "area_km2": 97.6,
+    "population": 703280,
+    "density_km2": 7208.2,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 111.5,
+    "population": 704854,
+    "density_km2": 6321.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 125.4,
+    "population": 705155,
+    "density_km2": 5621.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 132.4,
+    "population": 705196,
+    "density_km2": 5325.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

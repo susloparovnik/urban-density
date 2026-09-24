@@ -1,0 +1,37 @@
+{
+  "city": "Playa del Carmen",
+  "id": "playa_del_carmen",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm+real",
+  "radius_m": 25000,
+  "utm_epsg": 32616,
+  "grid_m": 89.5,
+  "urban_extent_km2": 125.0,
+  "total_population": 212688,
+  "core_70pct": {
+    "area_km2": 18.4,
+    "population": 157877,
+    "density_km2": 8597.6,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 21.0,
+    "population": 177918,
+    "density_km2": 8476.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 23.6,
+    "population": 196860,
+    "density_km2": 8338.6,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 24.9,
+    "population": 205793,
+    "density_km2": 8257.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-21"
+}

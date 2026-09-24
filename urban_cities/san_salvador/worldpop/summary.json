@@ -1,0 +1,37 @@
+{
+  "city": "San Salvador",
+  "id": "san_salvador",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32616,
+  "grid_m": 91.2,
+  "urban_extent_km2": 327.4,
+  "total_population": 1402332,
+  "core_70pct": {
+    "area_km2": 113.9,
+    "population": 1193024,
+    "density_km2": 10473.7,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 130.2,
+    "population": 1273053,
+    "density_km2": 9779.5,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 146.4,
+    "population": 1346187,
+    "density_km2": 9192.5,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 154.6,
+    "population": 1377885,
+    "density_km2": 8913.8,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

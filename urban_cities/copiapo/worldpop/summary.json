@@ -1,0 +1,37 @@
+{
+  "city": "Copiapó",
+  "id": "copiapo",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32719,
+  "grid_m": 87.5,
+  "urban_extent_km2": 187.6,
+  "total_population": 107580,
+  "core_70pct": {
+    "area_km2": 34.9,
+    "population": 102004,
+    "density_km2": 2926.8,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 39.8,
+    "population": 105782,
+    "density_km2": 2655.6,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 44.8,
+    "population": 106920,
+    "density_km2": 2386.2,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 47.3,
+    "population": 107309,
+    "density_km2": 2268.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

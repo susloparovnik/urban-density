@@ -1,0 +1,37 @@
+{
+  "city": "Oran",
+  "id": "oran",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32630,
+  "grid_m": 81.3,
+  "urban_extent_km2": 186.3,
+  "total_population": 1123028,
+  "core_70pct": {
+    "area_km2": 69.7,
+    "population": 1001016,
+    "density_km2": 14369.9,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 79.6,
+    "population": 1055667,
+    "density_km2": 13260.2,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 89.6,
+    "population": 1096303,
+    "density_km2": 12240.7,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 94.5,
+    "population": 1111698,
+    "density_km2": 11758.9,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-19"
+}

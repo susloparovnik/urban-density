@@ -1,0 +1,37 @@
+{
+  "city": "Punta Cana",
+  "id": "punta_cana",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32619,
+  "grid_m": 89.9,
+  "urban_extent_km2": 230.5,
+  "total_population": 566555,
+  "core_70pct": {
+    "area_km2": 57.7,
+    "population": 497355,
+    "density_km2": 8614.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 66.0,
+    "population": 534361,
+    "density_km2": 8099.0,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 74.2,
+    "population": 557565,
+    "density_km2": 7511.4,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 78.4,
+    "population": 563892,
+    "density_km2": 7196.7,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

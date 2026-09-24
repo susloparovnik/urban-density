@@ -1,0 +1,37 @@
+{
+  "city": "Tanta",
+  "id": "tanta",
+  "source": "worldpop",
+  "source_title": "WorldPop Constrained 2020 (UN-adjusted), 100 m",
+  "mask": "osm",
+  "radius_m": 25000,
+  "utm_epsg": 32636,
+  "grid_m": 85.7,
+  "urban_extent_km2": 193.0,
+  "total_population": 1101574,
+  "core_70pct": {
+    "area_km2": 61.9,
+    "population": 937023,
+    "density_km2": 15134.3,
+    "threshold_pct": 70
+  },
+  "core_80pct": {
+    "area_km2": 70.8,
+    "population": 1003649,
+    "density_km2": 14184.3,
+    "threshold_pct": 80
+  },
+  "core_90pct": {
+    "area_km2": 79.6,
+    "population": 1061012,
+    "density_km2": 13329.0,
+    "threshold_pct": 90
+  },
+  "core_95pct": {
+    "area_km2": 84.0,
+    "population": 1083974,
+    "density_km2": 12900.3,
+    "threshold_pct": 95
+  },
+  "computed_at": "2026-05-20"
+}

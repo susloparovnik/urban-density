@@ -33,23 +33,45 @@ No dependencies are needed for viewing. On macOS you can also double-click **`Ur
 > `file://` pages, so the city list and map layers would not load. The launcher serves it over HTTP.
 
 **Dashboard**
-- top bar: **Population source** (WorldPop / GHS-POP / HRSL — with the number of cities each has)
-- left: sortable table — Real Area, core area, population, Δ vs real for the selected core; footer = mean / median / mean |Δ| over the visible rows
-- right: map with heatmap, OSM mask, real boundary and the four core outlines; basemap switch
-- small badges next to a city name show which *other* sources it has been computed with
+- top bar: **Source** switch (WorldPop / GHS-POP / HRSL, with the number of cities each has), **＋ Add city**, running-jobs indicator, **?** help
+- left: sortable table — real area, core area, population, Δ vs real for the selected core; footer = mean / median / mean |Δ| over the visible rows; badges show which *other* sources a city has
+- right: map with heatmap, OSM mask, real boundary and the four core outlines; basemap switch; the city card has the numbers, source chips and actions (compute another source, recompute, copy link, delete)
+- the URL keeps the state (`#source=ghs&city=cairo&core=95`), so views can be shared
 
 ---
 
 ## 2. Add a city
 
-Install the pipeline dependencies once (Python 3.9+):
+### From the dashboard
+
+Install the pipeline dependencies once (Python 3.9+) and start the launcher from that Python:
 
 ```bash
-python3 -m venv .venv && source .venv/bin/activate      # optional but recommended
+python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
+python launch.py
 ```
 
-Then:
+Then **＋ Add city** in the top bar:
+
+1. **Location** — type the name and *Search* (OSM Nominatim), or *Pick on map* and click the
+   centre, or type the coordinates. The blue circle shows the mask radius.
+2. **Population source** — tick one or more of WorldPop / GHS-POP / HRSL.
+3. **Options** (optional) — mask radius, mask mode, a reference area or a GeoJSON polygon for Δ,
+   *recompute* to overwrite existing results.
+4. **Compute** — jobs run one at a time in the background; the panel streams the pipeline log,
+   a toast tells you when a city is ready and *Show* jumps to it.
+
+In a city's card: dashed chips (**+ GHS-POP 2025**) compute a missing source, **↻ Recompute**
+redoes the current one, **🔗 Link** copies a URL with the current source / city / core, **Delete**
+removes the city with its results and cached mask.
+
+The launcher exposes this as a tiny JSON API on localhost (`/api/status`, `/api/geocode`,
+`/api/jobs`, `DELETE /api/cities/<id>`, see `urban/server.py`); jobs run `add_city.py` with the
+same interpreter, so the UI and the CLI always agree. If the dashboard is served by something
+else (a static server, GitHub Pages) the viewing part works and the add-city controls are hidden.
+
+### From a terminal
 
 ```bash
 # a new city with GHS-POP (country is resolved automatically)
@@ -67,7 +89,8 @@ python add_city.py --name "Osh" --lat 40.53 --lon 72.80 --source worldpop --real
 python add_city.py --id osh --source worldpop --real-polygon osh.geojson --force
 ```
 
-What happens (a few seconds for a cached city; a new city takes 1–10 min, most of it waiting for Overpass and for the WorldPop server, which is slow):
+What happens (a few seconds for a cached city; a new city takes 1–10 min, most of it waiting for
+Overpass and for the WorldPop server, which is slow):
 
 1. the city is registered in `cities_all.json` (country / ISO3 via Nominatim unless `--country/--iso3` are given)
 2. the OSM landuse union within `--radius-km` (default 25) is fetched from Overpass and **cached in
@@ -100,7 +123,7 @@ files directly in that folder are found too).
 
 ## 3. Method
 
-1. **Mask.** Query OSM for `landuse = residential | commercial | industrial | retail | mixed |
+1. **Mask.** Query OSM (Overpass, `urban/overpass.py`) for `landuse = residential | commercial | industrial | retail | mixed |
    construction | garages | brownfield | allotments` within 25 km of the centre; union the polygons;
    buffer by 0.003° (~300 m) to close gaps. This is the *urban extent*.
 2. **Population grid.** Clip the raster to the mask and warp it to the local UTM zone
@@ -137,15 +160,15 @@ Measured on the reference cities (details and all other experiments in `EXPERIME
 ```
 urban-density/
 ├── urban_dashboard.html      # the dashboard (reads cities_all.json + urban_cities/ over HTTP)
-├── launch.py                 # serve + open in browser      ┐
-├── app_window.py             # serve + native window        │ launchers
+├── launch.py                 # serve (files + add-city API) + open in browser ┐
+├── app_window.py             # the same in a native window                     │ launchers
 ├── Urban Density.app         # macOS bundle around app_window.py (self-locating)
 ├── Open Dashboard.command    # macOS double-click → launch.py ┘
 ├── add_city.py               # add / recompute one city with one source
 ├── run_urban.py              # batch over cities_all.json
 ├── gen_map_assets.py         # re-render map layers from metric.tif
 ├── prepare_real_data.py      # import reference polygons from the xlsx
-├── urban/                    # shared code: config, registry, boundary, sources, pipeline
+├── urban/                    # shared code: config, registry, boundary, sources, pipeline, server (API)
 ├── cities_all.json           # city registry: name, country, centre, real area, per-source numbers
 ├── real_polygons_for_tool.xlsx
 ├── urban_boundaries/<id>.geojson          # cached OSM landuse mask (simplified to 5e-5°)
@@ -191,7 +214,7 @@ urban-density/
 |---|---|
 | empty dashboard, banner "Opened as a file" | open via `python3 launch.py`, not by double-clicking the HTML |
 | `cities_all.json could not be loaded` | the server was started in another folder — run the launcher from the repo root |
-| `all Overpass mirrors failed` | Overpass is down or throttling; wait a few minutes and re-run (the boundary is cached once fetched) |
+| `all Overpass mirrors failed`, HTTP 504 / 429 lines in the job log | overpass-api.de is overloaded or one of its two backends (lambert / gall) is broken. The fetcher tries each backend with a 4-minute cap and retries a busy one twice, then gives up (~15 min worst case); the mask is cached once fetched. Wait a few minutes and re-run. Jobs are killed after 45 min anyway. |
 | `WorldPop Constrained 2020 has no raster for XXX` | that country is not covered — use `--source ghs` |
 | `No HRSL CSV found on HDX for XXX` | Meta has not published HRSL for that country — use `--source ghs` or `worldpop` |
 | HRSL run is slow / uses lots of RAM | the country CSV is loaded whole (Vietnam ≈ 34 M points, 1.6 GB); it is cached within one `run_urban.py` batch |

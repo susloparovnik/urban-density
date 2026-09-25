@@ -114,14 +114,28 @@ def main():
         meta.parent.mkdir(parents=True, exist_ok=True)
         meta.write_text(json.dumps({"real_area": a.real_area, "bounds": city.get("bounds")}))
 
+    was_new = registry.find(reg, city["id"]) is None
     city = registry.upsert(reg, city)
     registry.save(reg)
 
     print(f"\nComputing {city['name']} with {SOURCES[a.source]['label']} ...")
-    summary = pipeline.compute(city, a.source, force=a.force, mask=a.mask,
-                               radius_m=int(a.radius_km * 1000), refresh_boundary=a.refresh_boundary)
+    try:
+        summary = pipeline.compute(city, a.source, force=a.force, mask=a.mask,
+                                   radius_m=int(a.radius_km * 1000), refresh_boundary=a.refresh_boundary)
+    except BaseException:
+        summary = None
+        raise
+    finally:
+        if summary is None and was_new and not city.get("sources"):
+            # nothing computed for a city that did not exist before: do not leave a stub behind
+            reg["cities"] = [c for c in reg["cities"] if c["id"] != city["id"]]
+            registry.save(reg)
+            d = pipeline.city_dir(city["id"])
+            if d.exists() and not any(d.rglob("summary.json")) and not (d / "real_boundary.geojson").exists():
+                import shutil
+                shutil.rmtree(d, ignore_errors=True)
     if summary is None:
-        sys.exit("No result.")
+        sys.exit(f"No result for {city['name']} — see the messages above.")
 
     bounds = summary.get("bounds")
     if not bounds:

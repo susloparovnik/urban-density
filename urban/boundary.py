@@ -2,18 +2,11 @@
 reference polygon ("real area") that can be unioned into it."""
 import datetime
 import json
-import time
 
 from shapely.geometry import shape, mapping, Point, Polygon, MultiPolygon
 from shapely.ops import unary_union
 
 from .config import BOUNDARY_DIR, CITIES_DIR, RADIUS_M, BUFFER_DEG, URBAN_TAGS
-
-OVERPASS_MIRRORS = [
-    "https://overpass-api.de/api",
-    "https://overpass.openstreetmap.fr/api",
-    "https://overpass.osm.ch/api",
-]
 
 # Components of the raw mask farther than this from the centre are dropped from the
 # *displayed* boundary only (degrees, ≈ 25 km). The clipping mask is not affected.
@@ -34,36 +27,27 @@ def osm_polygon(city_id, lat, lon, radius_m=RADIUS_M, refresh=False):
     if cache.exists() and not refresh:
         return shape(json.loads(cache.read_text())["geometry"])
 
-    import osmnx as ox
-    ox.settings.requests_timeout = 90
+    from . import overpass
     print(f"  Fetching OSM landuse around ({lat:.4f}, {lon:.4f}), r={radius_m // 1000} km ...")
-    last_err = None
-    for mirror in OVERPASS_MIRRORS:
-        ox.settings.overpass_url = mirror
-        try:
-            gdf = ox.features_from_point((lat, lon), tags=URBAN_TAGS, dist=radius_m)
-            polys = gdf[gdf.geometry.geom_type.isin(["Polygon", "MultiPolygon"])]
-            if len(polys) == 0:
-                print("  No landuse polygons found in OSM here.")
-                return None
-            extent = unary_union(polys.geometry.values).buffer(BUFFER_DEG)
-            BOUNDARY_DIR.mkdir(exist_ok=True)
-            cache.write_text(json.dumps({
-                "geometry": mapping(extent),
-                "radius_m": radius_m,
-                "fetched": datetime.date.today().isoformat(),
-                "source": "OSM landuse via Overpass",
-            }))
-            n = len(extent.geoms) if extent.geom_type == "MultiPolygon" else 1
-            print(f"  {len(polys)} landuse polygons → {n} component(s)")
-            time.sleep(1.0)  # be polite to Overpass
-            return extent
-        except Exception as e:  # noqa: BLE001 — any mirror failure → try the next one
-            last_err = e
-            print(f"  Overpass mirror {mirror} failed: {str(e)[:120]}")
-            time.sleep(5)
-    print(f"  ERROR: all Overpass mirrors failed ({last_err})")
-    return None
+    try:
+        polys = overpass.landuse_polygons(lat, lon, radius_m, URBAN_TAGS["landuse"])
+    except overpass.OverpassError as e:
+        print(f"  ERROR: {e}")
+        return None
+    if not polys:
+        print("  No landuse polygons found in OSM here.")
+        return None
+    extent = unary_union(polys).buffer(BUFFER_DEG)
+    BOUNDARY_DIR.mkdir(exist_ok=True)
+    cache.write_text(json.dumps({
+        "geometry": mapping(extent),
+        "radius_m": radius_m,
+        "fetched": datetime.date.today().isoformat(),
+        "source": "OSM landuse via Overpass",
+    }))
+    n = len(extent.geoms) if extent.geom_type == "MultiPolygon" else 1
+    print(f"  {len(polys)} landuse polygons → {n} component(s)")
+    return extent
 
 
 def _rings_to_polygons(geom, center, max_dist_deg):

@@ -8,104 +8,158 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
   :root {
-    --bg:#0f1117; --bg2:#131926; --bg3:#1a2233;
-    --border:#1e2d45; --text:#e2e8f0; --muted:#64748b;
-    --blue:#60a5fa; --green:#4ade80; --amber:#f59e0b;
-    --cyan:#22d3ee; --red:#f87171; --orange:#fb923c;
+    --bg:#0f1117; --bg2:#131926; --bg3:#1a2233; --bg4:#222c40;
+    --border:#1e2d45; --text:#e2e8f0; --muted:#7c8aa0; --dim:#4b5870;
+    --blue:#60a5fa; --green:#4ade80; --amber:#f59e0b; --cyan:#22d3ee; --red:#f87171; --orange:#fb923c;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;font-size:13px;height:100vh;display:flex;flex-direction:column;overflow:hidden;}
+  html,body{height:100%;}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;font-size:13px;display:flex;flex-direction:column;overflow:hidden;}
+  button{font:inherit;color:inherit;}
+  input,select{font:inherit;}
+  a{color:var(--blue);}
 
-  .topbar{display:flex;background:var(--bg2);border-bottom:2px solid var(--border);padding:0 16px;flex-shrink:0;align-items:center;height:44px;gap:14px;}
-  .app-title{font-size:15px;font-weight:700;color:var(--blue);letter-spacing:.01em;}
-  .app-sub{color:var(--muted);font-size:12px;}
-  .topbar .spacer{flex:1;}
-  .topbar .lbl{color:var(--muted);font-size:13px;font-weight:600;letter-spacing:.03em;}
-
-  .main-split{display:flex;flex:1;overflow:hidden;}
-  .table-pane{width:46%;min-width:400px;display:flex;flex-direction:column;border-right:2px solid var(--border);overflow:hidden;flex-shrink:0;}
-  .table-toolbar{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--bg2);border-bottom:1px solid var(--border);flex-shrink:0;flex-wrap:wrap;}
-  .table-toolbar .lbl{color:var(--muted);font-size:13px;font-weight:600;letter-spacing:.03em;}
-  .table-toolbar input,.table-toolbar select{background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:6px 12px;border-radius:7px;font-size:13px;outline:none;}
-  .table-toolbar input:focus,.table-toolbar select:focus{border-color:var(--blue);}
-  .table-toolbar select{cursor:pointer;}
-  .toolbar-sep{width:1px;height:24px;background:var(--border);flex-shrink:0;margin:0 2px;}
-  .table-wrap{overflow:auto;flex:1;}
-  #main-table{table-layout:fixed;width:100%;}
-
+  /* ── buttons & controls ── */
+  .btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:7px;border:1px solid var(--border);background:var(--bg3);color:var(--text);cursor:pointer;white-space:nowrap;font-size:13px;line-height:1.2;transition:background .12s,border-color .12s;}
+  .btn:hover{background:var(--bg4);border-color:#2b3d5c;}
+  .btn:disabled{opacity:.45;cursor:default;}
+  .btn-primary{background:var(--blue);border-color:var(--blue);color:#0b1220;font-weight:600;}
+  .btn-primary:hover{background:#7ab6fb;border-color:#7ab6fb;}
+  .btn-ghost{background:transparent;}
+  .btn-danger{color:var(--red);}
+  .btn-danger:hover{border-color:#5b2b2b;background:#2a1a1a;}
+  .btn-sm{padding:4px 9px;font-size:12px;border-radius:6px;}
+  .btn-icon{padding:6px 9px;}
   .seg-ctrl{display:flex;gap:2px;background:var(--bg3);padding:3px;border-radius:9px;border:1px solid var(--border);}
-  .seg-btn{padding:6px 14px;border:none;background:transparent;color:var(--muted);cursor:pointer;border-radius:7px;font-size:13px;font-weight:500;transition:all .15s;white-space:nowrap;}
+  .seg-btn{padding:5px 12px;border:none;background:transparent;color:var(--muted);cursor:pointer;border-radius:7px;font-size:13px;font-weight:500;transition:all .15s;white-space:nowrap;}
   .seg-btn:hover{color:var(--text);}
   .seg-btn.active{background:var(--bg2);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,.4);}
-  .seg-btn[data-core="70"].active{color:#facc15;}
-  .seg-btn[data-core="80"].active{color:#f97316;}
-  .seg-btn[data-core="90"].active{color:#ef4444;}
-  .seg-btn[data-core="95"].active{color:#dc2626;}
+  .seg-btn[data-core="70"].active{color:#facc15;} .seg-btn[data-core="80"].active{color:#f97316;}
+  .seg-btn[data-core="90"].active{color:#ef4444;} .seg-btn[data-core="95"].active{color:#dc2626;}
   .seg-btn[data-source].active{color:var(--cyan);}
   .seg-btn .cnt{color:var(--muted);font-size:11px;margin-left:5px;}
-  .seg-btn:disabled{opacity:.35;cursor:default;}
+  .lbl{color:var(--muted);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;}
+  .sep{width:1px;height:22px;background:var(--border);flex-shrink:0;}
+  .field input,.field select{width:100%;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:7px 10px;border-radius:7px;outline:none;}
+  .field input:focus,.field select:focus,.tb-input:focus{border-color:var(--blue);}
+  .field{display:flex;flex-direction:column;gap:4px;}
+  .field > span{color:var(--muted);font-size:11px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .row{display:flex;gap:8px;align-items:center;}
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:4px 9px;border-radius:999px;border:1px solid var(--border);background:var(--bg3);color:var(--muted);font-size:12px;cursor:pointer;white-space:nowrap;}
+  .chip:hover{color:var(--text);border-color:#2b3d5c;}
+  .chip.on{color:var(--cyan);border-color:#164e63;background:#0c2530;}
+  .chip.add{color:var(--green);border-style:dashed;}
+  .chip.add:hover{background:#12291c;border-color:#1f5a35;}
+  .chip .dot{width:7px;height:7px;border-radius:50%;background:currentColor;}
 
-  table{border-collapse:collapse;width:100%;font-size:12px;}
+  /* ── top bar ── */
+  .topbar{display:flex;align-items:center;gap:14px;background:var(--bg2);border-bottom:2px solid var(--border);padding:0 16px;height:48px;flex-shrink:0;}
+  .app-title{font-size:15px;font-weight:700;color:var(--blue);letter-spacing:.01em;white-space:nowrap;}
+  .app-sub{color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .spacer{flex:1;}
+  #jobs-pill{display:none;align-items:center;gap:7px;}
+  #jobs-pill.show{display:inline-flex;}
+  .spin{width:11px;height:11px;border:2px solid var(--dim);border-top-color:var(--cyan);border-radius:50%;animation:spin .8s linear infinite;flex-shrink:0;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* ── split ── */
+  .main-split{display:flex;flex:1;overflow:hidden;min-height:0;}
+  .table-pane{width:46%;min-width:420px;display:flex;flex-direction:column;border-right:2px solid var(--border);flex-shrink:0;min-height:0;}
+  .table-toolbar{display:flex;align-items:center;gap:10px;padding:9px 14px;background:var(--bg2);border-bottom:1px solid var(--border);flex-shrink:0;}
+  .tb-input{background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:7px;outline:none;}
+  #count{color:var(--muted);font-size:12px;white-space:nowrap;}
+  .table-wrap{overflow:auto;flex:1;min-height:0;}
+  table{border-collapse:collapse;width:100%;font-size:12px;table-layout:fixed;}
   thead th{background:var(--bg3);color:var(--muted);padding:6px 10px;text-align:right;position:sticky;top:0;z-index:10;white-space:nowrap;border-bottom:1px solid var(--border);cursor:pointer;user-select:none;}
   thead th:hover{color:var(--text);}
-  thead th.asc::after{content:' ▲';font-size:9px;color:var(--blue);}
-  thead th.dsc::after{content:' ▼';font-size:9px;color:var(--blue);}
-  .th-group{background:var(--bg2)!important;color:var(--text)!important;font-size:11px;font-weight:700;border-bottom:1px solid var(--border);text-align:center!important;}
-  tbody tr:nth-child(even){background:var(--bg2);}
-  tbody tr:nth-child(odd){background:var(--bg);}
-  tbody tr:hover{background:var(--bg3);}
+  thead th.asc::after{content:' ▲';font-size:9px;color:var(--blue);} thead th.dsc::after{content:' ▼';font-size:9px;color:var(--blue);}
+  .th-group{background:var(--bg2)!important;color:var(--text)!important;font-size:11px;font-weight:700;text-align:center!important;}
+  tbody tr:nth-child(even){background:var(--bg2);} tbody tr:nth-child(odd){background:var(--bg);}
+  tbody tr:hover td{background:var(--bg3);}
   tbody tr.sel td{background:#172a45;}
   td{padding:5px 10px;text-align:right;white-space:nowrap;border-right:1px solid rgba(30,45,69,.25);overflow:hidden;text-overflow:ellipsis;}
   td.city-col{text-align:left;font-weight:500;padding-left:14px;padding-right:8px;cursor:pointer;}
-  td.city-col:hover{color:var(--blue);text-decoration:underline;}
-  .src-badges{display:inline-flex;gap:3px;margin-left:6px;vertical-align:middle;}
-  .badge{font-size:9px;font-weight:700;padding:1px 4px;border-radius:4px;background:var(--bg3);color:var(--muted);border:1px solid var(--border);letter-spacing:.02em;}
-  .badge.on{color:var(--cyan);border-color:#164e63;}
-  .neg{color:#f87171;} .pos{color:#fb923c;} .ok{color:#4ade80;}
-  .best-val{font-weight:700;}
+  tr:hover td.city-col{color:var(--blue);}
+  .badge{font-size:9px;font-weight:700;padding:1px 4px;border-radius:4px;background:var(--bg3);color:var(--muted);border:1px solid var(--border);margin-left:5px;vertical-align:middle;}
+  .neg{color:#f87171;} .pos{color:#fb923c;} .ok{color:#4ade80;} .best-val{font-weight:700;}
+  .empty{padding:30px;text-align:center;color:var(--muted);}
 
-  .map-pane{flex:1;display:flex;flex-direction:column;overflow:hidden;}
-  .map-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 16px;background:var(--bg2);border-bottom:1px solid var(--border);flex-shrink:0;}
-  .map-toolbar .lbl{color:var(--muted);font-size:13px;font-weight:600;letter-spacing:.03em;white-space:nowrap;}
-  .bm-switcher{display:flex;gap:2px;background:var(--bg3);padding:3px;border-radius:9px;border:1px solid var(--border);}
-  .bm-btn{padding:6px 16px;border:none;background:transparent;color:var(--muted);cursor:pointer;border-radius:7px;font-size:13px;font-weight:500;transition:all .15s;white-space:nowrap;}
-  .bm-btn:hover{color:var(--text);}
-  .bm-btn.active{background:var(--bg2);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,.4);}
-  .bm-btn[data-key="dark"].active{color:#60a5fa;}
-  .bm-btn[data-key="osm"].active{color:#4ade80;}
-  .bm-btn[data-key="satellite"].active{color:#a78bfa;}
-  .bm-btn[data-key="google"].active{color:#fb923c;}
-  .tog-inline{display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px;color:var(--muted);white-space:nowrap;padding:5px 9px;border-radius:6px;border:1px solid transparent;transition:all .12s;}
-  .tog-inline:hover{color:var(--text);}
-  .tog-inline:has(input:checked){color:var(--text);border-color:var(--border);background:var(--bg3);}
-  .tog-inline input[type=checkbox]{accent-color:var(--blue);width:13px;height:13px;cursor:pointer;flex-shrink:0;}
-  .tog-swatch{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
-
-  .map-inner{display:flex;flex:1;overflow:hidden;}
-  #map-wrap{flex:1;position:relative;}
+  /* ── map pane ── */
+  .map-pane{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0;}
+  .map-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:9px 14px;background:var(--bg2);border-bottom:1px solid var(--border);flex-shrink:0;}
+  .tog{display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px;color:var(--muted);white-space:nowrap;padding:4px 8px;border-radius:6px;border:1px solid transparent;}
+  .tog:hover{color:var(--text);}
+  .tog:has(input:checked){color:var(--text);border-color:var(--border);background:var(--bg3);}
+  .tog input{accent-color:var(--blue);width:13px;height:13px;cursor:pointer;}
+  .sw{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+  .bm-btn[data-key="dark"].active{color:#60a5fa;} .bm-btn[data-key="osm"].active{color:#4ade80;}
+  .bm-btn[data-key="satellite"].active{color:#a78bfa;} .bm-btn[data-key="google"].active{color:#fb923c;}
+  #map-wrap{flex:1;position:relative;min-height:0;}
   #map{width:100%;height:100%;background:#0b0e14;}
-
+  #map.picking{cursor:crosshair;}
   .fp{position:absolute;z-index:1000;background:rgba(13,16,22,.95);border:1px solid var(--border);border-radius:10px;}
-  #info-box{top:12px;right:12px;min-width:300px;max-width:360px;padding:16px 20px;}
-  #info-box h4{color:var(--blue);font-size:18px;font-weight:700;margin-bottom:8px;line-height:1.2;}
-  .ir{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;font-size:14px;gap:12px;}
-  .ir .lbl{color:var(--muted);} .ir .val{font-weight:600;text-align:right;}
-  .pct-section{margin-top:10px;}
-  .prow{margin-bottom:7px;}
-  .plbl{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;margin-bottom:3px;}
-  .plbl .pk{font-weight:700;} .plbl .pv{color:var(--text);}
-  .pbar-bg{background:var(--bg3);border-radius:4px;height:7px;}
-  .pbar{height:100%;border-radius:4px;transition:width .35s;}
-  .hint{color:var(--muted);font-size:12px;line-height:1.5;margin-top:8px;}
-  .hint code{background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:2px 6px;color:var(--cyan);font-size:11px;display:inline-block;margin-top:4px;}
-
-  #legend-box{bottom:14px;left:8px;padding:10px 13px;font-size:11px;}
-  #legend-box .lt{color:var(--muted);margin-bottom:5px;font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;}
+  #info-box{top:12px;right:12px;width:340px;padding:14px 18px 12px;transition:right .2s;}
+  body.drawer-open #info-box{right:412px;}
+  #info-box h4{color:var(--blue);font-size:18px;font-weight:700;margin-bottom:6px;line-height:1.2;display:flex;justify-content:space-between;align-items:baseline;gap:8px;}
+  #info-box h4 small{color:var(--muted);font-size:11px;font-weight:400;white-space:nowrap;}
+  .ir{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;font-size:13px;gap:12px;}
+  .ir .k{color:var(--muted);} .ir .v{font-weight:600;text-align:right;}
+  .src-row{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 6px;}
+  .prow{margin-bottom:6px;}
+  .plbl{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;margin-bottom:2px;}
+  .plbl .pk{font-weight:700;}
+  .pbar-bg{background:var(--bg3);border-radius:4px;height:6px;} .pbar{height:100%;border-radius:4px;transition:width .35s;}
+  .hint{color:var(--muted);font-size:12px;line-height:1.5;}
+  .hint code,.mono{font-family:var(--mono);font-size:11px;}
+  .actions{display:flex;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);}
+  #legend-box{bottom:14px;left:8px;padding:9px 12px;font-size:11px;}
+  #legend-box .lt{color:var(--muted);margin-bottom:4px;font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;}
+  #pick-hint{top:12px;left:50%;transform:translateX(-50%);padding:8px 14px;color:var(--cyan);display:none;}
   .leaflet-tooltip{background:rgba(13,16,22,.92)!important;border:1px solid var(--border)!important;color:var(--text)!important;font-size:12px!important;padding:5px 9px!important;border-radius:6px!important;box-shadow:none!important;}
 
-  #overlay-msg{position:fixed;inset:0;z-index:99999;background:rgba(15,17,23,.94);display:none;align-items:center;justify-content:center;font-family:'Segoe UI',system-ui,sans-serif;}
-  #overlay-msg .card{max-width:560px;background:#131926;border:1px solid #1e2d45;border-radius:12px;padding:32px;color:#e2e8f0;line-height:1.55;}
-  #overlay-msg pre{background:#0f1117;border:1px solid #1e2d45;border-radius:8px;padding:14px;color:#22d3ee;font-size:13px;overflow:auto;margin:12px 0 8px;}
+  /* ── drawer ── */
+  #drawer{position:absolute;top:0;right:0;bottom:0;width:400px;z-index:1100;background:rgba(13,16,22,.97);border-left:1px solid var(--border);transform:translateX(100%);transition:transform .2s;display:flex;flex-direction:column;}
+  #drawer.open{transform:none;}
+  .dh{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--border);font-size:15px;font-weight:700;}
+  .dbody{overflow:auto;flex:1;padding:14px 16px 24px;display:flex;flex-direction:column;gap:16px;}
+  .sec > h5{color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;}
+  .sec{display:flex;flex-direction:column;gap:8px;}
+  #geo-results{display:flex;flex-direction:column;gap:4px;}
+  .geo-item{padding:6px 10px;border:1px solid var(--border);border-radius:7px;background:var(--bg3);cursor:pointer;font-size:12px;line-height:1.35;}
+  .geo-item:hover{border-color:var(--blue);}
+  .geo-item b{font-size:13px;} .geo-item span{color:var(--muted);}
+  .src-opt{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border:1px solid var(--border);border-radius:8px;background:var(--bg3);cursor:pointer;}
+  .src-opt:has(input:checked){border-color:#164e63;background:#0c2530;}
+  .src-opt input{margin-top:3px;accent-color:var(--cyan);}
+  .src-opt b{display:block;font-size:13px;} .src-opt span{color:var(--muted);font-size:11px;line-height:1.35;}
+  details.sec summary{cursor:pointer;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;list-style:none;}
+  details.sec summary::before{content:'▸ ';} details.sec[open] summary::before{content:'▾ ';}
+  details.sec > div{display:flex;flex-direction:column;gap:10px;margin-top:10px;}
+  #form-msg{font-size:12px;color:var(--red);line-height:1.4;}
+  #form-msg.ok{color:var(--green);}
+  .warn{background:#2a2110;border:1px solid #5a4416;color:#f5c26b;border-radius:8px;padding:8px 10px;font-size:12px;line-height:1.4;}
+  .job{border:1px solid var(--border);border-radius:8px;background:var(--bg2);overflow:hidden;}
+  .job-h{display:flex;align-items:center;gap:8px;padding:7px 10px;cursor:pointer;font-size:12.5px;}
+  .job-h .st{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .st.queued{background:var(--dim);} .st.cancelled{background:var(--amber);} .st.running{background:var(--cyan);box-shadow:0 0 6px var(--cyan);} .st.done{background:var(--green);} .st.failed{background:var(--red);}
+  .job-h .t{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;} .job-h .d{color:var(--muted);font-size:11px;}
+  .job-log{font-family:var(--mono);font-size:10.5px;line-height:1.45;color:#a8b3c7;background:#0b0e14;padding:7px 10px;max-height:120px;overflow:auto;white-space:pre-wrap;word-break:break-word;border-top:1px solid var(--border);}
+  .job.open .job-log{max-height:360px;}
+  .job-err{color:var(--red);padding:5px 10px;font-size:11.5px;border-top:1px solid var(--border);}
+
+  /* ── modal / toasts ── */
+  .modal{position:fixed;inset:0;z-index:5000;background:rgba(15,17,23,.85);display:none;align-items:center;justify-content:center;}
+  .modal.show{display:flex;}
+  .card{width:min(680px,92vw);max-height:88vh;overflow:auto;background:#131926;border:1px solid var(--border);border-radius:12px;padding:26px 30px;line-height:1.55;}
+  .card h3{font-size:18px;margin-bottom:12px;color:var(--blue);} .card h4{font-size:13px;margin:16px 0 6px;color:var(--text);text-transform:uppercase;letter-spacing:.04em;}
+  .card p,.card li{color:#b7c2d4;font-size:13px;} .card ul{padding-left:18px;} .card table{font-size:12px;margin:6px 0;} .card td,.card th{text-align:left;padding:4px 8px;border:1px solid var(--border);}
+  .card pre{background:#0f1117;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--cyan);font-size:12px;overflow:auto;margin:6px 0;}
+  #toasts{position:fixed;right:16px;bottom:16px;z-index:6000;display:flex;flex-direction:column;gap:8px;}
+  .toast{background:#131926;border:1px solid var(--border);border-left:3px solid var(--cyan);border-radius:8px;padding:10px 14px;font-size:12.5px;min-width:260px;max-width:380px;box-shadow:0 6px 20px rgba(0,0,0,.4);display:flex;gap:10px;align-items:center;}
+  .toast.ok{border-left-color:var(--green);} .toast.err{border-left-color:var(--red);}
+  .toast .spacer{flex:1;}
 </style>
 </head>
 <body>
@@ -114,20 +168,22 @@
   <span class="app-title">Urban Density</span>
   <span class="app-sub">OSM landuse mask × population raster → density-percentile cores</span>
   <span class="spacer"></span>
-  <span class="lbl">Population source:</span>
+  <span class="lbl">Source</span>
   <div class="seg-ctrl" id="source-ctrl"></div>
+  <span class="sep"></span>
+  <button class="btn" id="jobs-pill" onclick="openDrawer('jobs')"><span class="spin"></span><span id="jobs-pill-text"></span></button>
+  <button class="btn btn-primary" id="add-btn" onclick="openDrawer('add')">＋ Add city</button>
+  <button class="btn btn-icon" title="Help" onclick="showHelp()">?</button>
 </div>
 
 <div class="main-split">
   <div class="table-pane">
     <div class="table-toolbar">
-      <span class="lbl">Search:</span>
-      <input id="search" type="text" placeholder="City..." oninput="renderTable()" style="width:130px">
-      <select id="country-filter" onchange="renderTable()" style="width:150px">
-        <option value="">All countries</option>
-      </select>
-      <div class="toolbar-sep"></div>
-      <span class="lbl">Core:</span>
+      <input id="search" class="tb-input" type="text" placeholder="Search city…" oninput="renderTable()" style="width:150px">
+      <select id="country-filter" class="tb-input" onchange="renderTable()" style="width:150px"><option value="">All countries</option></select>
+      <span id="count"></span>
+      <span class="spacer"></span>
+      <span class="lbl">Core</span>
       <div class="seg-ctrl">
         <button class="seg-btn" data-core="70" onclick="switchCore(70)">70%</button>
         <button class="seg-btn" data-core="80" onclick="switchCore(80)">80%</button>
@@ -137,10 +193,7 @@
     </div>
     <div class="table-wrap">
       <table id="main-table">
-        <colgroup>
-          <col style="width:24%"><col style="width:12%"><col style="width:14%">
-          <col style="width:12%"><col style="width:13%"><col style="width:25%">
-        </colgroup>
+        <colgroup><col style="width:25%"><col style="width:13%"><col style="width:13%"><col style="width:12%"><col style="width:13%"><col style="width:24%"></colgroup>
         <thead id="main-thead"></thead>
         <tbody id="tbody"></tbody>
       </table>
@@ -149,362 +202,441 @@
 
   <div class="map-pane">
     <div class="map-toolbar">
-      <span class="lbl">Basemap:</span>
-      <div class="bm-switcher">
-        <button class="bm-btn active" data-key="dark" onclick="switchBasemap('dark')">Dark</button>
-        <button class="bm-btn" data-key="osm" onclick="switchBasemap('osm')">OSM</button>
-        <button class="bm-btn" data-key="satellite" onclick="switchBasemap('satellite')">Satellite</button>
-        <button class="bm-btn" data-key="google" onclick="switchBasemap('google')">Google</button>
+      <span class="lbl">Basemap</span>
+      <div class="seg-ctrl">
+        <button class="seg-btn bm-btn active" data-key="dark" onclick="switchBasemap('dark')">Dark</button>
+        <button class="seg-btn bm-btn" data-key="osm" onclick="switchBasemap('osm')">OSM</button>
+        <button class="seg-btn bm-btn" data-key="satellite" onclick="switchBasemap('satellite')">Satellite</button>
+        <button class="seg-btn bm-btn" data-key="google" onclick="switchBasemap('google')">Google</button>
       </div>
-      <div class="toolbar-sep"></div>
-      <span class="lbl">Layers:</span>
-      <label class="tog-inline"><input type="checkbox" id="tog-heat" checked onchange="toggleLayer('heat')"><span class="tog-swatch" style="background:#475569"></span>Heatmap</label>
-      <label class="tog-inline"><input type="checkbox" id="tog-boundary" onchange="toggleLayer('boundary')"><span class="tog-swatch" id="sw-boundary" style="background:#22d3ee"></span>OSM Mask</label>
-      <label class="tog-inline"><input type="checkbox" id="tog-real" onchange="toggleLayer('real')"><span class="tog-swatch" style="background:#00ff88"></span>Real Boundary</label>
-      <div class="toolbar-sep"></div>
-      <span class="lbl">Cores:</span>
-      <label class="tog-inline"><input type="checkbox" id="tog-core-95" onchange="toggleCore(95)"><span class="tog-swatch" id="sw-core-95" style="background:#dc2626"></span>95%</label>
-      <label class="tog-inline"><input type="checkbox" id="tog-core-90" checked onchange="toggleCore(90)"><span class="tog-swatch" id="sw-core-90" style="background:#ef4444"></span>90%</label>
-      <label class="tog-inline"><input type="checkbox" id="tog-core-80" onchange="toggleCore(80)"><span class="tog-swatch" id="sw-core-80" style="background:#f97316"></span>80%</label>
-      <label class="tog-inline"><input type="checkbox" id="tog-core-70" onchange="toggleCore(70)"><span class="tog-swatch" id="sw-core-70" style="background:#facc15"></span>70%</label>
+      <span class="sep"></span>
+      <span class="lbl">Layers</span>
+      <label class="tog"><input type="checkbox" id="tog-heat" checked onchange="toggleLayer('heat')"><span class="sw" style="background:#475569"></span>Heatmap</label>
+      <label class="tog"><input type="checkbox" id="tog-boundary" onchange="toggleLayer('boundary')"><span class="sw" id="sw-boundary" style="background:#22d3ee"></span>OSM mask</label>
+      <label class="tog"><input type="checkbox" id="tog-real" onchange="toggleLayer('real')"><span class="sw" style="background:#00ff88"></span>Real boundary</label>
+      <span class="sep"></span>
+      <span class="lbl">Cores</span>
+      <label class="tog"><input type="checkbox" id="tog-core-95" onchange="toggleCore(95)"><span class="sw" id="sw-core-95" style="background:#dc2626"></span>95%</label>
+      <label class="tog"><input type="checkbox" id="tog-core-90" checked onchange="toggleCore(90)"><span class="sw" id="sw-core-90" style="background:#ef4444"></span>90%</label>
+      <label class="tog"><input type="checkbox" id="tog-core-80" onchange="toggleCore(80)"><span class="sw" id="sw-core-80" style="background:#f97316"></span>80%</label>
+      <label class="tog"><input type="checkbox" id="tog-core-70" onchange="toggleCore(70)"><span class="sw" id="sw-core-70" style="background:#facc15"></span>70%</label>
     </div>
-    <div class="map-inner">
-      <div id="map-wrap">
-        <div id="map"></div>
-        <div class="fp" id="info-box">
-          <h4 id="ib-title">Select a city</h4>
-          <div id="ib-body"><p class="hint">Click a city in the table to see its cores. Switch the population source in the top bar.</p></div>
-        </div>
-        <div class="fp" id="legend-box">
-          <div class="lt">Density, ppl/km²</div>
-          <div style="height:10px;border-radius:4px;margin:5px 0 3px;background:linear-gradient(to right,#251155,#63197f,#a12f7e,#dd4968,#fb8861,#fec689,#fbfcbf)"></div>
-          <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--muted)"><span>low</span><span>↑ log scale ↑</span><span>high</span></div>
+    <div id="map-wrap">
+      <div id="map"></div>
+      <div class="fp" id="pick-hint">Click the map to set the city centre · Esc to cancel</div>
+      <div class="fp" id="info-box">
+        <h4 id="ib-title">Select a city</h4>
+        <div id="ib-body"><p class="hint">Click a city in the table to see its cores. Switch the population source in the top bar, or add a city with <b>＋ Add city</b>.</p></div>
+      </div>
+      <div class="fp" id="legend-box">
+        <div class="lt">Density, ppl/km²</div>
+        <div style="height:10px;border-radius:4px;margin:4px 0 3px;background:linear-gradient(to right,#251155,#63197f,#a12f7e,#dd4968,#fb8861,#fec689,#fbfcbf)"></div>
+        <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--muted)"><span>low</span><span>log scale</span><span>high</span></div>
+      </div>
+
+      <div id="drawer">
+        <div class="dh"><span id="drawer-title">Add a city</span><button class="btn btn-ghost btn-icon" onclick="closeDrawer()">✕</button></div>
+        <div class="dbody">
+          <div id="deps-warn" class="warn" style="display:none"></div>
+          <div class="sec" id="sec-add">
+            <h5>Location</h5>
+            <div class="row"><input id="geo-q" class="tb-input" style="flex:1" placeholder="City name, e.g. Bukhara" onkeydown="if(event.key==='Enter')geocode()"><button class="btn" onclick="geocode()">Search</button></div>
+            <div id="geo-results"></div>
+            <div class="row"><button class="btn btn-sm" id="pick-btn" onclick="togglePick()">📍 Pick on map</button><span class="hint" id="pick-note">or type the coordinates below</span></div>
+            <div class="grid2">
+              <label class="field"><span>Name</span><input id="f-name" oninput="onFormChange()"></label>
+              <label class="field"><span>Country</span><input id="f-country" placeholder="auto"></label>
+            </div>
+            <div class="grid2">
+              <label class="field"><span>Latitude</span><input id="f-lat" type="number" step="any" placeholder="e.g. 39.7747" oninput="onLatLon()"></label>
+              <label class="field"><span>Longitude</span><input id="f-lon" type="number" step="any" placeholder="e.g. 64.4286" oninput="onLatLon()"></label>
+            </div>
+            <h5 style="margin-top:6px">Population source</h5>
+            <div id="src-opts"></div>
+            <details class="sec"><summary>Options</summary><div>
+              <div class="grid2">
+                <label class="field"><span>Mask radius, km</span><input id="f-radius" type="number" min="5" max="80" step="1" value="25" oninput="onLatLon()"></label>
+                <label class="field"><span>Mask</span><select id="f-mask"><option value="osm">OSM landuse (default)</option><option value="osm+real">OSM ∪ real polygon</option></select></label>
+              </div>
+              <div class="grid2">
+                <label class="field"><span>Real area, km² (optional)</span><input id="f-real" type="number" step="any" min="0" placeholder="reference area"></label>
+                <label class="field"><span>Real polygon (GeoJSON, optional)</span><input id="f-poly" type="file" accept=".json,.geojson,application/geo+json,application/json"></label>
+              </div>
+              <label class="tog" style="align-self:flex-start"><input type="checkbox" id="f-force"> Recompute if results exist</label>
+            </div></details>
+            <div class="row" style="margin-top:4px"><button class="btn btn-primary" id="compute-btn" onclick="submitForm()">Compute</button><span id="form-msg"></span></div>
+          </div>
+          <div class="sec" id="sec-jobs">
+            <h5>Jobs <span id="jobs-count" style="text-transform:none;font-weight:400"></span></h5>
+            <div id="jobs-list"><p class="hint">Nothing running. Jobs run one at a time; you can keep browsing meanwhile.</p></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div id="overlay-msg"><div class="card" id="overlay-card"></div></div>
+<div class="modal" id="help-modal" onclick="if(event.target===this)this.classList.remove('show')"><div class="card" id="help-card"></div></div>
+<div class="modal" id="blocker"><div class="card" id="blocker-card"></div></div>
+<div id="toasts"></div>
 
 <script>
-// ── Data ─────────────────────────────────────────────────────────────────────
+// ═══════════════════════ state ═══════════════════════
 const CORES = [70, 80, 90, 95];
 const CORE_COLORS = {70:'#facc15', 80:'#f97316', 90:'#ef4444', 95:'#dc2626'};
 const SOURCE_ORDER = ['worldpop', 'ghs', 'hrsl'];
-let REG = {sources:{}, cities:[]};
-let CITIES = [];
-let SOURCE = null;
-let selectedCore = 90;
-let sortKey = 'name', sortDir = 'asc';
-let currentCityId = null;
+const SOURCE_HINT = {
+  worldpop: 'Constrained 2020, 100 m. Validated baseline — closest to the reference areas.',
+  ghs: 'R2023A, epoch 2025, ~93 m. Global, newest; smoother → larger cores.',
+  hrsl: 'Meta / CIESIN 2020, points → 250 m grid. Sharp footprint; country totals can run high.',
+};
+let REG = {sources: {}, cities: []}, CITIES = [], SOURCE = null;
+let selectedCore = 90, sortKey = 'name', sortDir = 'asc', currentCityId = null;
+let API = null;                 // /api/status result, or null when served statically
+let jobsSeen = {};              // job id → last status (for toasts)
+let pollTimer = null;
 
+const $ = id => document.getElementById(id);
+const fi = v => (v == null || isNaN(v)) ? '—' : Math.round(v).toLocaleString('en-US');
+const fpop = v => v == null ? '—' : Math.round(v / 1000).toLocaleString('en-US') + 'K';
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function srcLabel(s) { return (REG.sources[s] && REG.sources[s].label) || s; }
 function srcTitle(s) { return (REG.sources[s] && REG.sources[s].title) || s; }
 function res(c, s = SOURCE) { return (c.sources && c.sources[s]) || null; }
-function delta(c, p, s = SOURCE) {
-  const r = res(c, s), a = r ? r[`area${p}`] : null;
-  if (!c.real_area || a == null) return null;
-  return (a - c.real_area) / c.real_area * 100;
-}
-function bestCore(c) {
-  const ds = CORES.map(p => ({p, d: delta(c, p)})).filter(x => x.d != null);
-  return ds.length ? ds.reduce((a, b) => Math.abs(a.d) < Math.abs(b.d) ? a : b).p : null;
-}
-function sortValue(c, key) {
-  if (key === 'name' || key === 'country') return c[key] || '';
-  if (key === 'real_area') return c.real_area;
-  const m = key.match(/^(area|pop|d|absD)(\d+)$/);
-  if (!m) return null;
-  const p = +m[2];
-  if (m[1] === 'd') return delta(c, p);
-  if (m[1] === 'absD') { const d = delta(c, p); return d == null ? null : Math.abs(d); }
-  const r = res(c);
-  return r ? r[`${m[1]}${p}`] : null;
-}
+function delta(c, p, s = SOURCE) { const r = res(c, s), a = r ? r[`area${p}`] : null; return (!c.real_area || a == null) ? null : (a - c.real_area) / c.real_area * 100; }
+function bestCore(c) { const ds = CORES.map(p => ({p, d: delta(c, p)})).filter(x => x.d != null); return ds.length ? ds.reduce((a, b) => Math.abs(a.d) < Math.abs(b.d) ? a : b).p : null; }
+function dc(d) { return d == null ? '' : Math.abs(d) <= 10 ? 'ok' : d < 0 ? 'neg' : 'pos'; }
+async function fetchJson(url, opts) { const r = await fetch(url, opts); const j = await r.json().catch(() => ({})); if (!r.ok) throw new Error(j.error || r.statusText); return j; }
 
-// ── Source selector ──────────────────────────────────────────────────────────
+// ═══════════════════════ data ═══════════════════════
+async function loadRegistry() {
+  REG = await fetchJson('cities_all.json');
+  CITIES = REG.cities || [];
+  const sel = $('country-filter'), cur = sel.value;
+  sel.innerHTML = '<option value="">All countries</option>';
+  [...new Set(CITIES.map(c => c.country).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'en')).forEach(c => { const o = document.createElement('option'); o.value = c; o.textContent = c; sel.appendChild(o); });
+  sel.value = cur;
+}
 function availableSources() {
   const counts = {};
   CITIES.forEach(c => Object.keys(c.sources || {}).forEach(s => { counts[s] = (counts[s] || 0) + 1; }));
-  const known = SOURCE_ORDER.filter(s => counts[s]);
-  Object.keys(counts).forEach(s => { if (!known.includes(s)) known.push(s); });
-  return known.map(s => ({key: s, count: counts[s]}));
+  const keys = SOURCE_ORDER.filter(s => counts[s]); Object.keys(counts).forEach(s => { if (!keys.includes(s)) keys.push(s); });
+  return keys.map(s => ({key: s, count: counts[s]}));
 }
 function renderSourceCtrl() {
-  const el = document.getElementById('source-ctrl');
   const avail = availableSources();
-  el.innerHTML = avail.map(({key, count}) =>
-    `<button class="seg-btn${key === SOURCE ? ' active' : ''}" data-source="${key}" title="${srcTitle(key)}"
-       onclick="switchSource('${key}')">${srcLabel(key)}<span class="cnt">${count}</span></button>`).join('');
+  if (!avail.some(s => s.key === SOURCE)) SOURCE = avail.some(s => s.key === 'worldpop') ? 'worldpop' : (avail[0] ? avail[0].key : null);
+  $('source-ctrl').innerHTML = avail.map(({key, count}) =>
+    `<button class="seg-btn${key === SOURCE ? ' active' : ''}" data-source="${key}" title="${esc(srcTitle(key))}" onclick="switchSource('${key}')">${esc(srcLabel(key))}<span class="cnt">${count}</span></button>`).join('');
 }
-function switchSource(s) {
-  if (s === SOURCE) return;
-  SOURCE = s;
-  updateHash();
-  renderSourceCtrl();
-  renderTableHeader();
-  renderTable();
-  if (currentCityId) loadCity(currentCityId);
-}
+function switchSource(s) { if (s === SOURCE) return; SOURCE = s; updateHash(); renderSourceCtrl(); renderTableHeader(); renderTable(); if (currentCityId) loadCity(currentCityId); }
+function refreshAll() { renderSourceCtrl(); renderTableHeader(); renderTable(); if (currentCityId) { if (CITIES.some(c => c.id === currentCityId)) loadCity(currentCityId); else clearSelection(); } }
 
-// ── Table ────────────────────────────────────────────────────────────────────
+// ═══════════════════════ table ═══════════════════════
+function sortValue(c, key) {
+  if (key === 'name' || key === 'country') return c[key] || '';
+  if (key === 'real_area') return c.real_area;
+  const m = key.match(/^(area|pop|d|absD)(\d+)$/); if (!m) return null;
+  const p = +m[2];
+  if (m[1] === 'd') return delta(c, p);
+  if (m[1] === 'absD') { const d = delta(c, p); return d == null ? null : Math.abs(d); }
+  const r = res(c); return r ? r[`${m[1]}${p}`] : null;
+}
 function switchCore(p) {
-  selectedCore = p;
-  updateHash();
+  selectedCore = p; updateHash();
   document.querySelectorAll('.seg-btn[data-core]').forEach(b => b.classList.toggle('active', +b.dataset.core === p));
+  if (!visCore[p]) { $(`tog-core-${p}`).checked = true; toggleCore(p); }   // keep the map in step with the table
   if (!['name', 'country', 'real_area', `area${p}`, `pop${p}`, `d${p}`, `absD${p}`].includes(sortKey)) { sortKey = 'name'; sortDir = 'asc'; }
   renderTableHeader(); renderTable();
 }
-function setSort(k) {
-  if (sortKey === k) sortDir = sortDir === 'asc' ? 'desc' : 'asc'; else { sortKey = k; sortDir = 'asc'; }
-  renderTableHeader(); renderTable();
-}
+function setSort(k) { if (sortKey === k) sortDir = sortDir === 'asc' ? 'desc' : 'asc'; else { sortKey = k; sortDir = 'asc'; } renderTableHeader(); renderTable(); }
 function arrow(k) { return sortKey === k ? (sortDir === 'asc' ? ' ▲' : ' ▼') : ''; }
 function renderTableHeader() {
-  const p = selectedCore;
-  const row1 = [
-    `<th rowspan="2" class="th-group" style="text-align:left!important;padding-left:14px!important" onclick="setSort('name')">City${arrow('name')}</th>`,
-    `<th rowspan="2" class="th-group" style="text-align:left!important" onclick="setSort('country')">Country${arrow('country')}</th>`,
-    `<th rowspan="2" class="th-group" style="color:var(--green)" onclick="setSort('real_area')">Real Area, km²${arrow('real_area')}</th>`,
-    `<th colspan="3" class="th-group" style="color:${CORE_COLORS[p]}">Core ${p}% — ${srcLabel(SOURCE)}</th>`,
-  ].join('');
-  const cls = k => sortKey === k ? (sortDir === 'asc' ? 'asc' : 'dsc') : '';
-  const row2 = [
-    `<th class="${cls(`area${p}`)}" onclick="setSort('area${p}')">Area, km²</th>`,
-    `<th class="${cls(`pop${p}`)}" onclick="setSort('pop${p}')">Population</th>`,
-    `<th class="${cls(`d${p}`)}" onclick="setSort('d${p}')">Δ vs Real</th>`,
-  ].join('');
-  document.getElementById('main-thead').innerHTML = `<tr>${row1}</tr><tr>${row2}</tr>`;
+  const p = selectedCore, cls = k => sortKey === k ? (sortDir === 'asc' ? 'asc' : 'dsc') : '';
+  $('main-thead').innerHTML = `<tr>
+      <th rowspan="2" class="th-group" style="text-align:left!important;padding-left:14px!important" onclick="setSort('name')">City${arrow('name')}</th>
+      <th rowspan="2" class="th-group" style="text-align:left!important" onclick="setSort('country')">Country${arrow('country')}</th>
+      <th rowspan="2" class="th-group" style="color:var(--green)" onclick="setSort('real_area')">Real area, km²${arrow('real_area')}</th>
+      <th colspan="3" class="th-group" style="color:${CORE_COLORS[p]}">Core ${p}% — ${esc(srcLabel(SOURCE))}</th></tr><tr>
+      <th class="${cls(`area${p}`)}" onclick="setSort('area${p}')">Area, km²</th>
+      <th class="${cls(`pop${p}`)}" onclick="setSort('pop${p}')">Population</th>
+      <th class="${cls(`d${p}`)}" onclick="setSort('d${p}')">Δ vs real</th></tr>`;
 }
-function fi(v) { return (v == null || isNaN(v)) ? '—' : Math.round(v).toLocaleString('en-US'); }
-function fpop(v) { return v == null ? '—' : Math.round(v / 1000).toLocaleString('en-US') + 'K'; }
-function dc(d) { return d == null ? '' : Math.abs(d) <= 10 ? 'ok' : d < 0 ? 'neg' : 'pos'; }
-function median(arr) { const s = [...arr].sort((a, b) => a - b), m = Math.floor(s.length / 2); return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; }
-
+function visibleRows() {
+  const q = $('search').value.trim().toLowerCase(), cf = $('country-filter').value;
+  const rows = CITIES.filter(c => res(c) && (!q || c.name.toLowerCase().includes(q) || c.id.includes(q)) && (!cf || c.country === cf));
+  rows.sort((a, b) => { const av = sortValue(a, sortKey), bv = sortValue(b, sortKey); const r = typeof av === 'string' ? av.localeCompare(bv, 'en') : ((av ?? -Infinity) - (bv ?? -Infinity)); return sortDir === 'asc' ? r : -r; });
+  return rows;
+}
 function renderTable() {
-  const p = selectedCore;
-  const q = document.getElementById('search').value.toLowerCase();
-  const cf = document.getElementById('country-filter').value;
-  let rows = CITIES.filter(c => res(c) &&
-    (c.name.toLowerCase().includes(q) || c.id.includes(q)) && (!cf || c.country === cf));
-  rows.sort((a, b) => {
-    const av = sortValue(a, sortKey), bv = sortValue(b, sortKey);
-    const r = typeof av === 'string' ? av.localeCompare(bv, 'en') : ((av ?? -Infinity) - (bv ?? -Infinity));
-    return sortDir === 'asc' ? r : -r;
-  });
-
-  const cityRows = rows.map(c => {
-    const r = res(c), d = delta(c, p);
-    const absD = d == null ? null : Math.abs(r[`area${p}`] - c.real_area);
-    const sign = d != null ? (d > 0 ? '+' : '−') : '';
-    const badges = SOURCE_ORDER.filter(s => s !== SOURCE && res(c, s))
-      .map(s => `<span class="badge" title="also computed with ${srcLabel(s)}">${srcLabel(s).split(' ')[0]}</span>`).join('');
-    const deltaCell = absD != null
-      ? `<span style="font-size:11px">${sign}${fi(absD)} km² <span style="font-size:10px;color:var(--muted)">(${sign}${Math.abs(Math.round(d))}%)</span></span>` : '—';
-    return `<tr class="${c.id === currentCityId ? 'sel' : ''}">
-      <td class="city-col" onclick="loadCity('${c.id}')">${c.name}${badges ? `<span class="src-badges">${badges}</span>` : ''}</td>
-      <td style="color:var(--muted);font-size:11px;text-align:left;padding-left:10px">${c.country || ''}</td>
+  const p = selectedCore, rows = visibleRows();
+  const total = CITIES.filter(c => res(c)).length;
+  $('count').textContent = rows.length === total ? `${total} cities` : `${rows.length} of ${total}`;
+  if (!rows.length) { $('tbody').innerHTML = `<tr><td colspan="6" class="empty">No cities match${SOURCE ? ` for ${esc(srcLabel(SOURCE))}` : ''}.</td></tr>`; return; }
+  const body = rows.map(c => {
+    const r = res(c), d = delta(c, p), absD = d == null ? null : Math.abs(r[`area${p}`] - c.real_area), sign = d != null ? (d > 0 ? '+' : '−') : '';
+    const badges = SOURCE_ORDER.filter(s => s !== SOURCE && res(c, s)).map(s => `<span class="badge" title="also computed with ${esc(srcLabel(s))}">${esc(srcLabel(s).split(' ')[0])}</span>`).join('');
+    const deltaCell = absD != null ? `<span style="font-size:11px">${sign}${fi(absD)} km² <span style="font-size:10px;color:var(--muted)">(${sign}${Math.abs(Math.round(d))}%)</span></span>` : '—';
+    return `<tr class="${c.id === currentCityId ? 'sel' : ''}" data-id="${c.id}" onclick="loadCity('${c.id}')">
+      <td class="city-col">${esc(c.name)}${badges}</td>
+      <td style="color:var(--muted);font-size:11px;text-align:left;padding-left:10px">${esc(c.country || '')}</td>
       <td style="color:#4ade80;font-weight:600">${c.real_area != null ? fi(c.real_area) : '—'}</td>
-      <td>${fi(r[`area${p}`])}</td>
-      <td style="color:var(--muted)">${fpop(r[`pop${p}`])}</td>
+      <td>${fi(r[`area${p}`])}</td><td style="color:var(--muted)">${fpop(r[`pop${p}`])}</td>
       <td class="${bestCore(c) === p ? 'best-val' : ''}">${deltaCell}</td></tr>`;
   }).join('');
-
   const ds = rows.map(c => delta(c, p)).filter(x => x != null);
-  const fstyle = 'background:#1a2a1a;border-top:2px solid #2a4a2a;';
-  const stats = [
-    ['Mean Δ', ds.length ? Math.round(ds.reduce((a, b) => a + b, 0) / ds.length) : null, false],
-    ['Median Δ', ds.length ? Math.round(median(ds)) : null, false],
-    ['Mean |Δ|', ds.length ? Math.round(ds.map(Math.abs).reduce((a, b) => a + b, 0) / ds.length) : null, true],
-  ];
-  const footer = stats.map(([label, v, isAbs]) => `<tr style="${fstyle}">
-      <td style="text-align:left;padding-left:14px;color:var(--muted);font-weight:700">${label} <span style="font-weight:400;font-size:10px">(${ds.length} cities)</span></td>
-      <td></td><td></td><td></td><td></td>
-      <td class="${isAbs ? '' : dc(v)}" style="font-weight:700;${isAbs ? 'color:var(--amber)' : ''}">${v != null ? ((!isAbs && v > 0) ? '+' : '') + v + '%' : '—'}</td></tr>`).join('');
-  document.getElementById('tbody').innerHTML = cityRows + footer;
+  const med = a => { const s = [...a].sort((x, y) => x - y), m = Math.floor(s.length / 2); return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+  const stats = [['Mean Δ', ds.length ? Math.round(ds.reduce((a, b) => a + b, 0) / ds.length) : null, false], ['Median Δ', ds.length ? Math.round(med(ds)) : null, false], ['Mean |Δ|', ds.length ? Math.round(ds.map(Math.abs).reduce((a, b) => a + b, 0) / ds.length) : null, true]];
+  const foot = stats.map(([l, v, abs]) => `<tr style="background:#1a2a1a;border-top:2px solid #2a4a2a"><td style="text-align:left;padding-left:14px;color:var(--muted);font-weight:700">${l} <span style="font-weight:400;font-size:10px">(${ds.length} with reference)</span></td><td></td><td></td><td></td><td></td><td class="${abs ? '' : dc(v)}" style="font-weight:700;${abs ? 'color:var(--amber)' : ''}">${v != null ? ((!abs && v > 0) ? '+' : '') + v + '%' : '—'}</td></tr>`).join('');
+  $('tbody').innerHTML = body + foot;
 }
 
-// ── Map ──────────────────────────────────────────────────────────────────────
+// ═══════════════════════ map ═══════════════════════
 const BASEMAPS = {
   // CARTO basemaps need an API key since 2026 — Esri's dark canvas is free with attribution (native tiles to z16).
-  dark: {url:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', attr:'Tiles &copy; Esri, HERE, Garmin, OSM contributors', maxZoom:19, maxNativeZoom:16, heatOpacity:0.92,
-         coreColors:{70:'#facc15',80:'#f97316',90:'#ef4444',95:'#dc2626'}, coreWeight:2, coreDash:'4,3', boundaryColor:'#22d3ee', boundaryFillOpacity:0.06, boundaryDash:'5,4'},
-  osm: {url:'https://tile.openstreetmap.org/{z}/{x}/{y}.png', attr:'&copy; OpenStreetMap contributors', maxZoom:19, heatOpacity:0.80,
-        coreColors:{70:'#b45309',80:'#c2410c',90:'#b91c1c',95:'#6b21a8'}, coreWeight:2.5, coreDash:null, boundaryColor:'#1d4ed8', boundaryFillOpacity:0.07, boundaryDash:'5,4'},
-  satellite: {url:'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', attr:'&copy; Google', maxZoom:20, heatOpacity:0.88,
-        coreColors:{70:'#a3e635',80:'#22d3ee',90:'#f472b6',95:'#ffffff'}, coreWeight:2.5, coreDash:null, boundaryColor:'#fbbf24', boundaryFillOpacity:0.0, boundaryDash:'5,4'},
-  google: {url:'https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', attr:'&copy; Google', maxZoom:20, heatOpacity:0.78,
-        coreColors:{70:'#ca8a04',80:'#c2410c',90:'#dc2626',95:'#831843'}, coreWeight:2, coreDash:'4,3', boundaryColor:'#2563eb', boundaryFillOpacity:0.06, boundaryDash:'5,4'},
+  dark: {url:'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', attr:'Tiles &copy; Esri, HERE, Garmin, OSM contributors', maxZoom:19, maxNativeZoom:16, heatOpacity:0.92, coreColors:{70:'#facc15',80:'#f97316',90:'#ef4444',95:'#dc2626'}, coreWeight:2, coreDash:'4,3', boundaryColor:'#22d3ee', boundaryFillOpacity:0.06},
+  osm: {url:'https://tile.openstreetmap.org/{z}/{x}/{y}.png', attr:'&copy; OpenStreetMap contributors', maxZoom:19, heatOpacity:0.80, coreColors:{70:'#b45309',80:'#c2410c',90:'#b91c1c',95:'#6b21a8'}, coreWeight:2.5, coreDash:null, boundaryColor:'#1d4ed8', boundaryFillOpacity:0.07},
+  satellite: {url:'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', attr:'&copy; Google', maxZoom:20, heatOpacity:0.88, coreColors:{70:'#a3e635',80:'#22d3ee',90:'#f472b6',95:'#ffffff'}, coreWeight:2.5, coreDash:null, boundaryColor:'#fbbf24', boundaryFillOpacity:0.0},
+  google: {url:'https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', attr:'&copy; Google', maxZoom:20, heatOpacity:0.78, coreColors:{70:'#ca8a04',80:'#c2410c',90:'#dc2626',95:'#831843'}, coreWeight:2, coreDash:'4,3', boundaryColor:'#2563eb', boundaryFillOpacity:0.06},
 };
-let map, tileLayer = null, heatLayer = null, boundaryLayer = null, realBoundaryLayer = null;
-let coreLayers = {70:null, 80:null, 90:null, 95:null};
-let currentBasemap = 'dark';
-const vis = {heat:true, boundary:false, real:false};
-const visCore = {70:false, 80:false, 90:true, 95:false};
+let map, tileLayer = null, heatLayer = null, boundaryLayer = null, realBoundaryLayer = null, coreLayers = {};
+let currentBasemap = 'dark', pickMarker = null, pickCircle = null, picking = false;
+const vis = {heat: true, boundary: false, real: false}, visCore = {70: false, 80: false, 90: true, 95: false};
 
 function initMap() {
-  map = L.map('map').setView([15, 30], 3);
+  map = L.map('map', {zoomControl: true}).setView([15, 30], 3);
   const bm = BASEMAPS[currentBasemap];
   tileLayer = L.tileLayer(bm.url, {attribution: bm.attr, maxZoom: bm.maxZoom, maxNativeZoom: bm.maxNativeZoom || bm.maxZoom}).addTo(map);
+  map.on('click', e => { if (picking) setPick(e.latlng.lat, e.latlng.lng, true); });
 }
 function switchBasemap(key) {
   if (key === currentBasemap) return;
-  currentBasemap = key;
-  const bm = BASEMAPS[key];
+  currentBasemap = key; const bm = BASEMAPS[key];
   document.querySelectorAll('.bm-btn').forEach(b => b.classList.toggle('active', b.dataset.key === key));
   if (tileLayer) map.removeLayer(tileLayer);
-  tileLayer = L.tileLayer(bm.url, {attribution: bm.attr, maxZoom: bm.maxZoom, maxNativeZoom: bm.maxNativeZoom || bm.maxZoom}).addTo(map);
-  tileLayer.bringToBack();
+  tileLayer = L.tileLayer(bm.url, {attribution: bm.attr, maxZoom: bm.maxZoom, maxNativeZoom: bm.maxNativeZoom || bm.maxZoom}).addTo(map); tileLayer.bringToBack();
   if (heatLayer) heatLayer.setOpacity(bm.heatOpacity);
-  if (boundaryLayer) boundaryLayer.setStyle({color: bm.boundaryColor, fillColor: bm.boundaryColor, fillOpacity: bm.boundaryFillOpacity, dashArray: bm.boundaryDash});
+  if (boundaryLayer) boundaryLayer.setStyle({color: bm.boundaryColor, fillColor: bm.boundaryColor, fillOpacity: bm.boundaryFillOpacity});
   CORES.forEach(p => { if (coreLayers[p]) coreLayers[p].setStyle({color: bm.coreColors[p], weight: bm.coreWeight, dashArray: bm.coreDash}); });
-  document.getElementById('sw-boundary').style.background = bm.boundaryColor;
-  CORES.forEach(p => document.getElementById(`sw-core-${p}`).style.background = bm.coreColors[p]);
+  $('sw-boundary').style.background = bm.boundaryColor; CORES.forEach(p => $(`sw-core-${p}`).style.background = bm.coreColors[p]);
+}
+function clearLayers() {
+  [heatLayer, boundaryLayer, realBoundaryLayer, ...Object.values(coreLayers)].forEach(l => { if (l && map.hasLayer(l)) map.removeLayer(l); });
+  heatLayer = boundaryLayer = realBoundaryLayer = null; coreLayers = {};
 }
 function buildCoreLayer(feature) {
   const p = feature.properties.threshold, bm = BASEMAPS[currentBasemap];
   return L.geoJSON(feature, {style: {color: bm.coreColors[p], weight: bm.coreWeight, fill: false, dashArray: bm.coreDash}})
-    .bindTooltip(() => {
-      const c = CITIES.find(x => x.id === currentCityId), r = c && res(c);
-      if (!r) return '';
-      const d = delta(c, p);
-      return `Core ${p}% — ${fi(r[`area${p}`])} km²${d != null ? `<br>Δ ${d > 0 ? '+' : ''}${Math.round(d)}% vs real` : ''}`;
-    }, {className: 'leaflet-tooltip', sticky: true});
+    .bindTooltip(() => { const c = CITIES.find(x => x.id === currentCityId), r = c && res(c); if (!r) return ''; const d = delta(c, p); return `Core ${p}% — ${fi(r[`area${p}`])} km²${d != null ? `<br>Δ ${d > 0 ? '+' : ''}${Math.round(d)}% vs real` : ''}`; }, {className: 'leaflet-tooltip', sticky: true});
 }
-async function fetchJson(url) { const r = await fetch(url); if (!r.ok) throw new Error(r.status); return r.json(); }
-
 async function loadCity(id) {
-  const city = CITIES.find(c => c.id === id);
-  if (!city) return;
+  const city = CITIES.find(c => c.id === id); if (!city) return;
   currentCityId = id;
-  document.querySelectorAll('#tbody tr').forEach(tr => tr.classList.toggle('sel', tr.querySelector('td.city-col') && tr.querySelector('td.city-col').getAttribute('onclick') === `loadCity('${id}')`));
-
-  [heatLayer, boundaryLayer, realBoundaryLayer, ...Object.values(coreLayers)].forEach(l => { if (l && map.hasLayer(l)) map.removeLayer(l); });
-  heatLayer = boundaryLayer = realBoundaryLayer = null;
-  coreLayers = {70:null, 80:null, 90:null, 95:null};
-  const bm = BASEMAPS[currentBasemap];
-  const r = res(city);
-  const dir = `urban_cities/${id}`;
-  let mapBounds = (r && r.bounds) || city.bounds;
-  mapBounds = mapBounds ? [[mapBounds[0], mapBounds[1]], [mapBounds[2], mapBounds[3]]] : null;
-
+  document.querySelectorAll('#tbody tr[data-id]').forEach(tr => tr.classList.toggle('sel', tr.dataset.id === id));
+  clearLayers();
+  const bm = BASEMAPS[currentBasemap], r = res(city), dir = `urban_cities/${id}`;
+  let b = (r && r.bounds) || city.bounds, mapBounds = b ? [[b[0], b[1]], [b[2], b[3]]] : null;
   if (r) {
-    try {
-      const meta = await fetchJson(`${dir}/${SOURCE}/density_meta.json`);
-      const [S, W, N, E] = meta.bounds;
-      mapBounds = [[S, W], [N, E]];
-      heatLayer = L.imageOverlay(`${dir}/${SOURCE}/density_overlay.png`, mapBounds, {opacity: bm.heatOpacity});
-      if (vis.heat) heatLayer.addTo(map);
-    } catch (e) { console.warn('No heatmap for', id, SOURCE); }
+    try { const meta = await fetchJson(`${dir}/${SOURCE}/density_meta.json`); const [S, W, N, E] = meta.bounds; mapBounds = [[S, W], [N, E]];
+      heatLayer = L.imageOverlay(`${dir}/${SOURCE}/density_overlay.png`, mapBounds, {opacity: bm.heatOpacity}); if (vis.heat) heatLayer.addTo(map);
+    } catch (e) { console.warn('no heatmap', id, SOURCE); }
   }
-  if (mapBounds) map.fitBounds(mapBounds, {padding: [30, 30]});
-
-  try {
-    const bnd = await fetchJson(`${dir}/boundary_processed.geojson`);
-    boundaryLayer = L.geoJSON(bnd, {style: {color: bm.boundaryColor, weight: 1.5, fill: true, fillColor: bm.boundaryColor, fillOpacity: bm.boundaryFillOpacity, dashArray: bm.boundaryDash}})
+  if (currentCityId !== id) return;                       // user clicked elsewhere meanwhile
+  if (mapBounds) map.fitBounds(mapBounds, {padding: [30, 30]}); else if (city.lat != null) map.setView([city.lat, city.lon], 10);
+  try { const bnd = await fetchJson(`${dir}/boundary_processed.geojson`);
+    boundaryLayer = L.geoJSON(bnd, {style: {color: bm.boundaryColor, weight: 1.5, fill: true, fillColor: bm.boundaryColor, fillOpacity: bm.boundaryFillOpacity, dashArray: '5,4'}})
       .bindTooltip(`OSM landuse mask${r && r.urb_area != null ? '<br>' + fi(r.urb_area) + ' km²' : ''}`, {className: 'leaflet-tooltip', sticky: true});
-    if (vis.boundary) boundaryLayer.addTo(map);
-  } catch (e) { console.warn('No boundary for', id); }
-
-  if (r) {
-    try {
-      const gj = await fetchJson(`${dir}/${SOURCE}/cores.geojson`);
-      for (const f of gj.features) { const p = f.properties.threshold; coreLayers[p] = buildCoreLayer(f); if (visCore[p]) coreLayers[p].addTo(map); }
-    } catch (e) { console.warn('No cores for', id, SOURCE); }
-  }
-  if (city.has_real_polygon) {
-    try {
-      const gj = await fetchJson(`${dir}/real_boundary.geojson`);
-      realBoundaryLayer = L.geoJSON(gj, {style: {color: '#00ff88', weight: 2.5, fill: false, opacity: 0.9}})
-        .bindTooltip(`Real boundary${city.real_area != null ? '<br>' + fi(city.real_area) + ' km²' : ''}`, {className: 'leaflet-tooltip', sticky: true});
-      if (vis.real) realBoundaryLayer.addTo(map);
-    } catch (e) { console.warn('No real boundary for', id); }
-  }
-  renderInfo(city);
-  updateHash();
+    if (vis.boundary && currentCityId === id) boundaryLayer.addTo(map);
+  } catch (e) {}
+  if (r) { try { const gj = await fetchJson(`${dir}/${SOURCE}/cores.geojson`); if (currentCityId === id) for (const f of gj.features) { const p = f.properties.threshold; coreLayers[p] = buildCoreLayer(f); if (visCore[p]) coreLayers[p].addTo(map); } } catch (e) {} }
+  if (city.has_real_polygon) { try { const gj = await fetchJson(`${dir}/real_boundary.geojson`);
+      realBoundaryLayer = L.geoJSON(gj, {style: {color: '#00ff88', weight: 2.5, fill: false, opacity: 0.9}}).bindTooltip(`Real boundary${city.real_area != null ? '<br>' + fi(city.real_area) + ' km²' : ''}`, {className: 'leaflet-tooltip', sticky: true});
+      if (vis.real && currentCityId === id) realBoundaryLayer.addTo(map);
+    } catch (e) {} }
+  renderInfo(city); updateHash();
 }
-
+function clearSelection() { currentCityId = null; clearLayers(); $('ib-title').textContent = 'Select a city'; $('ib-body').innerHTML = '<p class="hint">Click a city in the table to see its cores.</p>'; renderTable(); updateHash(); }
 function renderInfo(city) {
-  const r = res(city);
-  document.getElementById('ib-title').textContent = city.name;
-  const head = `
-    <div class="ir" style="margin-bottom:2px"><span class="lbl" style="font-size:11px">${city.country || ''}${city.iso3 ? ' · ' + city.iso3 : ''}</span>
-      <span class="lbl" style="font-size:11px">${city.lat != null ? city.lat.toFixed(3) + ', ' + city.lon.toFixed(3) : ''}</span></div>
-    <div class="ir"><span class="lbl">Real area</span><span class="val" style="color:#4ade80">${city.real_area != null ? fi(city.real_area) + ' km²' : '—'}</span></div>`;
-  if (!r) {
-    const others = SOURCE_ORDER.filter(s => res(city, s)).map(srcLabel).join(', ');
-    document.getElementById('ib-body').innerHTML = head + `
-      <p class="hint">No <b>${srcLabel(SOURCE)}</b> run for this city${others ? ` (available: ${others})` : ''}. Compute it with:<br>
-      <code>python add_city.py --id ${city.id} --source ${SOURCE}</code></p>`;
-    return;
-  }
+  const r = res(city), canEdit = !!API;
+  $('ib-title').innerHTML = `<span>${esc(city.name)}</span><small>${esc(city.country || '')}${city.iso3 ? ' · ' + city.iso3 : ''}</small>`;
+  const chips = SOURCE_ORDER.map(s => res(city, s)
+    ? `<span class="chip${s === SOURCE ? ' on' : ''}" title="${esc(srcTitle(s))}" onclick="switchSource('${s}')"><span class="dot"></span>${esc(srcLabel(s))}</span>`
+    : (canEdit ? `<span class="chip add" title="Compute with ${esc(srcTitle(s))}" onclick="computeExisting('${city.id}','${s}')">+ ${esc(srcLabel(s))}</span>` : '')).join('');
+  const head = `<div class="ir"><span class="k">Real area</span><span class="v" style="color:#4ade80">${city.real_area != null ? fi(city.real_area) + ' km²' : '—'}</span></div><div class="src-row">${chips}</div>`;
+  const actions = canEdit ? `<div class="actions">
+      ${r ? `<button class="btn btn-sm" onclick="computeExisting('${city.id}','${SOURCE}',true)" title="Recompute ${esc(srcLabel(SOURCE))} (--force)">↻ Recompute</button>` : ''}
+      <button class="btn btn-sm" onclick="copyLink()" title="Copy a link to this view">🔗 Link</button>
+      <span class="spacer"></span>
+      <button class="btn btn-sm btn-danger" onclick="deleteCity('${city.id}')" title="Remove this city and its results">Delete</button></div>` : '';
+  if (!r) { $('ib-body').innerHTML = head + `<p class="hint">No <b>${esc(srcLabel(SOURCE))}</b> run for this city yet.${canEdit ? ' Click the dashed chip above to compute it.' : ` CLI: <code>python add_city.py --id ${city.id} --source ${SOURCE}</code>`}</p>` + actions; return; }
   const areas = CORES.map(p => r[`area${p}`] || 0), maxArea = Math.max(...areas);
-  const bars = [95, 90, 80, 70].map(p => {
-    const d = delta(city, p), a = r[`area${p}`], pop = r[`pop${p}`];
-    const col = d == null ? 'var(--muted)' : Math.abs(d) <= 10 ? '#4ade80' : d < 0 ? '#f87171' : '#fb923c';
-    return `<div class="prow"><div class="plbl">
-        <span class="pk" style="color:${CORE_COLORS[p]}">Core ${p}%</span>
-        <span class="pv">${a != null ? fi(a) + ' km²' : '—'}${pop != null ? ` <span style="color:var(--muted);font-size:10px">/ ${fpop(pop)}</span>` : ''}${d != null ? ` <span style="color:${col}">(${d > 0 ? '+' : ''}${Math.round(d)}%)</span>` : ''}</span></div>
-      <div class="pbar-bg"><div class="pbar" style="width:${maxArea && a != null ? Math.round(a / maxArea * 100) : 0}%;background:${CORE_COLORS[p]}"></div></div></div>`;
-  }).join('');
-  document.getElementById('ib-body').innerHTML = head + `
-    <div class="ir"><span class="lbl">Source</span><span class="val" style="color:var(--cyan)" title="${srcTitle(SOURCE)}">${srcLabel(SOURCE)}</span></div>
-    <div class="ir"><span class="lbl">Urban extent (mask${r.mask ? ': ' + r.mask : ''})</span><span class="val" style="color:#22d3ee">${r.urb_area != null ? fi(r.urb_area) + ' km²' : '—'}</span></div>
-    <div class="ir"><span class="lbl">Population in extent</span><span class="val">${r.total_pop != null ? fi(r.total_pop) : '—'}</span></div>
-    <div class="pct-section">${bars}</div>
-    ${r.computed_at ? `<div class="hint" style="margin-top:6px">computed ${r.computed_at}${r.grid_m ? ` · ${r.grid_m} m grid` : ''}${r.radius_m ? ` · ${Math.round(r.radius_m / 1000)} km` : ''}</div>` : ''}`;
+  const bars = [95, 90, 80, 70].map(p => { const d = delta(city, p), a = r[`area${p}`], pop = r[`pop${p}`], col = d == null ? 'var(--muted)' : Math.abs(d) <= 10 ? '#4ade80' : d < 0 ? '#f87171' : '#fb923c';
+    return `<div class="prow"><div class="plbl"><span class="pk" style="color:${CORE_COLORS[p]}">Core ${p}%</span><span>${a != null ? fi(a) + ' km²' : '—'}${pop != null ? ` <span style="color:var(--muted);font-size:10px">/ ${fpop(pop)}</span>` : ''}${d != null ? ` <span style="color:${col}">(${d > 0 ? '+' : ''}${Math.round(d)}%)</span>` : ''}</span></div><div class="pbar-bg"><div class="pbar" style="width:${maxArea && a != null ? Math.round(a / maxArea * 100) : 0}%;background:${CORE_COLORS[p]}"></div></div></div>`; }).join('');
+  $('ib-body').innerHTML = head +
+    `<div class="ir"><span class="k">Urban extent <span style="font-size:11px">(mask ${esc(r.mask || 'osm')})</span></span><span class="v" style="color:#22d3ee">${r.urb_area != null ? fi(r.urb_area) + ' km²' : '—'}</span></div>
+     <div class="ir"><span class="k">Population in extent</span><span class="v">${r.total_pop != null ? fi(r.total_pop) : '—'}</span></div>
+     <div style="margin-top:8px">${bars}</div>
+     <div class="hint" style="margin-top:4px">${esc(srcLabel(SOURCE))}${r.computed_at ? ` · computed ${r.computed_at}` : ''}${r.grid_m ? ` · ${r.grid_m} m grid` : ''}${r.radius_m ? ` · ${Math.round(r.radius_m / 1000)} km` : ''}</div>` + actions;
 }
-function toggleLayer(name) {
-  vis[name] = document.getElementById(`tog-${name}`).checked;
-  const layer = name === 'heat' ? heatLayer : name === 'real' ? realBoundaryLayer : boundaryLayer;
-  if (!layer) return;
-  if (vis[name]) layer.addTo(map); else map.removeLayer(layer);
-}
-function toggleCore(p) {
-  visCore[p] = document.getElementById(`tog-core-${p}`).checked;
-  const layer = coreLayers[p];
-  if (!layer) return;
-  if (visCore[p]) layer.addTo(map); else map.removeLayer(layer);
+function toggleLayer(name) { vis[name] = $(`tog-${name}`).checked; const l = name === 'heat' ? heatLayer : name === 'real' ? realBoundaryLayer : boundaryLayer; if (!l) return; if (vis[name]) l.addTo(map); else map.removeLayer(l); }
+function toggleCore(p) { visCore[p] = $(`tog-core-${p}`).checked; const l = coreLayers[p]; if (!l) return; if (visCore[p]) l.addTo(map); else map.removeLayer(l); }
+function copyLink() { updateHash(); navigator.clipboard?.writeText(location.href).then(() => toast('Link copied', 'ok'), () => toast(location.href)); }
+function updateHash() {
+  const parts = []; if (SOURCE) parts.push(`source=${SOURCE}`); if (currentCityId) parts.push(`city=${currentCityId}`); if (selectedCore !== 90) parts.push(`core=${selectedCore}`);
+  if ($('drawer').classList.contains('open')) parts.push('panel=add');
+  history.replaceState(null, '', '#' + parts.join('&'));
 }
 
-// ── Init ─────────────────────────────────────────────────────────────────────
-function showOverlay(html) { document.getElementById('overlay-card').innerHTML = html; document.getElementById('overlay-msg').style.display = 'flex'; }
+// ═══════════════════════ add city: drawer ═══════════════════════
+function openDrawer(section) {
+  $('drawer').classList.add('open'); document.body.classList.add('drawer-open'); updateHash();
+  if (!API) { $('deps-warn').style.display = ''; $('deps-warn').innerHTML = 'The add-city API is not available: this copy is served statically. Start it with <code class="mono">python3 launch.py</code> from the project folder.'; }
+  if (section === 'jobs') $('sec-jobs').scrollIntoView({behavior: 'smooth'}); else { $('sec-add').scrollIntoView(); $('geo-q').focus(); }
+  showPickMarker();
+}
+function closeDrawer() { $('drawer').classList.remove('open'); document.body.classList.remove('drawer-open'); if (picking) togglePick(); hidePickMarker(); updateHash(); }
+function renderSourceOptions() {
+  $('src-opts').innerHTML = SOURCE_ORDER.map(s => `<label class="src-opt"><input type="checkbox" name="src" value="${s}"${s === 'worldpop' ? ' checked' : ''}><div><b>${esc(srcLabel(s) || s)}</b><span>${SOURCE_HINT[s] || ''}</span></div></label>`).join('');
+}
+async function geocode() {
+  const q = $('geo-q').value.trim(); if (q.length < 2 || !API) return;
+  $('geo-results').innerHTML = '<p class="hint">Searching…</p>';
+  try {
+    const rows = await fetchJson('/api/geocode?q=' + encodeURIComponent(q));
+    $('geo-results').innerHTML = rows.length ? rows.map((r, i) => `<div class="geo-item" onclick='pickGeo(${JSON.stringify(r).replace(/'/g, '&#39;')})'><b>${esc(r.name)}</b> <span>· ${esc(r.type || '')}</span><br><span>${esc(r.display_name)}</span></div>`).join('') : '<p class="hint">Nothing found — try another spelling, or pick the point on the map.</p>';
+  } catch (e) { $('geo-results').innerHTML = `<p class="hint" style="color:var(--red)">${esc(e.message)}</p>`; }
+}
+function pickGeo(r) {
+  $('f-name').value = r.name || ''; $('f-country').value = r.country || ''; $('f-country').dataset.iso3 = r.iso3 || '';
+  $('f-lat').value = (+r.lat).toFixed(5); $('f-lon').value = (+r.lon).toFixed(5); $('geo-results').innerHTML = '';
+  showPickMarker(true); onFormChange();
+}
+function togglePick() {
+  picking = !picking; $('map').classList.toggle('picking', picking); $('pick-hint').style.display = picking ? '' : 'none';
+  $('pick-btn').classList.toggle('btn-primary', picking); $('pick-btn').textContent = picking ? '✕ Cancel picking' : '📍 Pick on map';
+}
+async function setPick(lat, lon, fromMap) {
+  $('f-lat').value = lat.toFixed(5); $('f-lon').value = lon.toFixed(5); showPickMarker(false);
+  if (fromMap) { togglePick();
+    try { const r = await fetchJson(`/api/reverse?lat=${lat}&lon=${lon}`); if (!$('f-name').value && r.name) $('f-name').value = r.name; if (r.country) { $('f-country').value = r.country; $('f-country').dataset.iso3 = r.iso3 || ''; } } catch (e) {}
+  }
+  onFormChange();
+}
+function onLatLon() { showPickMarker(false); onFormChange(); }
+function showPickMarker(zoom) {
+  const lat = parseFloat($('f-lat').value), lon = parseFloat($('f-lon').value), rkm = parseFloat($('f-radius').value) || 25;
+  hidePickMarker(); if (isNaN(lat) || isNaN(lon)) return;
+  pickMarker = L.circleMarker([lat, lon], {radius: 6, color: '#fff', weight: 2, fillColor: '#60a5fa', fillOpacity: 1}).addTo(map).bindTooltip('city centre');
+  pickCircle = L.circle([lat, lon], {radius: rkm * 1000, color: '#60a5fa', weight: 1, dashArray: '4,4', fill: false}).addTo(map).bindTooltip(`${rkm} km mask radius`);
+  if (zoom) map.fitBounds(pickCircle.getBounds(), {padding: [20, 20]});
+}
+function hidePickMarker() { [pickMarker, pickCircle].forEach(l => { if (l && map.hasLayer(l)) map.removeLayer(l); }); pickMarker = pickCircle = null; }
+function onFormChange() { $('form-msg').textContent = ''; $('form-msg').className = ''; }
+function readPolygonFile() {
+  const f = $('f-poly').files[0]; if (!f) return Promise.resolve(null);
+  return f.text().then(t => JSON.parse(t)).then(d => { if (d.type === 'FeatureCollection') { if (!d.features || d.features.length !== 1) throw new Error('the GeoJSON must contain exactly one feature'); d = d.features[0]; } if (d.type === 'Feature') d = d.geometry; if (!['Polygon', 'MultiPolygon', 'LineString', 'MultiLineString'].includes(d.type)) throw new Error('unsupported geometry ' + d.type); return d; });
+}
+async function submitForm() {
+  const name = $('f-name').value.trim(), lat = parseFloat($('f-lat').value), lon = parseFloat($('f-lon').value);
+  const sources = [...document.querySelectorAll('input[name=src]:checked')].map(i => i.value);
+  const msg = (t, ok) => { $('form-msg').textContent = t; $('form-msg').className = ok ? 'ok' : ''; };
+  if (!name) return msg('Give the city a name.'); if (isNaN(lat) || isNaN(lon)) return msg('Set the centre: search, pick on the map, or type coordinates.'); if (!sources.length) return msg('Choose at least one population source.');
+  const existing = CITIES.find(c => c.id === name.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, ''));
+  const spec = {name, lat, lon, sources, country: $('f-country').value.trim() || undefined, iso3: $('f-country').dataset.iso3 || undefined,
+    radius_km: parseFloat($('f-radius').value) || undefined, mask: $('f-mask').value, real_area: $('f-real').value ? parseFloat($('f-real').value) : undefined, force: $('f-force').checked};
+  if (existing) { if (!confirm(`"${existing.name}" already exists (id ${existing.id}). Compute the selected sources for it instead of creating a duplicate?`)) return; spec.id = existing.id; }
+  $('compute-btn').disabled = true;
+  try { spec.real_polygon = await readPolygonFile(); const r = await fetchJson('/api/jobs', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(spec)});
+    msg(`Queued ${r.jobs.length} job${r.jobs.length > 1 ? 's' : ''} for ${name}. Watch progress below.`, true); toast(`Queued: ${name} · ${sources.map(srcLabel).join(', ')}`, 'ok');
+    $('f-force').checked = false; pollJobs(); $('sec-jobs').scrollIntoView({behavior: 'smooth'});
+  } catch (e) { msg(e.message); } finally { $('compute-btn').disabled = false; }
+}
+async function computeExisting(id, source, force) {
+  const c = CITIES.find(x => x.id === id); if (!c) return;
+  try { await fetchJson('/api/jobs', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({id, sources: [source], force: !!force})});
+    toast(`Queued: ${c.name} · ${srcLabel(source)}${force ? ' (recompute)' : ''}`, 'ok'); pollJobs();
+  } catch (e) { toast(e.message, 'err'); }
+}
+async function deleteCity(id) {
+  const c = CITIES.find(x => x.id === id); if (!c || !confirm(`Delete "${c.name}" with all its results and the cached mask? This cannot be undone.`)) return;
+  try { await fetchJson('/api/cities/' + id, {method: 'DELETE'}); toast(`Deleted ${c.name}`, 'ok'); await loadRegistry(); clearSelection(); refreshAll(); } catch (e) { toast(e.message, 'err'); }
+}
+
+// ═══════════════════════ jobs ═══════════════════════
+function fmtDur(j) { const a = j.started, b = j.finished || Date.now() / 1000; if (!a) return 'queued'; const s = Math.round(b - a); return s < 60 ? `${s}s` : `${Math.floor(s / 60)}m ${s % 60}s`; }
+async function pollJobs() {
+  if (!API) return; clearTimeout(pollTimer);
+  let jobs = []; try { jobs = await fetchJson('/api/jobs'); } catch (e) { return; }
+  const active = jobs.filter(j => j.status === 'queued' || j.status === 'running');
+  const pill = $('jobs-pill'); pill.classList.toggle('show', active.length > 0);
+  $('jobs-pill-text').textContent = active.length ? `${jobs.filter(j => j.status === 'running').length ? 'running' : 'queued'} · ${active.length}` : '';
+  $('jobs-count').textContent = jobs.length ? `(${active.length} active, ${jobs.length} total)` : '';
+  let changed = false;
+  for (const j of jobs) { const prev = jobsSeen[j.id]; if (prev && prev !== j.status && ['done', 'failed', 'cancelled'].includes(j.status)) { changed = j.status !== 'cancelled' || changed;
+      if (j.status === 'done') toast(`Done: ${j.city_name} · ${srcLabel(j.source)}`, 'ok', () => { SOURCE = j.source; renderSourceCtrl(); renderTableHeader(); renderTable(); loadCity(j.city_id); });
+      else if (j.status === 'failed') toast(`Failed: ${j.city_name} · ${srcLabel(j.source)} — ${j.error || 'see log'}`, 'err'); }
+    jobsSeen[j.id] = j.status; }
+  if (jobs.length) $('jobs-list').innerHTML = [...jobs].reverse().map(j => `<div class="job${$('job-' + j.id)?.classList.contains('open') ? ' open' : ''}" id="job-${j.id}">
+      <div class="job-h" onclick="toggleJob('${j.id}')"><span class="st ${j.status}"></span><span class="t"><b>${esc(j.city_name)}</b> · ${esc(srcLabel(j.source))}</span><span class="d">${j.status === 'queued' ? 'queued' : j.status === 'cancelled' ? 'cancelled' : fmtDur(j)}</span>${(j.status === 'queued' || j.status === 'running') ? `<button class="btn btn-sm btn-ghost" title="Cancel" onclick="event.stopPropagation();cancelJob('${j.id}')">✕</button>` : ''}</div>
+      ${j.status !== 'queued' ? `<div class="job-log" id="log-${j.id}">${esc(j.log.join('\n'))}</div>` : ''}${j.error ? `<div class="job-err">${esc(j.error)}</div>` : ''}</div>`).join('');
+  document.querySelectorAll('.job-log').forEach(el => { el.scrollTop = el.scrollHeight; });
+  if (changed) { const keep = currentCityId; await loadRegistry(); refreshAll(); if (keep && !currentCityId) {} }
+  if (active.length) pollTimer = setTimeout(pollJobs, 2000);
+}
+async function cancelJob(id) { try { await fetchJson('/api/jobs/' + id + '/cancel', {method: 'POST'}); toast('Job cancelled'); pollJobs(); } catch (e) { toast(e.message, 'err'); } }
+async function toggleJob(id) {
+  const el = $('job-' + id); el.classList.toggle('open');
+  if (el.classList.contains('open')) { try { const j = await fetchJson('/api/jobs/' + id); const log = $('log-' + id); if (log) { log.textContent = j.log.join('\n'); log.scrollTop = log.scrollHeight; } } catch (e) {} }
+}
+
+// ═══════════════════════ misc UI ═══════════════════════
+function toast(text, kind, action) {
+  const t = document.createElement('div'); t.className = 'toast ' + (kind || '');
+  t.innerHTML = `<span>${esc(text)}</span><span class="spacer"></span>${action ? '<button class="btn btn-sm">Show</button>' : ''}<button class="btn btn-sm btn-ghost">✕</button>`;
+  const btns = t.querySelectorAll('button'); if (action) btns[0].onclick = () => { action(); t.remove(); }; btns[btns.length - 1].onclick = () => t.remove();
+  $('toasts').appendChild(t); setTimeout(() => t.remove(), action ? 15000 : 6000);
+}
+function showHelp() {
+  const rows = SOURCE_ORDER.map(s => `<tr><td><b>${esc(srcLabel(s))}</b></td><td>${esc(srcTitle(s))}</td><td>${esc(SOURCE_HINT[s] || '')}</td></tr>`).join('');
+  $('help-card').innerHTML = `<h3>How to read the dashboard</h3>
+    <p>Each city gets an <b>urban mask</b> (the union of OSM landuse polygons within 25 km of its centre), the population raster is clipped to it, and the densest pixels holding <b>70 / 80 / 90 / 95 %</b> of that population form the <b>cores</b>. <b>Δ vs real</b> compares a core's area with the reference area — a functional zone from trip data, not an administrative boundary. Core 90 % is the headline metric.</p>
+    <h4>Population sources</h4><table><tr><th>Source</th><th>Data</th><th>When to use</th></tr>${rows}</table>
+    <p>All shipped cities were computed with WorldPop. The same mask is reused for every source of a city, so the numbers are comparable across sources.</p>
+    <h4>Adding a city</h4>
+    <ul><li><b>＋ Add city</b> → search the name (or pick the centre on the map) → tick the sources → <b>Compute</b>. A new city takes 1–10 min: OSM landuse is fetched from Overpass and the population data is downloaded on first use.</li>
+        <li>In a city's card, dashed chips compute a source that is missing; <b>↻ Recompute</b> redoes the current one; <b>Delete</b> removes the city.</li>
+        <li>Optional: a reference area or GeoJSON polygon (for Δ), a larger mask radius for big agglomerations, or the <i>OSM ∪ real polygon</i> mask.</li>
+        <li>The same thing from a terminal:</li></ul>
+    <pre>python add_city.py --name "Bukhara" --lat 39.7747 --lon 64.4286 --source ghs
+python add_city.py --id bukhara --source hrsl
+python run_urban.py --source ghs        # every city that lacks it</pre>
+    <h4>Sharing a view</h4><p>The URL keeps the source, city and core (e.g. <code class="mono">#source=ghs&amp;city=cairo</code>); <b>🔗 Link</b> in the city card copies it. See <b>README.md</b> and <b>EXPERIMENTS.md</b> for the method, its accuracy and everything that was tried.</p>
+    <p style="margin-top:16px;text-align:right"><button class="btn" onclick="$('help-modal').classList.remove('show')">Close</button></p>`;
+  $('help-modal').classList.add('show');
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') { if (picking) togglePick(); else if ($('help-modal').classList.contains('show')) $('help-modal').classList.remove('show'); else if ($('drawer').classList.contains('open')) closeDrawer(); }
+  if (e.key === 'Enter' && document.activeElement === $('search')) { const first = visibleRows()[0]; if (first) loadCity(first.id); }
+});
+
+// ═══════════════════════ init ═══════════════════════
+function blocker(html) { $('blocker-card').innerHTML = html; $('blocker').classList.add('show'); }
 async function init() {
   initMap();
-  if (location.protocol === 'file:') {
-    showOverlay(`<div style="font-size:18px;font-weight:600;color:#f59e0b;margin-bottom:14px">⚠ Opened as a file — data won't load</div>
-      <p style="color:#94a3b8">The dashboard loads its city list and map layers via <code>fetch()</code>, which browsers block for local <code>file://</code> pages. Serve it over HTTP instead:</p>
-      <pre>cd urban-density\npython3 launch.py</pre>
-      <p style="color:#64748b;font-size:12px">…or double-click <b>Open Dashboard.command</b> / <b>Urban Density.app</b> in the project folder.</p>`);
-    return;
-  }
-  try {
-    REG = await fetchJson('cities_all.json');
-  } catch (e) {
-    showOverlay(`<div style="font-size:18px;font-weight:600;color:#f87171;margin-bottom:14px">cities_all.json could not be loaded</div>
-      <p style="color:#94a3b8">Make sure you launched the dashboard from the project folder with <code>python3 launch.py</code>.</p>`);
-    return;
-  }
-  CITIES = REG.cities || [];
-  const avail = availableSources();
-  SOURCE = avail.some(s => s.key === 'worldpop') ? 'worldpop' : (avail[0] ? avail[0].key : null);
-  const sel = document.getElementById('country-filter');
-  [...new Set(CITIES.map(c => c.country).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'en')).forEach(c => {
-    const o = document.createElement('option'); o.value = c; o.textContent = c; sel.appendChild(o);
-  });
+  if (location.protocol === 'file:') { blocker(`<h3 style="color:var(--amber)">Opened as a file — data can't load</h3><p>Browsers block <code class="mono">fetch()</code> on <code class="mono">file://</code> pages. Serve the folder instead:</p><pre>cd urban-density\npython3 launch.py</pre><p class="hint">…or double-click <b>Open Dashboard.command</b> / <b>Urban Density.app</b>.</p>`); return; }
+  try { await loadRegistry(); } catch (e) { blocker(`<h3 style="color:var(--red)">cities_all.json could not be loaded</h3><p>Start the dashboard from the project folder with <code class="mono">python3 launch.py</code>.</p>`); return; }
+  try { API = await fetchJson('/api/status'); } catch (e) { API = null; }
+  if (!API) $('add-btn').title = 'Available when the dashboard is started with launch.py';
+  else if (API.deps_ok === false) { $('deps-warn').style.display = ''; $('deps-warn').innerHTML = `Pipeline dependencies are missing in this Python (${esc(API.python)}): <code class="mono">${esc(API.deps_error || '')}</code><br>Install them, then restart the launcher: <code class="mono">pip install -r requirements.txt</code>`; }
+  renderSourceOptions();
   const h = new URLSearchParams(location.hash.slice(1));
-  if (h.get('source') && avail.some(s => s.key === h.get('source'))) SOURCE = h.get('source');
-  if (h.get('core') && CORES.includes(+h.get('core'))) switchCore(+h.get('core'));
+  if (h.get('core') && CORES.includes(+h.get('core'))) { selectedCore = +h.get('core'); document.querySelectorAll('.seg-btn[data-core]').forEach(b => b.classList.toggle('active', +b.dataset.core === selectedCore)); if (!visCore[selectedCore]) { $(`tog-core-${selectedCore}`).checked = true; visCore[selectedCore] = true; } }
+  const avail = availableSources();
+  SOURCE = (h.get('source') && avail.some(s => s.key === h.get('source'))) ? h.get('source') : (avail.some(s => s.key === 'worldpop') ? 'worldpop' : (avail[0] ? avail[0].key : null));
   renderSourceCtrl(); renderTableHeader(); renderTable();
   if (h.get('city')) loadCity(h.get('city'));
-}
-function updateHash() {
-  const parts = [];
-  if (SOURCE) parts.push(`source=${SOURCE}`);
-  if (currentCityId) parts.push(`city=${currentCityId}`);
-  if (selectedCore !== 90) parts.push(`core=${selectedCore}`);
-  history.replaceState(null, '', '#' + parts.join('&'));
+  if (h.get('panel') === 'add') openDrawer('add');
+  pollJobs();
 }
 init();
 </script>

@@ -66,8 +66,9 @@
 
   /* ── split ── */
   .main-split{display:flex;flex:1;overflow:hidden;min-height:0;}
-  .table-pane{width:46%;min-width:420px;display:flex;flex-direction:column;border-right:2px solid var(--border);flex-shrink:0;min-height:0;}
-  .table-toolbar{display:flex;align-items:center;gap:10px;padding:9px 14px;background:var(--bg2);border-bottom:1px solid var(--border);flex-shrink:0;}
+  .table-pane{width:var(--table-w,46%);min-width:380px;display:flex;flex-direction:column;border-right:2px solid var(--border);flex-shrink:0;min-height:0;}
+  .table-toolbar{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--bg2);border-bottom:1px solid var(--border);flex-shrink:0;flex-wrap:wrap;row-gap:6px;}
+  .table-toolbar .seg-btn{padding:5px 9px;}
   .tb-input{background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:6px 10px;border-radius:7px;outline:none;}
   #count{color:var(--muted);font-size:12px;white-space:nowrap;}
   .table-wrap{overflow:auto;flex:1;min-height:0;}
@@ -86,6 +87,14 @@
   .neg{color:#f87171;} .pos{color:#fb923c;} .ok{color:#4ade80;} .best-val{font-weight:700;}
   .empty{padding:30px;text-align:center;color:var(--muted);}
 
+  .table-pane.collapsed{width:0!important;min-width:0!important;border-right:none;overflow:hidden;}
+  #splitter{width:6px;cursor:col-resize;background:var(--bg2);border-right:1px solid var(--border);flex-shrink:0;}
+  #splitter:hover,#splitter.drag{background:var(--blue);}
+  body.table-collapsed #splitter{display:none;} body.dragging{user-select:none;cursor:col-resize;}
+  #expand-btn{position:absolute;top:12px;left:12px;z-index:1000;display:none;}
+  body.table-collapsed #expand-btn{display:inline-flex;} body.table-collapsed .leaflet-top.leaflet-left{margin-top:40px;}
+  tr.nodata td{color:var(--dim);} tr.nodata td.city-col{color:var(--muted);}
+  .chip.busy{color:var(--cyan);border-color:#164e63;background:#0c2530;cursor:default;} .chip.busy .spin{width:9px;height:9px;border-width:2px;}
   /* ── map pane ── */
   .map-pane{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0;}
   .map-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:9px 14px;background:var(--bg2);border-bottom:1px solid var(--border);flex-shrink:0;}
@@ -103,6 +112,9 @@
   #info-box{top:12px;right:12px;width:340px;padding:14px 18px 12px;transition:right .2s;}
   body.drawer-open #info-box{right:412px;}
   #info-box h4{color:var(--blue);font-size:18px;font-weight:700;margin-bottom:6px;line-height:1.2;display:flex;justify-content:space-between;align-items:baseline;gap:8px;}
+  #ib-title{display:flex;flex:1;justify-content:space-between;align-items:baseline;gap:8px;min-width:0;}
+  .ib-tools{display:flex;gap:2px;flex-shrink:0;} .ib-tools button{padding:1px 7px;font-size:13px;line-height:1.3;color:var(--muted);} .ib-tools button:hover{color:var(--text);}
+  #info-box.min{width:auto;max-width:340px;} #info-box.min #ib-body{display:none;} #info-box.min h4{margin-bottom:0;}
   #info-box h4 small{color:var(--muted);font-size:11px;font-weight:400;white-space:nowrap;}
   .ir{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px;font-size:13px;gap:12px;}
   .ir .k{color:var(--muted);} .ir .v{font-weight:600;text-align:right;}
@@ -177,19 +189,23 @@
 </div>
 
 <div class="main-split">
-  <div class="table-pane">
+  <div class="table-pane" id="table-pane">
     <div class="table-toolbar">
-      <input id="search" class="tb-input" type="text" placeholder="Search city…" oninput="renderTable()" style="width:150px">
-      <select id="country-filter" class="tb-input" onchange="renderTable()" style="width:150px"><option value="">All countries</option></select>
+      <input id="search" class="tb-input" type="text" placeholder="Search city…" oninput="renderTable()" style="width:118px">
+      <select id="country-filter" class="tb-input" onchange="renderTable()" style="width:128px"><option value="">All countries</option></select>
       <span id="count"></span>
+      <label class="tog" style="padding:3px 6px;font-size:12px" title="Also list cities that have no result for the selected source"><input type="checkbox" id="show-all" onchange="renderTable();updateHash()">all cities</label>
       <span class="spacer"></span>
-      <span class="lbl">Core</span>
-      <div class="seg-ctrl">
-        <button class="seg-btn" data-core="70" onclick="switchCore(70)">70%</button>
-        <button class="seg-btn" data-core="80" onclick="switchCore(80)">80%</button>
-        <button class="seg-btn active" data-core="90" onclick="switchCore(90)">90%</button>
-        <button class="seg-btn" data-core="95" onclick="switchCore(95)">95%</button>
-      </div>
+      <span class="row" style="gap:8px;margin-left:auto">
+        <span class="lbl">Core</span>
+        <div class="seg-ctrl">
+          <button class="seg-btn" data-core="70" onclick="switchCore(70)">70%</button>
+          <button class="seg-btn" data-core="80" onclick="switchCore(80)">80%</button>
+          <button class="seg-btn active" data-core="90" onclick="switchCore(90)">90%</button>
+          <button class="seg-btn" data-core="95" onclick="switchCore(95)">95%</button>
+        </div>
+        <button class="btn btn-sm btn-icon" title="Hide the city list (more room for the map)" onclick="collapseTable(true)">◀</button>
+      </span>
     </div>
     <div class="table-wrap">
       <table id="main-table">
@@ -200,6 +216,7 @@
     </div>
   </div>
 
+  <div id="splitter" title="Drag to resize · double-click to reset"></div>
   <div class="map-pane">
     <div class="map-toolbar">
       <span class="lbl">Basemap</span>
@@ -223,9 +240,10 @@
     </div>
     <div id="map-wrap">
       <div id="map"></div>
+      <button id="expand-btn" class="btn" title="Show the city list" onclick="collapseTable(false)">▶ Cities</button>
       <div class="fp" id="pick-hint">Click the map to set the city centre · Esc to cancel</div>
       <div class="fp" id="info-box">
-        <h4 id="ib-title">Select a city</h4>
+        <h4><span id="ib-title">Select a city</span><span class="ib-tools"><button class="btn btn-ghost" id="ib-min" title="Collapse the card" onclick="toggleInfo()">–</button><button class="btn btn-ghost" title="Close (deselect the city)" onclick="clearSelection()">✕</button></span></h4>
         <div id="ib-body"><p class="hint">Click a city in the table to see its cores. Switch the population source in the top bar, or add a city with <b>＋ Add city</b>.</p></div>
       </div>
       <div class="fp" id="legend-box">
@@ -294,6 +312,8 @@ let REG = {sources: {}, cities: []}, CITIES = [], SOURCE = null;
 let selectedCore = 90, sortKey = 'name', sortDir = 'asc', currentCityId = null;
 let API = null;                 // /api/status result, or null when served statically
 let jobsSeen = {};              // job id → last status (for toasts)
+let ACTIVE = {};                // city id → {source: 'queued'|'running'} from the job list
+let prevActive = new Set();
 let pollTimer = null;
 
 const $ = id => document.getElementById(id);
@@ -364,18 +384,22 @@ function renderTableHeader() {
 }
 function visibleRows() {
   const q = $('search').value.trim().toLowerCase(), cf = $('country-filter').value;
-  const rows = CITIES.filter(c => res(c) && (!q || c.name.toLowerCase().includes(q) || c.id.includes(q)) && (!cf || c.country === cf));
+  const showAll = $('show-all').checked;
+  const rows = CITIES.filter(c => (showAll || res(c)) && (!q || c.name.toLowerCase().includes(q) || c.id.includes(q)) && (!cf || c.country === cf));
   rows.sort((a, b) => { const av = sortValue(a, sortKey), bv = sortValue(b, sortKey); const r = typeof av === 'string' ? av.localeCompare(bv, 'en') : ((av ?? -Infinity) - (bv ?? -Infinity)); return sortDir === 'asc' ? r : -r; });
   return rows;
 }
 function renderTable() {
   const p = selectedCore, rows = visibleRows();
   const total = CITIES.filter(c => res(c)).length;
-  $('count').textContent = rows.length === total ? `${total} cities` : `${rows.length} of ${total}`;
+  $('count').textContent = $('show-all').checked ? `${rows.length} shown · ${total} with ${srcLabel(SOURCE)}` : (rows.length === total ? `${total} cities` : `${rows.length} of ${total}`);
   if (!rows.length) { $('tbody').innerHTML = `<tr><td colspan="6" class="empty">No cities match${SOURCE ? ` for ${esc(srcLabel(SOURCE))}` : ''}.</td></tr>`; return; }
   const body = rows.map(c => {
-    const r = res(c), d = delta(c, p), absD = d == null ? null : Math.abs(r[`area${p}`] - c.real_area), sign = d != null ? (d > 0 ? '+' : '−') : '';
+    const r = res(c), d = delta(c, p), absD = d == null ? null : Math.abs(r ? r[`area${p}`] - c.real_area : 0), sign = d != null ? (d > 0 ? '+' : '−') : '';
     const badges = SOURCE_ORDER.filter(s => s !== SOURCE && res(c, s)).map(s => `<span class="badge" title="also computed with ${esc(srcLabel(s))}">${esc(srcLabel(s).split(' ')[0])}</span>`).join('');
+    if (!r) return `<tr class="nodata ${c.id === currentCityId ? 'sel' : ''}" data-id="${c.id}" onclick="loadCity('${c.id}')" title="no ${esc(srcLabel(SOURCE))} result yet">
+      <td class="city-col">${esc(c.name)}${badges}</td><td style="font-size:11px;text-align:left;padding-left:10px">${esc(c.country || '')}</td>
+      <td style="color:#4ade80;font-weight:600;opacity:.6">${c.real_area != null ? fi(c.real_area) : '—'}</td><td>—</td><td>—</td><td>—</td></tr>`;
     const deltaCell = absD != null ? `<span style="font-size:11px">${sign}${fi(absD)} km² <span style="font-size:10px;color:var(--muted)">(${sign}${Math.abs(Math.round(d))}%)</span></span>` : '—';
     return `<tr class="${c.id === currentCityId ? 'sel' : ''}" data-id="${c.id}" onclick="loadCity('${c.id}')">
       <td class="city-col">${esc(c.name)}${badges}</td>
@@ -446,7 +470,7 @@ async function loadCity(id) {
   try { const bnd = await fetchJson(`${dir}/boundary_processed.geojson`);
     boundaryLayer = L.geoJSON(bnd, {style: {color: bm.boundaryColor, weight: 1.5, fill: true, fillColor: bm.boundaryColor, fillOpacity: bm.boundaryFillOpacity, dashArray: '5,4'}})
       .bindTooltip(`OSM landuse mask${r && r.urb_area != null ? '<br>' + fi(r.urb_area) + ' km²' : ''}`, {className: 'leaflet-tooltip', sticky: true});
-    if (vis.boundary && currentCityId === id) boundaryLayer.addTo(map);
+    if (currentCityId === id && (vis.boundary || !r)) { boundaryLayer.addTo(map); if (!r && !vis.boundary) { vis.boundary = true; $('tog-boundary').checked = true; } }
   } catch (e) {}
   if (r) { try { const gj = await fetchJson(`${dir}/${SOURCE}/cores.geojson`); if (currentCityId === id) for (const f of gj.features) { const p = f.properties.threshold; coreLayers[p] = buildCoreLayer(f); if (visCore[p]) coreLayers[p].addTo(map); } } catch (e) {} }
   if (city.has_real_polygon) { try { const gj = await fetchJson(`${dir}/real_boundary.geojson`);
@@ -455,20 +479,25 @@ async function loadCity(id) {
     } catch (e) {} }
   renderInfo(city); updateHash();
 }
-function clearSelection() { currentCityId = null; clearLayers(); $('ib-title').textContent = 'Select a city'; $('ib-body').innerHTML = '<p class="hint">Click a city in the table to see its cores.</p>'; renderTable(); updateHash(); }
+function toggleInfo() { const m = $('info-box').classList.toggle('min'); $('ib-min').textContent = m ? '+' : '–'; $('ib-min').title = m ? 'Expand the card' : 'Collapse the card'; }
+function clearSelection() { currentCityId = null; clearLayers(); $('info-box').classList.remove('min'); $('ib-min').textContent = '–'; $('ib-title').textContent = 'Select a city'; $('ib-body').innerHTML = '<p class="hint">Click a city in the table to see its cores.</p>'; renderTable(); updateHash(); }
 function renderInfo(city) {
   const r = res(city), canEdit = !!API;
   $('ib-title').innerHTML = `<span>${esc(city.name)}</span><small>${esc(city.country || '')}${city.iso3 ? ' · ' + city.iso3 : ''}</small>`;
-  const chips = SOURCE_ORDER.map(s => res(city, s)
+  const chips = SOURCE_ORDER.map(s => {
+    const st = (ACTIVE[city.id] || {})[s];
+    if (st) return `<span class="chip busy" title="${st} — see Jobs" onclick="openDrawer('jobs')"><span class="spin"></span>${esc(srcLabel(s))} · ${st}</span>`;
+    return res(city, s)
     ? `<span class="chip${s === SOURCE ? ' on' : ''}" title="${esc(srcTitle(s))}" onclick="switchSource('${s}')"><span class="dot"></span>${esc(srcLabel(s))}</span>`
-    : (canEdit ? `<span class="chip add" title="Compute with ${esc(srcTitle(s))}" onclick="computeExisting('${city.id}','${s}')">+ ${esc(srcLabel(s))}</span>` : '')).join('');
+    : (canEdit ? `<span class="chip add" title="Compute with ${esc(srcTitle(s))}" onclick="computeExisting('${city.id}','${s}')">+ ${esc(srcLabel(s))}</span>` : ''); }).join('');
   const head = `<div class="ir"><span class="k">Real area</span><span class="v" style="color:#4ade80">${city.real_area != null ? fi(city.real_area) + ' km²' : '—'}</span></div><div class="src-row">${chips}</div>`;
   const actions = canEdit ? `<div class="actions">
       ${r ? `<button class="btn btn-sm" onclick="computeExisting('${city.id}','${SOURCE}',true)" title="Recompute ${esc(srcLabel(SOURCE))} (--force)">↻ Recompute</button>` : ''}
       <button class="btn btn-sm" onclick="copyLink()" title="Copy a link to this view">🔗 Link</button>
       <span class="spacer"></span>
       <button class="btn btn-sm btn-danger" onclick="deleteCity('${city.id}')" title="Remove this city and its results">Delete</button></div>` : '';
-  if (!r) { $('ib-body').innerHTML = head + `<p class="hint">No <b>${esc(srcLabel(SOURCE))}</b> run for this city yet.${canEdit ? ' Click the dashed chip above to compute it.' : ` CLI: <code>python add_city.py --id ${city.id} --source ${SOURCE}</code>`}</p>` + actions; return; }
+  if (!r) { const have = SOURCE_ORDER.filter(s => res(city, s)).map(srcLabel);
+    $('ib-body').innerHTML = head + `<p class="hint">No <b>${esc(srcLabel(SOURCE))}</b> result for this city yet.${have.length ? ` It has ${esc(have.join(' and '))} — click that chip to switch.` : ''}${canEdit ? ' The dashed chip computes it here; progress shows under Jobs.' : ` CLI: <code>python add_city.py --id ${city.id} --source ${SOURCE}</code>`}</p>` + actions; return; }
   const areas = CORES.map(p => r[`area${p}`] || 0), maxArea = Math.max(...areas);
   const bars = [95, 90, 80, 70].map(p => { const d = delta(city, p), a = r[`area${p}`], pop = r[`pop${p}`], col = d == null ? 'var(--muted)' : Math.abs(d) <= 10 ? '#4ade80' : d < 0 ? '#f87171' : '#fb923c';
     return `<div class="prow"><div class="plbl"><span class="pk" style="color:${CORE_COLORS[p]}">Core ${p}%</span><span>${a != null ? fi(a) + ' km²' : '—'}${pop != null ? ` <span style="color:var(--muted);font-size:10px">/ ${fpop(pop)}</span>` : ''}${d != null ? ` <span style="color:${col}">(${d > 0 ? '+' : ''}${Math.round(d)}%)</span>` : ''}</span></div><div class="pbar-bg"><div class="pbar" style="width:${maxArea && a != null ? Math.round(a / maxArea * 100) : 0}%;background:${CORE_COLORS[p]}"></div></div></div>`; }).join('');
@@ -484,6 +513,7 @@ function copyLink() { updateHash(); navigator.clipboard?.writeText(location.href
 function updateHash() {
   const parts = []; if (SOURCE) parts.push(`source=${SOURCE}`); if (currentCityId) parts.push(`city=${currentCityId}`); if (selectedCore !== 90) parts.push(`core=${selectedCore}`);
   if ($('drawer').classList.contains('open')) parts.push('panel=add');
+  if ($('show-all').checked) parts.push('all=1');
   history.replaceState(null, '', '#' + parts.join('&'));
 }
 
@@ -554,7 +584,7 @@ async function submitForm() {
 async function computeExisting(id, source, force) {
   const c = CITIES.find(x => x.id === id); if (!c) return;
   try { await fetchJson('/api/jobs', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({id, sources: [source], force: !!force})});
-    toast(`Queued: ${c.name} · ${srcLabel(source)}${force ? ' (recompute)' : ''}`, 'ok'); pollJobs();
+    toast(`Queued: ${c.name} · ${srcLabel(source)}${force ? ' (recompute)' : ''}`, 'ok'); openDrawer('jobs'); pollJobs();
   } catch (e) { toast(e.message, 'err'); }
 }
 async function deleteCity(id) {
@@ -571,19 +601,28 @@ async function pollJobs() {
   const pill = $('jobs-pill'); pill.classList.toggle('show', active.length > 0);
   $('jobs-pill-text').textContent = active.length ? `${jobs.filter(j => j.status === 'running').length ? 'running' : 'queued'} · ${active.length}` : '';
   $('jobs-count').textContent = jobs.length ? `(${active.length} active, ${jobs.length} total)` : '';
-  let changed = false;
+  ACTIVE = {}; jobs.forEach(j => { if (j.status === 'queued' || j.status === 'running') { (ACTIVE[j.city_id] = ACTIVE[j.city_id] || {})[j.source] = j.status; } });
+  let changed = false, finished = null;
   for (const j of jobs) { const prev = jobsSeen[j.id]; if (prev && prev !== j.status && ['done', 'failed', 'cancelled'].includes(j.status)) { changed = j.status !== 'cancelled' || changed;
-      if (j.status === 'done') toast(`Done: ${j.city_name} · ${srcLabel(j.source)}`, 'ok', () => { SOURCE = j.source; renderSourceCtrl(); renderTableHeader(); renderTable(); loadCity(j.city_id); });
+      if (j.status === 'done') { finished = j; toast(`Done: ${j.city_name} · ${srcLabel(j.source)}`, 'ok'); }
       else if (j.status === 'failed') toast(`Failed: ${j.city_name} · ${srcLabel(j.source)} — ${j.error || 'see log'}`, 'err'); }
     jobsSeen[j.id] = j.status; }
   if (jobs.length) $('jobs-list').innerHTML = [...jobs].reverse().map(j => `<div class="job${$('job-' + j.id)?.classList.contains('open') ? ' open' : ''}" id="job-${j.id}">
       <div class="job-h" onclick="toggleJob('${j.id}')"><span class="st ${j.status}"></span><span class="t"><b>${esc(j.city_name)}</b> · ${esc(srcLabel(j.source))}</span><span class="d">${j.status === 'queued' ? 'queued' : j.status === 'cancelled' ? 'cancelled' : fmtDur(j)}</span>${(j.status === 'queued' || j.status === 'running') ? `<button class="btn btn-sm btn-ghost" title="Cancel" onclick="event.stopPropagation();cancelJob('${j.id}')">✕</button>` : ''}</div>
       ${j.status !== 'queued' ? `<div class="job-log" id="log-${j.id}">${esc(j.log.join('\n'))}</div>` : ''}${j.error ? `<div class="job-err">${esc(j.error)}</div>` : ''}</div>`).join('');
   document.querySelectorAll('.job-log').forEach(el => { el.scrollTop = el.scrollHeight; });
-  if (changed) { const keep = currentCityId; await loadRegistry(); refreshAll(); if (keep && !currentCityId) {} }
+  if (changed) { await loadRegistry(); refreshAll(); }
+  if (finished) showJobResult(finished);
+  else if (currentCityId && (ACTIVE[currentCityId] || prevActive.has(currentCityId))) { const c = CITIES.find(x => x.id === currentCityId); if (c) renderInfo(c); }
+  prevActive = new Set(Object.keys(ACTIVE));
   if (active.length) pollTimer = setTimeout(pollJobs, 2000);
 }
 async function cancelJob(id) { try { await fetchJson('/api/jobs/' + id + '/cancel', {method: 'POST'}); toast('Job cancelled'); pollJobs(); } catch (e) { toast(e.message, 'err'); } }
+function showJobResult(j) {   // a finished job: switch to its source if needed and select the city
+  const c = CITIES.find(x => x.id === j.city_id); if (!c || !res(c, j.source)) return;
+  if (SOURCE !== j.source) { SOURCE = j.source; renderSourceCtrl(); renderTableHeader(); renderTable(); }
+  loadCity(j.city_id);
+}
 async function toggleJob(id) {
   const el = $('job-' + id); el.classList.toggle('open');
   if (el.classList.contains('open')) { try { const j = await fetchJson('/api/jobs/' + id); const log = $('log-' + id); if (log) { log.textContent = j.log.join('\n'); log.scrollTop = log.scrollHeight; } } catch (e) {} }
@@ -620,9 +659,22 @@ document.addEventListener('keydown', e => {
 });
 
 // ═══════════════════════ init ═══════════════════════
+function collapseTable(on) {
+  document.body.classList.toggle('table-collapsed', on); $('table-pane').classList.toggle('collapsed', on);
+  try { localStorage.setItem('ud.tableCollapsed', on ? '1' : '0'); } catch (e) {}
+  setTimeout(() => map && map.invalidateSize(), 60);
+}
+function initSplitter() {
+  const sp = $('splitter'); let drag = false;
+  sp.addEventListener('mousedown', e => { drag = true; sp.classList.add('drag'); document.body.classList.add('dragging'); e.preventDefault(); });
+  window.addEventListener('mousemove', e => { if (!drag) return; const w = Math.max(380, Math.min(window.innerWidth - 520, e.clientX)); document.documentElement.style.setProperty('--table-w', w + 'px'); });
+  window.addEventListener('mouseup', () => { if (!drag) return; drag = false; sp.classList.remove('drag'); document.body.classList.remove('dragging'); map.invalidateSize(); try { localStorage.setItem('ud.tableW', document.documentElement.style.getPropertyValue('--table-w')); } catch (e) {} });
+  sp.addEventListener('dblclick', () => { document.documentElement.style.removeProperty('--table-w'); map.invalidateSize(); try { localStorage.removeItem('ud.tableW'); } catch (e) {} });
+  try { const w = localStorage.getItem('ud.tableW'); if (w) document.documentElement.style.setProperty('--table-w', w); if (localStorage.getItem('ud.tableCollapsed') === '1') collapseTable(true); } catch (e) {}
+}
 function blocker(html) { $('blocker-card').innerHTML = html; $('blocker').classList.add('show'); }
 async function init() {
-  initMap();
+  initMap(); initSplitter();
   if (location.protocol === 'file:') { blocker(`<h3 style="color:var(--amber)">Opened as a file — data can't load</h3><p>Browsers block <code class="mono">fetch()</code> on <code class="mono">file://</code> pages. Serve the folder instead:</p><pre>cd urban-density\npython3 launch.py</pre><p class="hint">…or double-click <b>Open Dashboard.command</b> / <b>Urban Density.app</b>.</p>`); return; }
   try { await loadRegistry(); } catch (e) { blocker(`<h3 style="color:var(--red)">cities_all.json could not be loaded</h3><p>Start the dashboard from the project folder with <code class="mono">python3 launch.py</code>.</p>`); return; }
   try { API = await fetchJson('/api/status'); } catch (e) { API = null; }
@@ -634,6 +686,7 @@ async function init() {
   const avail = availableSources();
   SOURCE = (h.get('source') && avail.some(s => s.key === h.get('source'))) ? h.get('source') : (avail.some(s => s.key === 'worldpop') ? 'worldpop' : (avail[0] ? avail[0].key : null));
   renderSourceCtrl(); renderTableHeader(); renderTable();
+  if (h.get('all') === '1') { $('show-all').checked = true; renderTable(); }
   if (h.get('city')) loadCity(h.get('city'));
   if (h.get('panel') === 'add') openDrawer('add');
   pollJobs();
